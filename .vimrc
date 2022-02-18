@@ -107,8 +107,10 @@ let mapleader = "\<space>"
 " Markdown
 nnoremap <leader>md :CocCommand markdown-preview-enhanced.openPreview<CR>
 
-call plug#begin('D:/Program Files (x86)/VimPlugin')
+" On Windows
+" call plug#begin('D:/Program Files (x86)/VimPlugin')
 
+call plug#begin('~/.vim/plugged')
 " Tools
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
