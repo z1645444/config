@@ -101,25 +101,36 @@ set termguicolors
 let ayucolor="dark"
 colorscheme ayu
 
-call plug#begin('~/.vim/plugged')
+" Setting Leader Key
+let mapleader = "\<space>"
 
+" Markdown
+nnoremap <leader>md :CocCommand markdown-preview-enhanced.openPreview<CR>
+
+call plug#begin('D:/Program Files (x86)/VimPlugin')
+
+" Tools
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ayu-theme/ayu-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
 Plug 'preservim/nerdtree'
+Plug 'rust-lang/rust.vim'
+
+" Display
+Plug 'ayu-theme/ayu-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-" let <TAB> replace <C-n>
-function! CleverTab()
-        if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-                return "\<Tab>"
-        else
-                return "\<C-N>"
-        endif
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
