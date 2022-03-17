@@ -1,0 +1,16 @@
+set number
+set relativenumber
+
+set scrolloff=5
+
+set hlsearch
+exec "nohlsearch"
+set incsearch
+set ignorecase
+set smartcase
+
+set clipboard=unnamed
+
+" Setting Leader Key
+let mapleader = "\<space>"
+
