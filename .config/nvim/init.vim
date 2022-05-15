@@ -204,9 +204,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
-Plug 'iamcco/markdown-preview.nvim'
-Plug 'junegunn/vim-plug'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'preservim/vim-markdown'
+
 
 " Display
 Plug 'morhetz/gruvbox'
@@ -237,7 +237,6 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-pairs',
     \ 'coc-pyright',
-    \ 'coc-rls',
     \ 'coc-rust-analyzer',
     \ 'coc-sh',
     \ 'coc-sql',
@@ -245,3 +244,10 @@ let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-yaml',
     \ ]
+
+"
+" nvim provider
+"
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
+
