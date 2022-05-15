@@ -204,7 +204,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'iamcco/markdown-preview.nvim'
 
 " Display
