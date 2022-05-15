@@ -192,9 +192,9 @@ nmap <silent> <leader>] <Plug>(coc-diagnostic-next)
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+"
 " Plugin
 "
-"call plug#begin('~/.vim/plugged')
 "call plug#begin('C:/VimPlugin')
 call plug#begin(stdpath('data').'/plugged')
 
@@ -204,6 +204,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go'
+Plug 'iamcco/markdown-preview.nvim'
 
 " Display
 Plug 'morhetz/gruvbox'
@@ -218,6 +220,27 @@ call plug#end()
 set updatetime=100
 set shortmess+=c
 set signcolumn=number
+
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 
+" coc.nvim plugin list
+let g:coc_global_extensions = [
+    \ 'coc-actions',
+    \ 'coc-calc',
+    \ 'coc-explorer',
+    \ 'coc-highlight',
+    \ 'coc-html',
+    \ 'coc-htmldjango',
+    \ 'coc-jedi',
+    \ 'coc-json',
+    \ 'coc-pairs',
+    \ 'coc-pyright',
+    \ 'coc-rls',
+    \ 'coc-rust-analyzer',
+    \ 'coc-sh',
+    \ 'coc-sql',
+    \ 'coc-toml',
+    \ 'coc-tsserver',
+    \ 'coc-yaml',
+    \ ]
