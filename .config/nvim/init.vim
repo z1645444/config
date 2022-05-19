@@ -140,9 +140,6 @@ nnoremap <leader>j 10j
 nnoremap <leader>k 10k
 nnoremap <leader>l 10l
 
-" Markdown
-nnoremap <leader>md :CocCommand markdown-preview-enhanced.openPreview<CR>
-
 " Edit vimrc file
 nnoremap <leader>rc :e ~/.config/nvim/init.vim<CR>
 "nnoremap <leader>rc :e C:/Users/1337/AppData/Local/nvim/init.vim<CR>
