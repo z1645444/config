@@ -201,7 +201,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'preservim/vim-markdown'
 
 
@@ -227,6 +226,7 @@ let g:coc_global_extensions = [
     \ 'coc-actions',
     \ 'coc-calc',
     \ 'coc-explorer',
+    \ 'coc-go',
     \ 'coc-highlight',
     \ 'coc-html',
     \ 'coc-htmldjango',
