@@ -1,0 +1,10 @@
+# global
+map r reload
+map R rotate
+
+# scroll
+map J scroll half-down
+map K scroll half-up
+
+# font
+set font "Fira Code 12"
