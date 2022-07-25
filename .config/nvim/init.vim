@@ -1,4 +1,17 @@
 "
+" Detect system
+"
+if !exists('g:os')
+    if has('win64') || has('win32') || has('win16')
+        let g:os = "windows"
+    elseif has('unix')
+        let g:os = "unix"
+    elseif has('mac')
+        let g:os = "mac"
+    endif
+endif
+
+"
 " Basic settings
 "
 set nocompatible
@@ -108,31 +121,48 @@ nnoremap <leader>vp :vsplit<CR>
 
 " Quickly Run
 map <F5> :call CompileAndRun()<CR>
-func! CompileAndRun()
-    exec "w"
-    if &filetype == 'c'
-        exec "!g++ % -o %<"
-        exec "!time ./%<"
-    elseif &filetype == 'cpp'
-        exec "!g++ % -o %<"
-        exec "!time ./%<"
-    elseif &filetype == 'java'
-        exec "!javac %"
-        exec "!time java %<"
-    elseif &filetype == 'sh'
-        :!time bash %
-    elseif &filetype == 'python'
-        exec "!time python %"
-    elseif &filetype == 'html'
-        exec "!firefox % &"
-    elseif &filetype == 'go'
-"        exec "!go build %<"
-        exec "!time go run %"
-    elseif &filetype == 'mkd'
-        exec "!~/.vim/markdown.pl % > %.html &"
-        exec "!firefox %.html &"
-    endif
-endfunc
+if g:os == 'windows'
+    func! CompileAndRun()
+        exec "w"
+        if &filetype == 'c'
+            exec "!gcc % -o %<"
+        elseif &filetype == 'cpp'
+            exec "!g++ % -o %<"
+        elseif &filetype == 'java'
+            exec "!javac %"
+        elseif &filetype == 'python'
+            exec "!python %"
+        elseif &filetype == 'go'
+            exec "!go run %"
+        endif
+    endfunc
+elseif g:os == 'unix' || g:os == 'mac'
+    func! CompileAndRun()
+        exec "w"
+        if &filetype == 'c'
+            exec "!g++ % -o %<"
+            exec "!time ./%<"
+        elseif &filetype == 'cpp'
+            exec "!g++ % -o %<"
+            exec "!time ./%<"
+        elseif &filetype == 'java'
+            exec "!javac %"
+            exec "!time java %<"
+        elseif &filetype == 'sh'
+            exec ":!time bash %"
+        elseif &filetype == 'python'
+            exec "!time python %"
+        elseif &filetype == 'html'
+            exec "!firefox % &"
+        elseif &filetype == 'go'
+    "        exec "!go build %<"
+            exec "!time go run %"
+        elseif &filetype == 'mkd'
+            exec "!~/.vim/markdown.pl % > %.html &"
+            exec "!firefox %.html &"
+        endif
+    endfunc
+endif
 
 " Scroll
 nnoremap <leader>h 10h
@@ -141,8 +171,11 @@ nnoremap <leader>k 10k
 nnoremap <leader>l 10l
 
 " Edit vimrc file
-nnoremap <leader>rc :e ~/.config/nvim/init.vim<CR>
-"nnoremap <leader>rc :e C:/Users/1337/AppData/Local/nvim/init.vim<CR>
+if g:os == 'windows'
+    nnoremap <expr> <leader>rc ':e '.stdpath('config').'\init.vim<CR>'
+elseif g:os == 'unix' || g:os == 'mac'
+    nnoremap <expr> <leader>rc ':e '.stdpath('config').'/init.vim<CR>'
+endif
 
 " Nerdtree
 nnoremap <leader>tt :NERDTree<CR>
@@ -192,12 +225,11 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 "
 " Plugin
 "
-"call plug#begin('C:/VimPlugin')
 call plug#begin(stdpath('data').'/plugged')
 
 " Tools
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
