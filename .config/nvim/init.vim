@@ -189,38 +189,42 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" use <tab> to explore trigger completion
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" use <c-space> for trigger completion and navigate to the next complete item
-inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> <leader>[ <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>] <Plug>(coc-diagnostic-next)
 
-" inside {}
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Navigate completion list
+function! s:check_back_space() abort
+let col = col('.') - 1
+return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Insert <tab> when previous text is space, refresh completion if not.
+inoremap <silent><expr> <TAB>
+\ coc#pum#visible() ? coc#pum#next(1):
+\ <SID>check_back_space() ? "\<Tab>" :
+\ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Trigger completion
+if has('nvim')
+inoremap <silent><expr> <c-space> coc#refresh()
+else
+inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Confirm completion or notify format
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 "
 " Plugin
@@ -234,6 +238,7 @@ Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
 Plug 'preservim/vim-markdown'
+Plug 'jbgutierrez/vim-better-comments'
 
 
 " Display
