@@ -13,6 +13,7 @@ set ignorecase
 set smartcase
 
 set clipboard=unnamed
+set clipboard+=ideaput
 
 set autochdir
 set showcmd
@@ -30,5 +31,5 @@ nnoremap <leader>k 10k
 nnoremap <leader>l 10l
 
 " USER_DIR
-nnoremap <leader>rc :e C:/Users/1337/.ideavimrc<CR>
+nnoremap <leader>rc :e ~/.ideavimrc<CR>
 
