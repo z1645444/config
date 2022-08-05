@@ -1,0 +1,8 @@
+[safe]
+	directory = *
+[user]
+	email = z1645444@outlook.com
+	name = z1645444
+[core]
+	autocrlf = true
+	safecrlf = true
