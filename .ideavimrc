@@ -1,3 +1,6 @@
+" ===
+" === Basic settings
+" ===
 set number
 set relativenumber
 set ruler
@@ -18,12 +21,17 @@ set clipboard+=ideaput
 set autochdir
 set showcmd
 
+set expandtab
+
+
 " ===
-" === Hotkey setting
+" === Key mapping
 " ===
 let mapleader = "\<space>"
 
 vnoremap <leader>y "+y
+vnoremap <leader>p "+p
+nnoremap <leader>p "+p
 
 nnoremap <leader>h 10h
 nnoremap <leader>j 10j
@@ -32,4 +40,9 @@ nnoremap <leader>l 10l
 
 " USER_DIR
 nnoremap <leader>rc :e ~/.ideavimrc<CR>
+
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
 
