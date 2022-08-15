@@ -1,0 +1,174 @@
+# For documentation, see https://www.sumatrapdfreader.org/settings/settings3-4-6.html
+FixedPageUI [
+    TextColor = #000000
+    BackgroundColor = #ffffff
+    SelectionColor = #f5fc0c
+    WindowMargin = 2 4 2 4
+    PageSpacing = 4 4
+    HideScrollbars = false
+]
+ComicBookUI [
+    WindowMargin = 0 0 0 0
+    PageSpacing = 4 4
+    CbxMangaMode = false
+]
+ChmUI [
+    UseFixedPageUI = false
+]
+
+SelectionHandlers [
+]
+ExternalViewers [
+]
+
+ZoomLevels = 8.33 12.5 18 25 33.33 50 66.67 75 100 125 150 200 300 400 600 800 1000 1200 1600 2000 2400 3200 4800 6400
+ZoomIncrement = 0
+
+PrinterDefaults [
+    PrintScale = shrink
+]
+ForwardSearch [
+    HighlightOffset = 0
+    HighlightWidth = 15
+    HighlightColor = #6581ff
+    HighlightPermanent = false
+]
+Annotations [
+    HighlightColor = #ffff00
+    UnderlineColor = #00ff00
+    TextIconColor = #ffff00
+    TextIconType = 
+    DefaultAuthor = 
+]
+
+RememberOpenedFiles = true
+RememberStatePerDocument = true
+RestoreSession = true
+UiLanguage = cn
+EnableTeXEnhancements = false
+DefaultDisplayMode = automatic
+DefaultZoom = fit page
+Shortcuts [
+    [
+        Cmd = CmdScrollUpHalfPage
+        Key = Shift + K
+    ]
+    [
+        Cmd = CmdScrollDownHalfPage
+        Key = Shift + J
+    ]
+]
+EscToExit = false
+ReuseInstance = false
+ReloadModifiedDocuments = true
+
+MainWindowBackground = #80fff200
+FullPathInTitle = false
+ShowMenubar = true
+ShowToolbar = true
+ShowFavorites = false
+ShowToc = true
+TocDy = 0
+SidebarDx = 245
+ToolbarSize = 18
+TabWidth = 300
+TreeFontSize = 0
+SmoothScroll = false
+ShowStartPage = true
+CheckForUpdates = true
+WindowState = 2
+WindowPos = 145 42 972 1030
+UseTabs = true
+UseSysColors = false
+CustomScreenDPI = 0
+
+FileStates [
+    [
+        FilePath = D:\eBooks\PDF\历史笔记_1.pdf
+        Favorites [
+        ]
+        IsPinned = false
+        IsMissing = false
+        OpenCount = 5
+        UseDefaultState = false
+        DisplayMode = continuous
+        ScrollPos = -1 63.6005
+        PageNo = 34
+        Zoom = 125
+        Rotation = 0
+        WindowState = 2
+        WindowPos = 145 42 972 1030
+        ShowToc = true
+        SidebarDx = 245
+        DisplayR2L = false
+        ReparseIdx = 0
+    ]
+    [
+        FilePath = D:\eBooks\PDF\Python编程_从入门到实践.pdf
+        Favorites [
+        ]
+        IsPinned = false
+        IsMissing = false
+        OpenCount = 5
+        UseDefaultState = false
+        DisplayMode = continuous
+        ScrollPos = -1 289.4
+        PageNo = 152
+        Zoom = 150
+        Rotation = 0
+        WindowState = 2
+        WindowPos = 145 42 972 1030
+        ShowToc = true
+        SidebarDx = 245
+        DisplayR2L = false
+        ReparseIdx = 0
+        TocState = 10 11 156
+    ]
+    [
+        FilePath = D:\eBooks\PDF\算法图解.pdf
+        Favorites [
+        ]
+        IsPinned = false
+        IsMissing = false
+        OpenCount = 0
+        UseDefaultState = false
+        DisplayMode = continuous
+        ScrollPos = -1 -1
+        PageNo = 13
+        Zoom = 150
+        Rotation = 0
+        WindowState = 2
+        WindowPos = 0 0 0 0
+        ShowToc = true
+        SidebarDx = 245
+        DisplayR2L = false
+        ReparseIdx = 0
+        TocState = 6 7 10 13 20 22 29 31 34 38 41 45 47 53 57 60 65 67 74 78 79 83 84 87 97 104 106 110 115 120 124 127
+    ]
+    [
+        FilePath = D:\eBooks\PDF\算法笔记.pdf
+        Favorites [
+        ]
+        IsPinned = false
+        IsMissing = false
+        OpenCount = 0
+        UseDefaultState = false
+        DisplayMode = continuous
+        ScrollPos = -1 -1
+        PageNo = 1
+        Zoom = fit page
+        Rotation = 0
+        WindowState = 2
+        WindowPos = 0 0 0 0
+        ShowToc = true
+        SidebarDx = 480
+        DisplayR2L = false
+        ReparseIdx = 0
+    ]
+    ]
+    SessionData [
+    ]
+    TimeOfLastUpdateCheck = 0 0
+    OpenCountWeek = 604
+
+# Settings below are not recognized by the current version
