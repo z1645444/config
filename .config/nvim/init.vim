@@ -123,6 +123,9 @@ nnoremap <leader>p "+p
 nnoremap <leader>sp :split<CR>
 nnoremap <leader>vp :vsplit<CR>
 
+" Reload
+nnoremap <leader>rl :source %<CR>
+
 " Quickly Run
 map <F5> :call CompileAndRun()<CR>
 if g:os == 'windows'
@@ -235,22 +238,34 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
 "
 call plug#begin(stdpath('data').'/plugged')
 
-" Tools
+" Basic
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
-Plug 'rust-lang/rust.vim'
+Plug 'terryma/vim-multiple-cursors'
+
+
+" Language basic
 Plug 'preservim/vim-markdown'
 Plug 'jbgutierrez/vim-better-comments'
+Plug 'rust-lang/rust.vim'
+
+Plug 'mattn/emmet-vim'
+Plug 'alvan/vim-closetag'
+Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install --frozen-lockfile --production',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html']}
 
 
 " Display
-Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
+
 
 "
 " coc.nvim settings
@@ -266,6 +281,7 @@ let g:loaded_perl_provider = 0
 let g:coc_global_extensions = [
     \ 'coc-actions',
     \ 'coc-calc',
+    \ 'coc-css',
     \ 'coc-explorer',
     \ 'coc-go',
     \ 'coc-highlight',
@@ -283,9 +299,20 @@ let g:coc_global_extensions = [
     \ 'coc-yaml',
     \ ]
 
+" coc-pairs disable for specified filetypes
+autocmd FileType markdown let b:coc_pairs_disabled = ['`']
+autocmd FileType html let b:coc_pairs_disabled = ['<']
+autocmd FileType xml let b:coc_pairs_disabled = ['<']
+
+
 "
 " nvim provider
 "
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+if g:os == 'windows'
+    let g:python_host_prog = 'D:\Program Files\Python310\python.exe'
+    let g:python3_host_prog = 'D:\Program Files\Python310\python.exe'
+elseif g:os == 'unix' || g:os == 'mac'
+    let g:python_host_prog = '/usr/bin/python'
+    let g:python3_host_prog = '/usr/bin/python3'
+endif
 

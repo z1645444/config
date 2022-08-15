@@ -37,5 +37,15 @@
     "__pycache__",
     "venv"
   ],
+  "html.format.indentInnerHtml": true,
+  "html.format.indentHandlebars": true,
+  "html.format.endWithNewline": true,
+  "html.format.templating": true,
+  "sql.formatOptions": {
+    "language": "spark",
+    "tabwidth": 2,
+    "keywordCase": "upper",
+    "linesBetweenQueries": 2
+  },
   "languageserver": {}
 }
