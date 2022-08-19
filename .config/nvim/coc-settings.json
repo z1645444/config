@@ -41,11 +41,15 @@
   "html.format.indentHandlebars": true,
   "html.format.endWithNewline": true,
   "html.format.templating": true,
-  "sql.formatOptions": {
-    "language": "spark",
-    "tabwidth": 2,
-    "keywordCase": "upper",
-    "linesBetweenQueries": 2
-  },
-  "languageserver": {}
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": [
+        "go.mod"
+      ],
+      "filetypes": [
+        "go"
+      ]
+    }
+  }
 }

@@ -1,5 +1,5 @@
 parsers:
-  - url: URL
+  - url: nothing
     yaml:
       prepend-rules:
         - PROCESS-NAME,iTunes,DIRECT
@@ -8,6 +8,7 @@ parsers:
         - PROCESS-NAME,spotify.exe,Nice Cloud
         - PROCESS-NAME,TBSWebRenderer,DIRECT
         - PROCESS-NAME,TBSWebRenderer.exe,DIRECT
+        - DOMAIN-SUFFIX,goproxy.cn,DIRECT
         - DOMAIN-SUFFIX,npmmirror.com,DIRECT
         - DOMAIN-SUFFIX,maven.aliyun.com,DIRECT
         - DOMAIN-SUFFIX,cn.bing.com,DIRECT
@@ -33,15 +34,15 @@ parsers:
         - RULE-SET,cncidr,DIRECT
         - RULE-SET,telegramcidr,Nice Cloud
         - RULE-SET,manga,DIRECT
-        # - RULE-SET,steam,Nice Cloud
         - RULE-SET,steam-cn,DIRECT
+        # - RULE-SET,steam,Nice Cloud
         # - RULE-SET,spotify,Nice Cloud
         - RULE-SET,video,DIRECT
         - GEOIP,LAN,DIRECT
         - GEOIP,CN,DIRECT
-        - MATCH,Nice Cloud
+        - MATCH,nothing
 
-      mix-rule-providers: 
+      mix-rule-providers:
         reject:
           type: http
           behavior: domain
@@ -163,9 +164,10 @@ parsers:
         #   behavior: domain
         #   path: ./ruleset/spotify.yaml
         #   interval: 86400
-        
+
         video:
           type: http
           behavior: domain
           path: ./ruleset/video.yaml
           interval: 86400
+
