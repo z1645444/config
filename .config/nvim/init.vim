@@ -190,20 +190,58 @@ nnoremap <leader>tf :NERDTreeFocus<CR>
 nnoremap <leader>tg :NERDTreeToggle<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"
+" coc.nvim part
+"
 
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+\ coc#pum#visible() ? coc#pum#next(1):
+\ <SID>check_back_space() ? "\<Tab>" :
+\ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> <leader>[ <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>] <Plug>(coc-diagnostic-next)
 
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -213,24 +251,6 @@ function! s:check_back_space() abort
 let col = col('.') - 1
 return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
-
-" Insert <tab> when previous text is space, refresh completion if not.
-inoremap <silent><expr> <TAB>
-\ coc#pum#visible() ? coc#pum#next(1):
-\ <SID>check_back_space() ? "\<Tab>" :
-\ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Trigger completion
-if has('nvim')
-inoremap <silent><expr> <c-space> coc#refresh()
-else
-inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Confirm completion or notify format
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 "
@@ -250,6 +270,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/vim-markdown'
 Plug 'jbgutierrez/vim-better-comments'
 Plug 'rust-lang/rust.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'ray-x/go.nvim'
 
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
@@ -266,6 +288,9 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
+" vim-go settings
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 "
 " coc.nvim settings
@@ -283,7 +308,6 @@ let g:coc_global_extensions = [
     \ 'coc-calc',
     \ 'coc-css',
     \ 'coc-explorer',
-    \ 'coc-go',
     \ 'coc-highlight',
     \ 'coc-html',
     \ 'coc-htmldjango',
@@ -293,9 +317,9 @@ let g:coc_global_extensions = [
     \ 'coc-pyright',
     \ 'coc-rust-analyzer',
     \ 'coc-sh',
-    \ 'coc-sql',
     \ 'coc-toml',
     \ 'coc-tsserver',
+    \ 'coc-vimlsp',
     \ 'coc-yaml',
     \ ]
 
@@ -309,8 +333,8 @@ autocmd FileType xml let b:coc_pairs_disabled = ['<']
 " nvim provider
 "
 if g:os == 'windows'
-    let g:python_host_prog = 'D:\Program Files\Python310\python.exe'
-    let g:python3_host_prog = 'D:\Program Files\Python310\python.exe'
+    let g:python_host_prog = 'C:\Program Files\Python39\python.exe'
+    let g:python3_host_prog = 'C:\Program Files\Python39\python.exe'
 elseif g:os == 'unix' || g:os == 'mac'
     let g:python_host_prog = '/usr/bin/python'
     let g:python3_host_prog = '/usr/bin/python3'
