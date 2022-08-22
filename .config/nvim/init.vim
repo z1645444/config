@@ -208,8 +208,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/vim-markdown'
 Plug 'jbgutierrez/vim-better-comments'
 Plug 'rust-lang/rust.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'ray-x/go.nvim'
 
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
@@ -226,9 +224,6 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-" vim-go settings
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 "
 " coc.nvim settings
