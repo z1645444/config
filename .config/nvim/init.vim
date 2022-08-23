@@ -162,7 +162,7 @@ elseif g:os == 'unix' || g:os == 'mac'
         elseif &filetype == 'html'
             exec "!firefox % &"
         elseif &filetype == 'go'
-    "        exec "!go build %<"
+            "        exec "!go build %<"
             exec "!time go run %"
         elseif &filetype == 'mkd'
             exec "!~/.vim/markdown.pl % > %.html &"
@@ -212,8 +212,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install --frozen-lockfile --production',
-    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html']}
+            \ 'do': 'yarn install --frozen-lockfile --production',
+            \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html']}
 
 
 " Display
@@ -288,11 +288,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -309,24 +309,24 @@ let g:loaded_perl_provider = 0
 
 " coc.nvim plugin list
 let g:coc_global_extensions = [
-    \ 'coc-actions',
-    \ 'coc-calc',
-    \ 'coc-css',
-    \ 'coc-explorer',
-    \ 'coc-highlight',
-    \ 'coc-html',
-    \ 'coc-htmldjango',
-    \ 'coc-jedi',
-    \ 'coc-json',
-    \ 'coc-pairs',
-    \ 'coc-pyright',
-    \ 'coc-rust-analyzer',
-    \ 'coc-sh',
-    \ 'coc-toml',
-    \ 'coc-tsserver',
-    \ 'coc-vimlsp',
-    \ 'coc-yaml',
-    \ ]
+            \ 'coc-actions',
+            \ 'coc-calc',
+            \ 'coc-css',
+            \ 'coc-explorer',
+            \ 'coc-highlight',
+            \ 'coc-html',
+            \ 'coc-htmldjango',
+            \ 'coc-jedi',
+            \ 'coc-json',
+            \ 'coc-pairs',
+            \ 'coc-pyright',
+            \ 'coc-rust-analyzer',
+            \ 'coc-sh',
+            \ 'coc-toml',
+            \ 'coc-tsserver',
+            \ 'coc-vimlsp',
+            \ 'coc-yaml',
+            \ ]
 
 " coc-pairs disable for specified filetypes
 autocmd FileType markdown let b:coc_pairs_disabled = ['`']
