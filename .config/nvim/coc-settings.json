@@ -13,7 +13,7 @@
   "jedi.jediSettings.autoImportModules": [],
   "jedi.jediSettings.caseInsensitiveCompletion": true,
   "jedi.jediSettings.debug": false,
-  "jedi.executable.command": "jedi-language-server",
+  "jedi.executable.command": "~\\AppData\\Roaming\\python\\Python39\\Scripts\\jedi-language-server.exe",
   "jedi.executable.args": [],
   "jedi.codeAction.nameExtractFunction": "jls_extract_def",
   "jedi.codeAction.nameExtractVariable": "jls_extract_var",
@@ -50,21 +50,18 @@
       "filetypes": [
         "go"
       ]
-    },
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": [
-        "compile_flags.txt",
-        "compile_commands.json"
-      ],
-      "filetypes": [
-        "c",
-        "cc",
-        "cpp",
-        "c++",
-        "objc",
-        "objcpp"
-      ]
     }
-  }
+  },
+  "clangd.arguments": [
+    "--fallback-style={BasedOnStyle: llvm, IndentWidth:4}",
+    "--pretty",
+    "--background-index",
+    "-j=12",
+    "--clang-tidy",
+    "--clang-tidy-checks=performance-*,bugprone-*",
+    "--all-scopes-completion",
+    "--completion-style=detailed",
+    "--header-insertion=iwyu",
+    "--pch-storage=disk"
+  ]
 }
