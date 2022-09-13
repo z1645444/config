@@ -5,8 +5,20 @@ set number
 set relativenumber
 set ruler
 set cursorline
+set fileformat=unix
+set autoindent
+set cindent
 set shiftwidth=4
 set softtabstop=4
+set splitright
+set splitbelow
+set mouse=a
+set undofile
+set history=1000
+set wrap
+
+set wildmenu
+set wildmode=longest:list,full
 
 set scrolloff=5
 
@@ -14,8 +26,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set showmatch
 
-set clipboard=unnamed
+set clipboard=unnamedplus,unnamed
 set clipboard+=ideaput
 
 set autochdir
@@ -23,6 +36,7 @@ set showcmd
 
 set expandtab
 
+set showmode
 
 " ===
 " === Key mapping
@@ -36,6 +50,36 @@ nnoremap <leader>l 10l
 
 nnoremap <leader>tt :NERDTree<CR>
 
+" IDEA only
+noremap <Space>= :action ReformatCode<CR>
+
+nnoremap <leader>cb :action CloseAllEditorsButActive<CR>
+
+noremap <Space>rn :action RenameElement<CR>
+noremap <Space>rf :action RenameFile<CR>
+
+noremap <leader>nc :action NewClass<CR>
+nnoremap <leader>nf :action NewFile<CR>
+noremap <leader>rfs :action RecentFiles<CR>
+noremap <leader>np :action NewDir<CR>
+
+noremap <Space>cap :action CopyAbsolutePath<CR>
+noremap <Space>ccp :action CopyContentRootPath<CR>
+
+nnoremap ]g :action GotoNextError<CR>
+
+noremap <Space>gs mm`m:action GotoSuperMethod<CR>
+noremap <Space>gd mm`m:action GotoImplementation<CR>
+
+noremap <Space>AM :action ActivateMavenToolWindow<CR>
+noremap <Space>AD :action ActivateDatabaseToolWindow<CR>
+noremap <Space>AT :action ActivateTODOToolWindow<CR>
+noremap <Space>AP :action ActivateProjectToolWindow<CR>
+nnoremap <Space>AR :action ActivateRunToolWindow<CR>
+nnoremap <Space>HW :action HideActiveWindow<CR>
+noremap <Space>HA :action HideAllWindows<CR>
+
+noremap <Space>uu :action de.netnexus.CamelCasePlugin.ToggleCamelCase<CR>
 
 " ===
 " === Plug

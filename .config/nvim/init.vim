@@ -101,6 +101,10 @@ colorscheme gruvbox
 " EOL format
 set fileformat=unix
 
+" vimtex viewer method:
+let g:vimtex_view_general_viewer = 'okular'
+" vimtex compiler
+let g:vimtex_compiler_method = 'latexrun'
 
 "
 " Key mapping
@@ -213,6 +217,7 @@ Plug 'alvan/vim-closetag'
 Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install --frozen-lockfile --production',
     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html']}
+Plug 'lervag/vimtex'
 
 
 " Display
