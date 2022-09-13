@@ -51,35 +51,36 @@ nnoremap <leader>l 10l
 nnoremap <leader>tt :NERDTree<CR>
 
 " IDEA only
-noremap <Space>= :action ReformatCode<CR>
+noremap <leader>= :action ReformatCode<CR>
 
 nnoremap <leader>cb :action CloseAllEditorsButActive<CR>
 
-noremap <Space>rn :action RenameElement<CR>
-noremap <Space>rf :action RenameFile<CR>
+noremap <leader>rn :action RenameElement<CR>
+noremap <leader>rf :action RenameFile<CR>
 
 noremap <leader>nc :action NewClass<CR>
 nnoremap <leader>nf :action NewFile<CR>
 noremap <leader>rfs :action RecentFiles<CR>
 noremap <leader>np :action NewDir<CR>
 
-noremap <Space>cap :action CopyAbsolutePath<CR>
-noremap <Space>ccp :action CopyContentRootPath<CR>
+noremap <leader>cap :action CopyAbsolutePath<CR>
+noremap <leader>ccp :action CopyContentRootPath<CR>
 
 nnoremap ]g :action GotoNextError<CR>
+nnoremap [g :action GotoPreviousError<CR>
 
-noremap <Space>gs mm`m:action GotoSuperMethod<CR>
-noremap <Space>gd mm`m:action GotoImplementation<CR>
+noremap <leader>gs mm`m:action GotoSuperMethod<CR>
+noremap <leader>gd mm`m:action GotoImplementation<CR>
 
-noremap <Space>AM :action ActivateMavenToolWindow<CR>
-noremap <Space>AD :action ActivateDatabaseToolWindow<CR>
-noremap <Space>AT :action ActivateTODOToolWindow<CR>
-noremap <Space>AP :action ActivateProjectToolWindow<CR>
-nnoremap <Space>AR :action ActivateRunToolWindow<CR>
-nnoremap <Space>HW :action HideActiveWindow<CR>
-noremap <Space>HA :action HideAllWindows<CR>
+noremap <leader>AM :action ActivateMavenToolWindow<CR>
+noremap <leader>AD :action ActivateDatabaseToolWindow<CR>
+noremap <leader>AT :action ActivateTODOToolWindow<CR>
+noremap <leader>AP :action ActivateProjectToolWindow<CR>
+nnoremap <leader>AR :action ActivateRunToolWindow<CR>
+nnoremap <leader>HW :action HideActiveWindow<CR>
+noremap <leader>HA :action HideAllWindows<CR>
 
-noremap <Space>uu :action de.netnexus.CamelCasePlugin.ToggleCamelCase<CR>
+noremap <leader>uu :action de.netnexus.CamelCasePlugin.ToggleCamelCase<CR>
 
 " ===
 " === Plug
