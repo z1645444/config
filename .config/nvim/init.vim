@@ -109,6 +109,10 @@ let g:vimtex_compiler_method = 'latexrun'
 "
 " Key mapping
 "
+
+" <Esc> alternative
+inoremap ii <Esc>
+
 " Leader Key
 let mapleader = "\<space>"
 
@@ -218,6 +222,7 @@ Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install --frozen-lockfile --production',
     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html']}
 Plug 'lervag/vimtex'
+Plug 'github/copilot.vim'
 
 
 " Display
@@ -245,26 +250,26 @@ set updatetime=100
 " diagnostics appear/become resolved.
 set signcolumn=number
 
-" Use <tab> and <S-tab> to navigate completion list:
+" " Use <tab> and <S-tab> to navigate completion list:
 " inoremap <silent><expr> <TAB>
 "             \ pumvisible() ? "\<C-n>" :
 "             \ <SID>check_back_space() ? "\<TAB>" :
 "             \ coc#refresh()
 " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Use <tab> and <S-tab> to navigate completion list: 
-function! CheckBackSpace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+" " Use <tab> and <S-tab> to navigate completion list: 
+" function! CheckBackSpace() abort
+"     let col = col('.') - 1
+"     return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
 
-" Insert <tab> when previous text is space, refresh completion if not.
-" <SID>CheckBackSpace()
-inoremap <silent><expr> <TAB>
-            \ coc#pum#visible() ? coc#pum#next(1):
-            \ CheckBackSpace() ? "\<Tab>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" " Insert <tab> when previous text is space, refresh completion if not.
+" " <SID>CheckBackSpace()
+" inoremap <silent><expr> <TAB>
+"             \ coc#pum#visible() ? coc#pum#next(1):
+"             \ CheckBackSpace() ? "\<Tab>" :
+"             \ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Use <c-space> to trigger completion:
 inoremap <silent><expr> <c-space> coc#refresh()
