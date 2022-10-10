@@ -213,7 +213,6 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Language basic
 Plug 'preservim/vim-markdown'
-Plug 'jbgutierrez/vim-better-comments'
 Plug 'rust-lang/rust.vim'
 
 Plug 'mattn/emmet-vim'
@@ -310,11 +309,27 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
+" Scroll popup documentation
+    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
 " Refine messages
 set shortmess+=c
 
+" Disable provider
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
+
+" vimtex reader
+if g:os == 'unix' || g:os == 'mac'
+    let g:vimtex_view_method = 'zathura'
+elseif g:os == 'windows'
+    let g:vimtex_view_general_viewer = 'SumatraPDF'
+endif
 
 " coc.nvim plugin list
 let g:coc_global_extensions = [
