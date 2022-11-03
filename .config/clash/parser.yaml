@@ -1,5 +1,5 @@
 parsers:
-  - url: nothing
+  - url: none
     yaml:
       prepend-rules:
         - PROCESS-NAME,iTunes,DIRECT
@@ -8,6 +8,10 @@ parsers:
         - PROCESS-NAME,spotify.exe,Nice Cloud
         - PROCESS-NAME,TBSWebRenderer,DIRECT
         - PROCESS-NAME,TBSWebRenderer.exe,DIRECT
+        - PROCESS-NAME,ESurfingClient,DIRECT
+        - PROCESS-NAME,ESurfingClient.exe,DIRECT
+        - DOMAIN-SUFFIX,translate.googleapis.com,Nice Cloud
+        - DOMAIN-SUFFIX,snapdrop.net,DIRECT
         - DOMAIN-SUFFIX,goproxy.cn,DIRECT
         - DOMAIN-SUFFIX,npmmirror.com,DIRECT
         - DOMAIN-SUFFIX,maven.aliyun.com,DIRECT
@@ -20,6 +24,7 @@ parsers:
         - DOMAIN-SUFFIX,deepl.com,DIRECT
         - DOMAIN-SUFFIX,mirrors.ustc.edu.cn,DIRECT
         - DOMAIN-SUFFIX,mirrors.tuna.tsinghua.edu.cn,DIRECT
+        - DOMAIN-SUFFIX,msftconnecttest.com,DIRECT
         - RULE-SET,applications,DIRECT
         - DOMAIN,clash.razord.top,DIRECT
         - DOMAIN,yacd.haishan.me,DIRECT
@@ -34,15 +39,15 @@ parsers:
         - RULE-SET,cncidr,DIRECT
         - RULE-SET,telegramcidr,Nice Cloud
         - RULE-SET,manga,DIRECT
-        - RULE-SET,steam-cn,DIRECT
         # - RULE-SET,steam,Nice Cloud
+        - RULE-SET,steam-cn,DIRECT
         # - RULE-SET,spotify,Nice Cloud
         - RULE-SET,video,DIRECT
         - GEOIP,LAN,DIRECT
         - GEOIP,CN,DIRECT
-        - MATCH,nothing
+        - MATCH,Nice Cloud
 
-      mix-rule-providers:
+      mix-rule-providers: 
         reject:
           type: http
           behavior: domain
@@ -170,4 +175,3 @@ parsers:
           behavior: domain
           path: ./ruleset/video.yaml
           interval: 86400
-
