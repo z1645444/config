@@ -1,0 +1,170 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "none",
+  "editor.lineHeight": 1.4,
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'Fira Code', 'Fira Code', Fira Code, 'Fira Code'",
+  "editor.fontLigatures": true,
+  "editor.cursorSurroundingLines": 5,
+  "editor.snippetSuggestions": "bottom",
+  "editor.suggestSelection": "first",
+  "editor.lineNumbers": "relative",
+  "editor.codeActionsOnSave": null,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.tabSize": 4,
+  "editor.linkedEditing": true,
+  "git.mergeEditor": true,
+  "vim.smartRelativeLine": true,
+  "vim.scroll": 5,
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "r",
+        "n"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ],
+      "silent": true
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ],
+      "silent": true
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ],
+      "when": "editorTextFocus",
+      "silent": true,
+    },
+  ],
+  // "vim.insertModeKeyBindings": [
+  //     {
+  //         "before": ["i", "i"],
+  //         "after": ["<Esc>"],
+  //         "silent": true
+  //     }
+  // ],
+  "vim.surround": true,
+  "vim.useSystemClipboard": true,
+  "vim.vimrc.enable": false,
+  "vim.hlsearch": true,
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  "vim.showcmd": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.saveAllFilesBeforeRun": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "prettier.requireConfig": true,
+  "prettier.tabWidth": 4,
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, TabWidth: 4, }",
+  "[python]": {
+    "gitlens.codeLens.symbolScopes": [
+      "!Module"
+    ],
+    "editor.wordBasedSuggestions": false,
+    "editor.tabSize": 2,
+  },
+  "[html]": {
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": [
+      "document"
+    ],
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.html-language-features",
+  },
+  "[css]": {
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": [
+      "document"
+    ],
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.css-language-features",
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": [
+      "document"
+    ],
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.maxTokenizationLineLength": 2500,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "files.associations": {
+    "*.jsp": "html",
+  },
+  "files.autoSave": "off",
+  "files.eol": "\n",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsicons.dontShowNewVersionMessage": true,
+  "cmake.configureOnOpen": true,
+  "redhat.telemetry.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "extensions.ignoreRecommendations": true,
+  "remote.SSH.remotePlatform": {
+    "Franky": "linux"
+  },
+  "python.formatting.provider": "black",
+  "python.formatting.autopep8Args": [
+    "--indent-size=2"
+  ],
+  "python.formatting.blackArgs": [
+    "--line-length=80"
+  ],
+  "python.formatting.yapfArgs": [
+    "--style",
+    "{indent_width:2}"
+  ],
+  "python.analysis.extraPaths": [
+    "c:\\users\\1337hao\\appdata\\roaming\\python\\python39\\site-packages\\"
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": false,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false
+  },
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+}
