@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="pointers" version="1.0">
+  <property name="Logitech_G703_LS" type="empty">
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="ReverseScrolling" type="bool" value="false"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="Acceleration" type="double" value="2.500000"/>
+  </property>
+  <property name="SONiX_Wired_Gaming_keyboard_Keyboard" type="empty">
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="4"/>
+    <property name="Acceleration" type="double" value="0.000000"/>
+  </property>
+  <property name="DELL094900_04F330CB_Touchpad" type="empty">
+    <property name="Properties" type="empty">
+      <property name="libinput_Tapping_Enabled" type="int" value="1"/>
+    </property>
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="ReverseScrolling" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="Acceleration" type="double" value="5.000000"/>
+  </property>
+  <property name="Logitech_G703_LIGHTSPEED_Wireless_Gaming_Mouse_w_HERO" type="empty">
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="4"/>
+    <property name="Acceleration" type="double" value="0.000000"/>
+  </property>
+  <property name="PS2_Generic_Mouse" type="empty">
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="Acceleration" type="double" value="2.500000"/>
+  </property>
+  <property name="DELL094900_04F330CB_Mouse" type="empty">
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="Acceleration" type="double" value="2.500000"/>
+  </property>
+  <property name="SONiX_Wired_Gaming_keyboard_Mouse" type="empty">
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="Acceleration" type="double" value="2.500000"/>
+  </property>
+</channel>
