@@ -221,8 +221,7 @@ Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install --frozen-lockfile --production',
     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html']}
 Plug 'lervag/vimtex'
-Plug 'github/copilot.vim'
-
+Plug 'Exafunction/codeium.vim'
 
 " Display
 Plug 'vim-airline/vim-airline'
