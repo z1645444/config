@@ -137,7 +137,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 12
+  size: 16
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -464,3 +464,9 @@ colors:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
+
+key_bindings:
+  - { key: Up, mods: Command, action: ScrollPageUp }
+  - { key: Down, mods: Command, action: ScrollPageDown }
+  - { key: Up, mods: Command|Shift, action: ScrollHalfPageUp }
+  - { key: Down, mods: Command|Shift, action: ScrollHalfPageDown }
