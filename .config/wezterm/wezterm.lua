@@ -35,6 +35,41 @@ config.keys = {
         mods = "CMD",
         action = wezterm.action.ScrollByPage(0.5)
     },
+    {
+        key = '"',
+        mods = 'CTRL|SHIFT|CMD',
+        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+    },
+    {
+        key = '%',
+        mods = 'CTRL|SHIFT|CMD',
+        action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    },
+    {
+        key = 'h',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ActivatePaneDirection 'Left'
+    },
+    {
+        key = 'j',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ActivatePaneDirection 'Down'
+    },
+    {
+        key = 'k',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ActivatePaneDirection 'Up'
+    },
+    {
+        key = 'l',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ActivatePaneDirection 'Right'
+    },
+    {
+        key = 'z',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.TogglePaneZoomState
+    },
 }
 
 -- and finally, return the configuration to wezterm
