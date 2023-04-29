@@ -13,7 +13,7 @@
   "jedi.jediSettings.autoImportModules": [],
   "jedi.jediSettings.caseInsensitiveCompletion": true,
   "jedi.jediSettings.debug": false,
-  "jedi.executable.command": "~\\.pyenv\\pyenv-win\\versions\\3.9.13\\Scripts\\jedi-language-server.exe",
+  "jedi.executable.command": "~/.pyenv/shims/jedi-language-server",
   "jedi.executable.args": [],
   "jedi.codeAction.nameExtractFunction": "jls_extract_def",
   "jedi.codeAction.nameExtractVariable": "jls_extract_var",

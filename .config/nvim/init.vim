@@ -36,6 +36,7 @@ set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
@@ -357,6 +358,10 @@ autocmd FileType markdown let b:coc_pairs_disabled = ['`']
 autocmd FileType html let b:coc_pairs_disabled = ['<']
 autocmd FileType xml let b:coc_pairs_disabled = ['<']
 
+" coc-json unable the feature of hidding quotes
+" set conceallevel=0
+let g:vim_json_conceal=0
+
 
 "
 " nvim provider
@@ -365,7 +370,7 @@ if g:os == 'windows'
     let g:python_host_prog = 'C:\Program Files\Python39\python.exe'
     let g:python3_host_prog = 'C:\Program Files\Python39\python.exe'
 elseif g:os == 'unix' || g:os == 'mac'
-    let g:python_host_prog = '/usr/bin/python'
-    let g:python3_host_prog = '/usr/bin/python3'
+    let g:python_host_prog = '~/.pyenv/shims/python'
+    let g:python3_host_prog = '~/.pyenv/shims/python3'
 endif
 
