@@ -102,10 +102,17 @@ colorscheme gruvbox
 " EOL format
 set fileformat=unix
 
-" vimtex viewer method:
-let g:vimtex_view_general_viewer = 'okular'
+" vimtex reader
+if g:os == 'unix'
+    " let g:vimtex_view_method = 'xdg-open'
+    " let g:vimtex_view_method = 'zathura'
+    let g:vimtex_view_method = 'open'
+elseif g:os == 'windows'
+    let g:vimtex_view_general_viewer = 'SumatraPDF'
+endif
+
 " vimtex compiler
-let g:vimtex_compiler_method = 'latexrun'
+" let g:vimtex_compiler_method = 'latexmk'
 
 "
 " Key mapping
@@ -325,13 +332,6 @@ set shortmess+=c
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 
-" vimtex reader
-if g:os == 'unix' || g:os == 'mac'
-    let g:vimtex_view_method = 'zathura'
-elseif g:os == 'windows'
-    let g:vimtex_view_general_viewer = 'SumatraPDF'
-endif
-
 " coc.nvim plugin list
 let g:coc_global_extensions = [
     \ 'coc-actions',
@@ -374,3 +374,16 @@ elseif g:os == 'unix' || g:os == 'mac'
     let g:python3_host_prog = '~/.pyenv/shims/python3'
 endif
 
+"
+" Codeium
+"
+
+" Disable
+let g:codeium_enabled = v:false
+
+" Disable for particular filetypes
+" let g:codeium_filetypes = {
+"         \ "bash": v:false,
+"         \ "javascript": v:false,
+"         \ "typescript": v:false,
+"         \ }
