@@ -102,18 +102,6 @@ colorscheme gruvbox
 " EOL format
 set fileformat=unix
 
-" vimtex reader
-if g:os == 'unix'
-    " let g:vimtex_view_method = 'xdg-open'
-    " let g:vimtex_view_method = 'zathura'
-    let g:vimtex_view_method = 'open'
-elseif g:os == 'windows'
-    let g:vimtex_view_general_viewer = 'SumatraPDF'
-endif
-
-" vimtex compiler
-" let g:vimtex_compiler_method = 'latexmk'
-
 "
 " Key mapping
 "
@@ -387,3 +375,22 @@ let g:codeium_enabled = v:false
 "         \ "javascript": v:false,
 "         \ "typescript": v:false,
 "         \ }
+
+"
+" VimTex
+"
+
+" reader
+if g:os == 'unix'
+    " let g:vimtex_view_method = 'xdg-open'
+    " let g:vimtex_view_method = 'zathura'
+elseif g:os == 'windows'
+    let g:vimtex_view_general_viewer = 'SumatraPDF'
+endif
+
+" compiler
+" let g:vimtex_compiler_method = 'latexmk'
+
+" localleader
+let maplocalleader = ','
+
