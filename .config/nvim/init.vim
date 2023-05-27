@@ -347,8 +347,9 @@ autocmd FileType html let b:coc_pairs_disabled = ['<']
 autocmd FileType xml let b:coc_pairs_disabled = ['<']
 
 " coc-json unable the feature of hidding quotes
-" set conceallevel=0
+set conceallevel=0
 let g:vim_json_conceal=0
+
 
 
 "
@@ -380,6 +381,10 @@ let g:codeium_enabled = v:false
 " VimTex
 "
 
+let g:tex_flavor='latex'
+let g:tex_conceal='abdmg'
+let maplocalleader = ','
+
 " reader
 if g:os == 'unix'
     " let g:vimtex_view_method = 'xdg-open'
@@ -390,7 +395,4 @@ endif
 
 " compiler
 " let g:vimtex_compiler_method = 'latexmk'
-
-" localleader
-let maplocalleader = ','
 
