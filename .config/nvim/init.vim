@@ -102,6 +102,10 @@ colorscheme gruvbox
 " EOL format
 set fileformat=unix
 
+" conceal
+set conceallevel=0
+set concealcursor=n
+
 "
 " Key mapping
 "
@@ -347,9 +351,7 @@ autocmd FileType html let b:coc_pairs_disabled = ['<']
 autocmd FileType xml let b:coc_pairs_disabled = ['<']
 
 " coc-json unable the feature of hidding quotes
-set conceallevel=0
 let g:vim_json_conceal=0
-
 
 
 "
@@ -362,6 +364,7 @@ elseif g:os == 'unix' || g:os == 'mac'
     let g:python_host_prog = '~/.pyenv/shims/python'
     let g:python3_host_prog = '~/.pyenv/shims/python3'
 endif
+
 
 "
 " Codeium
@@ -376,6 +379,7 @@ let g:codeium_enabled = v:false
 "         \ "javascript": v:false,
 "         \ "typescript": v:false,
 "         \ }
+
 
 "
 " VimTex
@@ -395,4 +399,8 @@ endif
 
 " compiler
 " let g:vimtex_compiler_method = 'latexmk'
+
+" conceallevel
+autocmd BufEnter *.tex set conceallevel=0
+autocmd BufEnter *.tex set concealcursor=n
 
