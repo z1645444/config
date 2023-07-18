@@ -183,6 +183,10 @@ nnoremap <leader>h 10h
 nnoremap <leader>j 10j
 nnoremap <leader>k 10k
 nnoremap <leader>l 10l
+vnoremap <leader>h 10h
+vnoremap <leader>j 10j
+vnoremap <leader>k 10k
+vnoremap <leader>l 10l
 
 " Edit vimrc file
 if g:os == 'windows'
