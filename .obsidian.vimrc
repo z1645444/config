@@ -1,6 +1,5 @@
 " Leader Key
 unmap <Space>
-let mapleader = "<Space>"
 
 " Copy to system clipboard
 vmap <Space>y "+y
