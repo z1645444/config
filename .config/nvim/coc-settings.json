@@ -1,9 +1,21 @@
 {
   "coc.preferences.formatOnType": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "json"
-  ],
+  "prettier.semi": true,
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 80,
+  "prettier.trailingComma": "all",
+  "prettier.arrowParens": "always",
+  "prettier.bracketSpacing": true,
+  "prettier.bracketSameLine": false,
+  "prettier.endOfLine": "lf",
+  "prettier.htmlWhitespaceSensitivity": "css",
+  "prettier.embeddedLanguageFormatting": "auto",
+  "prettier.proseWrap": "preserve",
+  "prettier.jsxSingleQuote": false,
+  "prettier.vueIndentScriptAndStyle": false,
+  "prettier.quoteProps": "as-needed",
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "jedi.enable": true,
@@ -39,17 +51,12 @@
   ],
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
-  "html.format.endWithNewline": true,
   "html.format.templating": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": [
-        "go.mod"
-      ],
-      "filetypes": [
-        "go"
-      ]
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
     }
   },
   "clangd.arguments": [

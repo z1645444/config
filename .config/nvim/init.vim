@@ -179,14 +179,10 @@ elseif g:os == 'unix' || g:os == 'mac'
 endif
 
 " Scroll
-nnoremap <leader>h 10h
-nnoremap <leader>j 10j
-nnoremap <leader>k 10k
-nnoremap <leader>l 10l
-vnoremap <leader>h 10h
-vnoremap <leader>j 10j
-vnoremap <leader>k 10k
-vnoremap <leader>l 10l
+nnoremap <leader>j 20j
+nnoremap <leader>k 20k
+vnoremap <leader>j 20j
+vnoremap <leader>k 20k
 
 " Edit vimrc file
 if g:os == 'windows'
@@ -221,11 +217,9 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
-Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install --frozen-lockfile --production',
-    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html']}
 Plug 'lervag/vimtex'
 Plug 'Exafunction/codeium.vim'
+
 
 " Display
 Plug 'vim-airline/vim-airline'
@@ -300,11 +294,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -330,24 +324,24 @@ let g:loaded_perl_provider = 0
 
 " coc.nvim plugin list
 let g:coc_global_extensions = [
-    \ 'coc-actions',
-    \ 'coc-calc',
-    \ 'coc-clangd',
-    \ 'coc-css',
-    \ 'coc-explorer',
-    \ 'coc-highlight',
-    \ 'coc-html',
-    \ 'coc-jedi',
-    \ 'coc-json',
-    \ 'coc-pairs',
-    \ 'coc-pyright',
-    \ 'coc-rust-analyzer',
-    \ 'coc-sh',
-    \ 'coc-toml',
-    \ 'coc-tsserver',
-    \ 'coc-vimlsp',
-    \ 'coc-yaml',
-    \ ]
+            \ 'coc-actions',
+            \ 'coc-calc',
+            \ 'coc-clangd',
+            \ 'coc-css',
+            \ 'coc-explorer',
+            \ 'coc-highlight',
+            \ 'coc-html',
+            \ 'coc-jedi',
+            \ 'coc-json',
+            \ 'coc-pairs',
+            \ 'coc-pyright',
+            \ 'coc-rust-analyzer',
+            \ 'coc-sh',
+            \ 'coc-toml',
+            \ 'coc-tsserver',
+            \ 'coc-vimlsp',
+            \ 'coc-yaml',
+            \ ]
 
 " coc-pairs disable for specified filetypes
 autocmd FileType markdown let b:coc_pairs_disabled = ['`']
@@ -356,6 +350,14 @@ autocmd FileType xml let b:coc_pairs_disabled = ['<']
 
 " coc-json unable the feature of hidding quotes
 let g:vim_json_conceal=0
+
+" Setup :Prettier command
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+nnoremap <leader>= :Prettier<CR>
+
+" Range format
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
 
 
 "
@@ -390,7 +392,7 @@ let g:codeium_enabled = v:false
 "
 
 let g:tex_flavor='latex'
-let g:tex_conceal='abdmg'
+" let g:tex_conceal='abdmg'
 let maplocalleader = ','
 
 " reader
@@ -416,9 +418,9 @@ autocmd BufEnter *.tex set concealcursor=n
 " disable standard conceal
 autocmd BufEnter *.md set conceallevel=0
 let g:vim_markdown_conceal=0
-" let g:tex_conceal = ""
-let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
 
 " list indent
 let g:vim_markdown_new_list_item_indent = 2
