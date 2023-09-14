@@ -138,10 +138,10 @@ nnoremap <leader>vp :vsplit<CR>
 nnoremap <leader>rl :source %<CR>
 
 " Scroll
-nnoremap <leader>h 10h
-nnoremap <leader>j 10j
-nnoremap <leader>k 10k
-nnoremap <leader>l 10l
+nnoremap <leader>j 20j
+nnoremap <leader>k 20k
+vnoremap <leader>j 20j
+vnoremap <leader>k 20k
 
 " Nerdtree
 nnoremap <leader>tt :NERDTree<CR>
@@ -149,11 +149,17 @@ nnoremap <leader>tf :NERDTreeFocus<CR>
 nnoremap <leader>tg :NERDTreeToggle<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
 
-" Quick Documentaion
-nnoremap <silent> K :call IdeaVimQuickDocumentation()<CR>
+" Document
+map K <Action>(QuickJavaDoc)
+
+" Definition
+map <leader>df <Action>(QuickImplementations)
+
+" Rename
+map <leader>rn <Action>(RenameElement)
 
 " Format
-nnoremap == :call ReformatCode()<CR>
+map <leader>= <Action>(ReformatCode)
 
 
 
