@@ -60,7 +60,7 @@
     }
   },
   "clangd.arguments": [
-    "--fallback-style={BasedOnStyle: llvm, IndentWidth:4}",
+    "--fallback-style=LLVM",
     "--pretty",
     "--background-index",
     "-j=12",

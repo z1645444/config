@@ -2,48 +2,30 @@ parsers:
   - url: none
     yaml:
       prepend-rules:
-        - PROCESS-NAME,iTunes,DIRECT
-        - PROCESS-NAME,iTunes.exe,DIRECT
-        - PROCESS-NAME,spotify,Nice Cloud
-        - PROCESS-NAME,spotify.exe,Nice Cloud
-        - PROCESS-NAME,TBSWebRenderer,DIRECT
-        - PROCESS-NAME,TBSWebRenderer.exe,DIRECT
-        - PROCESS-NAME,ESurfingClient,DIRECT
-        - PROCESS-NAME,ESurfingClient.exe,DIRECT
-        - DOMAIN-SUFFIX,translate.googleapis.com,Nice Cloud
-        - DOMAIN-SUFFIX,snapdrop.net,DIRECT
-        - DOMAIN-SUFFIX,goproxy.cn,DIRECT
-        - DOMAIN-SUFFIX,npmmirror.com,DIRECT
-        - DOMAIN-SUFFIX,maven.aliyun.com,DIRECT
-        - DOMAIN-SUFFIX,cn.bing.com,DIRECT
-        - DOMAIN-SUFFIX,fanyi-api.baidu.com,DIRECT
-        - DOMAIN-SUFFIX,tmt.ap-shanghai.tencentcloudapi.com,DIRECT
-        - DOMAIN-SUFFIX,api.interpreter.caiyunai.com,DIRECT
-        - DOMAIN-SUFFIX,fanyi.sogou.com,DIRECT
-        - DOMAIN-SUFFIX,openapi.youdao.com,DIRECT
-        - DOMAIN-SUFFIX,deepl.com,DIRECT
-        - DOMAIN-SUFFIX,mirrors.ustc.edu.cn,DIRECT
-        - DOMAIN-SUFFIX,iso.mirrors.ustc.edu.cn,DIRECT
-        - DOMAIN-SUFFIX,mirrors.tuna.tsinghua.edu.cn,DIRECT
-        - DOMAIN-SUFFIX,msftconnecttest.com,DIRECT
-        - RULE-SET,applications,DIRECT
         - DOMAIN,clash.razord.top,DIRECT
         - DOMAIN,yacd.haishan.me,DIRECT
+        - RULE-SET,community-direct,DIRECT
+        - RULE-SET,service-direct,DIRECT
+        - RULE-SET,mirror-direct,DIRECT
+        - RULE-SET,transfer-proxy,Nice Cloud
+        - RULE-SET,service-proxy,Nice Cloud
+        - RULE-SET,mirror-proxy,Nice Cloud
         - RULE-SET,private,DIRECT
         - RULE-SET,reject,REJECT
         - RULE-SET,icloud,DIRECT
         - RULE-SET,apple,DIRECT
-        # - RULE-SET,google,DIRECT
         - RULE-SET,proxy,Nice Cloud
         - RULE-SET,direct,DIRECT
         - RULE-SET,lancidr,DIRECT
         - RULE-SET,cncidr,DIRECT
         - RULE-SET,telegramcidr,Nice Cloud
+        - RULE-SET,google,Nice Cloud
+        - RULE-SET,applications,DIRECT
         - RULE-SET,manga,DIRECT
-        # - RULE-SET,steam,Nice Cloud
-        - RULE-SET,steam-cn,DIRECT
-        # - RULE-SET,spotify,Nice Cloud
         - RULE-SET,video,DIRECT
+        - RULE-SET,steam-cn,DIRECT
+        - RULE-SET,steam,Nice Cloud
+        # - RULE-SET,spotify,Nice Cloud
         - GEOIP,LAN,DIRECT
         - GEOIP,CN,DIRECT
         - MATCH,Nice Cloud
@@ -70,12 +52,12 @@ parsers:
           path: ./ruleset/apple.yaml
           interval: 86400
 
-        # google:
-        #   type: http
-        #   behavior: domain
-        #   url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
-        #   path: ./ruleset/google.yaml
-        #   interval: 86400
+        google:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+          path: ./ruleset/google.yaml
+          interval: 86400
 
         proxy:
           type: http
@@ -101,7 +83,8 @@ parsers:
         gfw:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+          # url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+          url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt"
           path: ./ruleset/gfw.yaml
           interval: 86400
 
@@ -150,30 +133,76 @@ parsers:
         manga:
           type: http
           behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/manga.yaml"
           path: ./ruleset/manga.yaml
           interval: 86400
-
-        # steam:
-        #   type: http
-        #   behavior: domain
-        #   path: ./ruleset/steam.yaml
-        #   interval: 86400
-
-        steam-cn:
-          type: http
-          behavior: domain
-          path: ./ruleset/steam-cn.yaml
-          interval: 86400
-
-        # spotify:
-        #   type: http
-        #   behavior: domain
-        #   path: ./ruleset/spotify.yaml
-        #   interval: 86400
 
         video:
           type: http
           behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/video.yaml"
           path: ./ruleset/video.yaml
           interval: 86400
 
+        steam-cn:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/steam-cn.yaml"
+          path: ./ruleset/steam-cn.yaml
+          interval: 86400
+
+        steam:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/steam.yaml"
+          path: ./ruleset/steam.yaml
+          interval: 86400
+
+        spotify:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/spotify.yaml"
+          path: ./ruleset/spotify.yaml
+          interval: 86400
+
+        community-direct:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/community-direct.yaml"
+          path: ./ruleset/steam.yaml
+          interval: 86400
+
+        service-direct:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/service-direct.yaml"
+          path: ./ruleset/steam.yaml
+          interval: 86400
+
+        mirror-direct:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/mirror-direct.yaml"
+          path: ./ruleset/steam.yaml
+          interval: 86400
+
+        transfer-proxy:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/transfer-proxy.yaml"
+          path: ./ruleset/steam.yaml
+          interval: 86400
+
+        service-proxy:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/service-proxy.yaml"
+          path: ./ruleset/steam.yaml
+          interval: 86400
+
+        mirror-proxy:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/mirror-proxy.yaml"
+          path: ./ruleset/steam.yaml
+          interval: 86400
