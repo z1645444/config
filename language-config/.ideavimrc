@@ -25,6 +25,8 @@
 "map \b <Action>(ToggleLineBreakpoint)
 " --------- Handbook ---------
 
+" use :actionlist to check all available actions
+
 "
 " Basic settings
 "
@@ -162,12 +164,11 @@ map <leader>rn <Action>(RenameElement)
 map <leader>= <Action>(ReformatCode)
 
 " Collapse to specific level
-map <leader>z1 <Action>(CollapseAll)<CR><Action>(ExpandAllToLevel1)
-map <leader>z2 <Action>(CollapseAll)<CR><Action>(ExpandAllToLevel2)
-map <leader>z3 <Action>(CollapseAll)<CR><Action>(ExpandAllToLevel3)
-map <leader>z4 <Action>(CollapseAll)<CR><Action>(ExpandAllToLevel4)
-map <leader>z5 <Action>(CollapseAll)<CR><Action>(ExpandAllToLevel5)
-
+map <leader>z1 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel1)
+map <leader>z2 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel2)
+map <leader>z3 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel3)
+map <leader>z4 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel4)
+map <leader>z5 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel5)
 
 
 "
