@@ -121,6 +121,10 @@ set concealcursor=n
 " Leader Key
 let mapleader = "\<space>"
 
+" Find next capital letter
+nnoremap <leader>w /\u<CR>:noh<CR>
+vnoremap <leader>w /\u<CR>:noh<CR>
+
 " If there is any unknown error with yanking to system's clipboard on linux
 " try use this after installing xclip
 "vnoremap Y :w !xclip -i -sel c<CR>
