@@ -110,7 +110,6 @@ set conceallevel=0
 set concealcursor=n
 
 
-
 "
 " Key mapping
 "
@@ -124,10 +123,6 @@ let mapleader = "\<space>"
 " Find next capital letter
 nnoremap <leader>w /\u<CR>:noh<CR>
 vnoremap <leader>w /\u<CR>:noh<CR>
-
-" If there is any unknown error with yanking to system's clipboard on linux
-" try use this after installing xclip
-"vnoremap Y :w !xclip -i -sel c<CR>
 
 " Copy to system clipboard
 vnoremap <leader>y "+y
@@ -174,7 +169,6 @@ map <leader>z3 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel3)
 map <leader>z4 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel4)
 map <leader>z5 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel5)
 
-
 "
 " Plug
 "
@@ -188,10 +182,22 @@ Plug 'machakann/vim-highlightedyank'
 
 
 "
-" Plug map
-"
-
-
-"
 " WebStorm map
 "
+
+
+"
+" EXT Plug map -> REMEMBER TO INSTALL PLUGIN FIRST
+"
+
+" Tab Shifter
+map <C-w>H <Action>(TabShiftActions.ShiftLeft)
+map <C-w>L <Action>(TabShiftActions.ShiftRight)
+map <C-w>K <Action>(TabShiftActions.ShiftDown)
+map <C-w>J <Action>(TabShiftActions.ShiftUp)
+
+" Tab Mover
+map <leader>t< <Action>(com.mnw.tabmover.actions.MoveTabUpAction)
+map <leader>t> <Action>(com.mnw.tabmover.actions.MoveTabDownAction)
+map <leader>t[ <Action>(com.mnw.tabmover.actions.MoveTabToFirstAction)
+map <leader>t] <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
