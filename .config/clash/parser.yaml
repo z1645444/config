@@ -1,7 +1,8 @@
 parsers:
-  - url: none
+  - url: NONE
     yaml:
       prepend-rules:
+        - PROCESS-NAME,rustdesk,DIRECT
         - DOMAIN,clash.razord.top,DIRECT
         - DOMAIN,yacd.haishan.me,DIRECT
         - RULE-SET,community-direct,DIRECT
@@ -24,8 +25,10 @@ parsers:
         - RULE-SET,manga,DIRECT
         - RULE-SET,video,DIRECT
         - RULE-SET,steam-cn,DIRECT
-        - RULE-SET,steam,Nice Cloud
+        - RULE-SET,steam,DIRECT # YOU KNOW WHEN TO UN-COMMENT THIS
+        # - RULE-SET,steam,Nice Cloud
         # - RULE-SET,spotify,Nice Cloud
+        - RULE-SET,cdn,Nice Cloud
         - GEOIP,LAN,DIRECT
         - GEOIP,CN,DIRECT
         - MATCH,Nice Cloud
@@ -168,40 +171,48 @@ parsers:
           type: http
           behavior: domain
           url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/community-direct.yaml"
-          path: ./ruleset/steam.yaml
+          path: ./ruleset/community-direct.yaml
           interval: 86400
 
         service-direct:
           type: http
           behavior: domain
           url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/service-direct.yaml"
-          path: ./ruleset/steam.yaml
+          path: ./ruleset/service-direct.yaml
           interval: 86400
 
         mirror-direct:
           type: http
           behavior: domain
           url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/mirror-direct.yaml"
-          path: ./ruleset/steam.yaml
+          path: ./ruleset/mirror-direct.yaml
           interval: 86400
 
         transfer-proxy:
           type: http
           behavior: domain
           url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/transfer-proxy.yaml"
-          path: ./ruleset/steam.yaml
+          path: ./ruleset/transfer-proxy.yaml
           interval: 86400
 
         service-proxy:
           type: http
           behavior: domain
           url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/service-proxy.yaml"
-          path: ./ruleset/steam.yaml
+          path: ./ruleset/service-proxy.yaml
           interval: 86400
 
         mirror-proxy:
           type: http
           behavior: domain
           url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/mirror-proxy.yaml"
-          path: ./ruleset/steam.yaml
+          path: ./ruleset/mirror-proxy.yaml
           interval: 86400
+
+        cdn:
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/cdn.yaml"
+          path: ./ruleset/cdn.yaml
+          interval: 86400
+

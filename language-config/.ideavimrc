@@ -35,7 +35,6 @@ filetype plugin indent on
 
 set number
 set relativenumber
-set ruler
 set cursorline
 
 syntax enable
@@ -146,28 +145,37 @@ vnoremap <leader>k 20k
 
 " Nerdtree
 nnoremap <leader>tt :NERDTree<CR>
-nnoremap <leader>tf :NERDTreeFocus<CR>
-nnoremap <leader>tg :NERDTreeToggle<CR>
-nnoremap <leader>tf :NERDTreeFind<CR>
 
 " Document
-map K <Action>(QuickJavaDoc)
+nmap K <Action>(QuickJavaDoc)
 
 " Definition
-map <leader>df <Action>(QuickImplementations)
+nmap <leader>df <Action>(QuickImplementations)
 
 " Rename
 map <leader>rn <Action>(RenameElement)
 
 " Format
-map <leader>= <Action>(ReformatCode)
+nmap <leader>= <Action>(ReformatCode)
 
 " Collapse to specific level
-map <leader>z1 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel1)
-map <leader>z2 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel2)
-map <leader>z3 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel3)
-map <leader>z4 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel4)
-map <leader>z5 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel5)
+nmap <leader>z1 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel1)
+nmap <leader>z2 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel2)
+nmap <leader>z3 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel3)
+nmap <leader>z4 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel4)
+nmap <leader>z5 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel5)
+
+" Navigate among projects
+nmap <leader>pq <Action>(CloseProject)
+nmap <leader>pr <Action>(ManageRecentProjects)
+
+" Copy-related
+nmap <leader>Ya <Action>(CopyAbsolutePath)
+nmap <leader>Yr <Action>(CopyPathFromRepositoryRootProvider)
+nmap <leader>Yf <Action>(CopyFileName)
+
+" Project view
+nmap <leader>pv <Action>(SelectInProjectView)
 
 "
 " Plug
@@ -197,7 +205,7 @@ map <C-w>K <Action>(TabShiftActions.ShiftDown)
 map <C-w>J <Action>(TabShiftActions.ShiftUp)
 
 " Tab Mover
-map <leader>t< <Action>(com.mnw.tabmover.actions.MoveTabUpAction)
-map <leader>t> <Action>(com.mnw.tabmover.actions.MoveTabDownAction)
-map <leader>t[ <Action>(com.mnw.tabmover.actions.MoveTabToFirstAction)
-map <leader>t] <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
+map <leader>tH <Action>(com.mnw.tabmover.actions.MoveTabUpAction)
+map <leader>tL <Action>(com.mnw.tabmover.actions.MoveTabDownAction)
+map <leader>tK <Action>(com.mnw.tabmover.actions.MoveTabToFirstAction)
+map <leader>tJ <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
