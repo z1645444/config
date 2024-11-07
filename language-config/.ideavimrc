@@ -170,9 +170,9 @@ nmap <leader>pq <Action>(CloseProject)
 nmap <leader>pr <Action>(ManageRecentProjects)
 
 " Copy-related
-nmap <leader>Ya <Action>(CopyAbsolutePath)
-nmap <leader>Yr <Action>(CopyPathFromRepositoryRootProvider)
-nmap <leader>Yf <Action>(CopyFileName)
+nmap <leader>ya <Action>(CopyAbsolutePath)
+nmap <leader>yr <Action>(CopyPathFromRepositoryRootProvider)
+nmap <leader>yf <Action>(CopyFileName)
 
 " Project view
 nmap <leader>pv <Action>(SelectInProjectView)
