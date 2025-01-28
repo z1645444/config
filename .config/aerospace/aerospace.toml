@@ -25,16 +25,16 @@ default-root-container-orientation = 'auto'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [workspace-to-monitor-force-assignment]
-1= 'main'
-2= 'main'
-3= 'main'
-4= 'main'
-5= 'main'
-6= 'main'
-7= 'secondary'
-8= 'secondary'
-9= 'secondary'
-10= 'secondary'
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = 'main'
+7 = 'secondary'
+8 = 'secondary'
+9 = 'secondary'
+10 = 'secondary'
 
 # See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
 [exec] # Again, you don't need to copy all config sections to your config.
@@ -58,6 +58,20 @@ outer.top = 8
 outer.right = 8
 outer.bottom = 8
 outer.left = 8
+
+# Auto move apps directly to the workspace
+[[on-window-detected]]
+if.app-id = "com.tencent.qq"
+run = "move-node-to-workspace 7"
+[[on-window-detected]]
+if.app-id = "com.tencent.xinWeChat"
+run = "move-node-to-workspace 7"
+[[on-window-detected]]
+if.app-id = "md.obsidian"
+run = "move-node-to-workspace 9"
+[[on-window-detected]]
+if.app-id = "com.tencent.WeWorkMac"
+run = "move-node-to-workspace 0"
 
 ##
 ## Key mapping
@@ -89,7 +103,6 @@ outer.left = 8
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 # disagree with default layout switch setting, try switch in one
-# TODO: rewrite comparing to i3-wm original config
 # alt-slash = 'layout tiles horizontal vertical'
 # alt-comma = 'layout accordion horizontal'
 alt-w = 'layout accordion horizontal'
@@ -150,8 +163,9 @@ alt-cmd-shift-h = 'move-node-to-monitor --focus-follows-window --wrap-around pre
 # reload
 alt-shift-c = 'reload-config'
 
-cmd-h = [] # Disable "hide application"
-cmd-alt-h = [] # Disable "hide others"
+cmd-h = []     # Disable "hide application"
+cmd-m = []     # Disable "minimise application to dock"
+alt-cmd-m = [] # Disable "minimise application to dock"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
@@ -161,7 +175,10 @@ alt-shift-semicolon = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+    'layout floating tiling',
+    'mode main',
+] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
