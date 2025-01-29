@@ -29,190 +29,213 @@ parsers:
         # - RULE-SET,steam,Nice Cloud
         # - RULE-SET,spotify,Nice Cloud
         - RULE-SET,cdn,Nice Cloud
+        - RULE-SET,applications-proxy,Nice Cloud
+        - RULE-SET,applications-reject,REJECT
+        - RULE-SET,adobe,REJECT
         - GEOIP,LAN,DIRECT
         - GEOIP,CN,DIRECT
         - MATCH,Nice Cloud
 
-      mix-rule-providers: 
+      mix-rule-providers:
         reject:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt'
           path: ./ruleset/reject.yaml
           interval: 86400
 
         icloud:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt'
           path: ./ruleset/icloud.yaml
           interval: 86400
 
         apple:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt'
           path: ./ruleset/apple.yaml
           interval: 86400
 
         google:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt'
           path: ./ruleset/google.yaml
           interval: 86400
 
         proxy:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt'
           path: ./ruleset/proxy.yaml
           interval: 86400
 
         direct:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt'
           path: ./ruleset/direct.yaml
           interval: 86400
 
         private:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt'
           path: ./ruleset/private.yaml
           interval: 86400
 
         gfw:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt'
           path: ./ruleset/gfw.yaml
           interval: 86400
 
         greatfire:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt'
           path: ./ruleset/greatfire.yaml
           interval: 86400
 
         tld-not-cn:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt'
           path: ./ruleset/tld-not-cn.yaml
           interval: 86400
 
         telegramcidr:
           type: http
           behavior: ipcidr
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt'
           path: ./ruleset/telegramcidr.yaml
           interval: 86400
 
         cncidr:
           type: http
           behavior: ipcidr
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt'
           path: ./ruleset/cncidr.yaml
           interval: 86400
 
         lancidr:
           type: http
           behavior: ipcidr
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt'
           path: ./ruleset/lancidr.yaml
           interval: 86400
 
         applications:
           type: http
           behavior: classical
-          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+          url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt'
           path: ./ruleset/applications.yaml
           interval: 86400
 
         manga:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/manga.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/manga.yaml'
           path: ./ruleset/manga.yaml
           interval: 86400
 
         video:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/video.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/video.yaml'
           path: ./ruleset/video.yaml
           interval: 86400
 
         steam-cn:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/steam-cn.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/steam-cn.yaml'
           path: ./ruleset/steam-cn.yaml
           interval: 86400
 
         steam:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/steam.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/steam.yaml'
           path: ./ruleset/steam.yaml
           interval: 86400
 
         spotify:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/spotify.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/spotify.yaml'
           path: ./ruleset/spotify.yaml
           interval: 86400
 
         community-direct:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/community-direct.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/community-direct.yaml'
           path: ./ruleset/community-direct.yaml
           interval: 86400
 
         service-direct:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/service-direct.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/service-direct.yaml'
           path: ./ruleset/service-direct.yaml
           interval: 86400
 
         mirror-direct:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/mirror-direct.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/mirror-direct.yaml'
           path: ./ruleset/mirror-direct.yaml
           interval: 86400
 
         transfer-proxy:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/transfer-proxy.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/transfer-proxy.yaml'
           path: ./ruleset/transfer-proxy.yaml
           interval: 86400
 
         service-proxy:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/service-proxy.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/service-proxy.yaml'
           path: ./ruleset/service-proxy.yaml
           interval: 86400
 
         mirror-proxy:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/mirror-proxy.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/mirror-proxy.yaml'
           path: ./ruleset/mirror-proxy.yaml
           interval: 86400
 
         cdn:
           type: http
           behavior: domain
-          url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/cdn.yaml"
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/cdn.yaml'
           path: ./ruleset/cdn.yaml
           interval: 86400
 
+        applications-proxy:
+          type: http
+          behavior: classical
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/applications-proxy.yaml'
+          path: ./ruleset/applications-proxy.yaml
+          interval: 86400
+
+        applications-reject:
+          type: http
+          behavior: classical
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/applications-reject.yaml'
+          path: ./ruleset/applications-reject.yaml
+          interval: 86400
+
+        adobe:
+          type: http
+          behavior: domain
+          url: 'https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/adobe.yaml'
+          path: ./ruleset/adobe.yaml
+          interval: 86400
