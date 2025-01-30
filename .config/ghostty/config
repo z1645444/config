@@ -1,0 +1,20 @@
+font-size = 20
+font-family = Fira Code
+theme = GruvboxDark
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+window-padding-balance = true
+window-save-state = always
+window-colorspace = display-p3
+
+# macos-titlebar-style = hidden
+macos-titlebar-style = transparent
+
+# scroll_page_up
+keybind = shift+up=scroll_page_up
+keybind = shift+down=scroll_page_down
+
