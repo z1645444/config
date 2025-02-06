@@ -71,7 +71,7 @@ if.app-id = "md.obsidian"
 run = "move-node-to-workspace 9"
 [[on-window-detected]]
 if.app-id = "com.tencent.WeWorkMac"
-run = "move-node-to-workspace 0"
+run = "move-node-to-workspace 10"
 
 ##
 ## Key mapping
