@@ -1,31 +1,25 @@
-" --------- Handbook ---------
+" ========= Handbook v2 =========
 " --- General ---
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
 " You can find a list of commands here:
 " - https://jb.gg/h38q75 -
 " Find more examples here:
 " - https://jb.gg/share-ideavimrc -
 "
-" --- Hint ---
-" Don't use Ex mode, use Q for formatting.
-" map Q gq
-"
 " --- Plug ---
 " - https://jb.gg/ideavim-plugins -
 " --- Map IDE actions to IdeaVim ---
 " - https://jb.gg/abva4t -
+"
 " Map \r to the Reformat Code action
 "map \r <Action>(ReformatCode)
-
 " Map <leader>d to start debug
 "map <leader>d <Action>(Debug)
-
 " Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
-" --------- Handbook ---------
-
+"
 " use :actionlist to check all available actions
+" ============ END ============
+
 
 "
 " Basic settings
@@ -66,16 +60,7 @@ set backspace=indent,eol,start
 set foldmethod=indent
 set foldlevel=99
 
-" Prevent incorrect background rendering
-let &t_ut=''
-
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" Restore Cursor Position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
+" Better command line
 set laststatus=2
 set autochdir
 set showcmd
@@ -110,7 +95,7 @@ set concealcursor=n
 
 
 "
-" Key mapping
+" Basic key mapping
 "
 
 " <Esc> alternative
@@ -119,44 +104,40 @@ set concealcursor=n
 " Leader Key
 let mapleader = "\<space>"
 
-" Find next capital letter
-nnoremap <leader>w /\u<CR>:noh<CR>
-vnoremap <leader>w /\u<CR>:noh<CR>
-
 " Copy to system clipboard
-vnoremap <leader>y "+y
+noremap <leader>y "+y
 
 " Paste from system clipboard
-vnoremap <leader>p "+p
-nnoremap <leader>p "+p
+noremap <leader>p "+p
 
 " Split Windows
-nnoremap <leader>sp :split<CR>
-nnoremap <leader>vp :vsplit<CR>
+nmap <leader>- :split<CR>
+" ! supposed to be the pipe, an issue
+"nmap <leader>| :vsplit<CR>
 
-" Reload
-nnoremap <leader>rl :source %<CR>
+" side-bar
+nmap <leader>e <Action>(SelectInProjectView)
+nmap <leader>E <Action>(SelectInProjectView)
 
-" Scroll
-nnoremap <leader>j 20j
-nnoremap <leader>k 20k
-vnoremap <leader>j 20j
-vnoremap <leader>k 20k
-
-" Nerdtree
-nnoremap <leader>tt :NERDTree<CR>
-
-" Document
+" Document / Hover
 nmap K <Action>(QuickJavaDoc)
 
 " Definition
-nmap <leader>df <Action>(QuickImplementations)
+nmap <leader>gd <Action>(QuickImplementations)
 
 " Rename
-map <leader>rn <Action>(RenameElement)
+map <leader>cr <Action>(RenameElement)
+map <leader>cR <Action>(RenameFile)
 
 " Format
-nmap <leader>= <Action>(ReformatCode)
+" ! When supports `&filetype`, set prettier only for [.js, .jsx, .ts, .tsx, .vue] and set embedded formatter for the rest files. Or when autocmd supported.
+"autocmd FileType vue,javascript,typescript,jsx,tsx,json,html,scss,sass,less map <leader>= <Action>(ReformatWithPrettierAction)
+if &ide =~? 'webstorm'
+  nmap <leader>cf <Action>(ReformatWithPrettierAction)
+else
+  nmap <leader>cf <Action>(ReformatCode)
+endif
+
 
 " Collapse to specific level
 nmap <leader>z1 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel1)
@@ -166,16 +147,13 @@ nmap <leader>z4 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel4)
 nmap <leader>z5 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel5)
 
 " Navigate among projects
+nmap <leader>fp <Action>(ManageRecentProjects)
 nmap <leader>pq <Action>(CloseProject)
-nmap <leader>pr <Action>(ManageRecentProjects)
 
 " Copy-related
 nmap <leader>ya <Action>(CopyAbsolutePath)
 nmap <leader>yr <Action>(CopyPathFromRepositoryRootProvider)
 nmap <leader>yf <Action>(CopyFileName)
-
-" Project view
-nmap <leader>pv <Action>(SelectInProjectView)
 
 "
 " Plug
@@ -186,16 +164,23 @@ Plug 'preservim/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
+Plug 'justinmk/vim-sneak'
 " Plug end
 
 
 "
-" WebStorm map
+" Plug key mapping
 "
+
+" vim-surround
+let g:surround_no_mappings=1
+map gsd <Plug>DSurround
+map gsr <Plug>CSurround
+map gsa <Plug>YSurround
 
 
 "
-" EXT Plug map -> REMEMBER TO INSTALL PLUGIN FIRST
+" JetBrains' IDEs Plug mapping -> *INSTALL PLUGIN FIRST*
 "
 
 " Tab Shifter
