@@ -164,7 +164,7 @@ Plug 'preservim/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
-Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
 " Plug end
 
 
@@ -182,6 +182,15 @@ map gsa <Plug>YSurround
 "
 " JetBrains' IDEs Plug mapping -> *INSTALL PLUGIN FIRST*
 "
+
+" easymotion
+let g:EasyMotion_do_mapping=0
+let g:EasyMotion_smartcase=1
+map s <Plug>(easymotion-s)
+map f <Plug>(easymotion-f)
+map F <Plug>(easymotion-F)
+map t <Plug>(easymotion-t)
+map T <Plug>(easymotion-T)
 
 " Tab Shifter
 map <C-w>H <Action>(TabShiftActions.ShiftLeft)
