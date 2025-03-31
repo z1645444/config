@@ -93,6 +93,9 @@ set fileformat=unix
 set conceallevel=0
 set concealcursor=n
 
+" more time for myself to fit new plugins
+set timeoutlen=10000
+
 
 "
 " Basic key mapping
@@ -105,10 +108,10 @@ set concealcursor=n
 let mapleader = "\<space>"
 
 " Copy to system clipboard
-noremap <leader>y "+y
+noremap <leader>Y "+y
 
 " Paste from system clipboard
-noremap <leader>p "+p
+noremap <leader>P "+p
 
 " Split Windows
 nmap <leader>- :split<CR>
@@ -145,7 +148,7 @@ nmap L <Action>(NextTab)
 " Close current tab
 nmap <leader>bd <Action>(CloseContent)
 
-" TODO: Bind Esc to clear hlsearch
+" Bind Esc to clear hlsearch
 nmap <silent> <Esc> :nohlsearch<CR>
 
 " Collapse to specific level
@@ -157,12 +160,29 @@ nmap <leader>z5 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel5)
 
 " Navigate among projects
 nmap <leader>fp <Action>(ManageRecentProjects)
-nmap <leader>pq <Action>(CloseProject)
+nmap <leader>qq <Action>(CloseProject)
 
 " Copy-related
 nmap <leader>ya <Action>(CopyAbsolutePath)
 nmap <leader>yr <Action>(CopyPathFromRepositoryRootProvider)
 nmap <leader>yf <Action>(CopyFileName)
+
+" Git related
+" open or copy remote url is not supported yet
+map <leader>gb <Action>(ActivateVersionControlToolWindow)
+map <leader>gc <Action>(Vcs.Show.Log)
+nmap <leader>ghb <Action>(Vcs.ShowTabbedFileHistory)
+vmap <leader>ghb <Action>(Vcs.ShowHistoryForBlock)
+nmap <leader>ghd <Action>(LocalHistory.ShowHistory)
+vmap <leader>ghd <Action>(LocalHistory.ShowSelectionHistory)
+
+" hide menu
+" more separate, HideSideWindows and a non-existent API to hide bottom window
+map <leader>wo <Action>(HideActiveWindow)
+
+" Focus to terminal tool window
+map <C-/> <Action>(ActivateTerminalToolWindow)
+
 
 "
 " Plug
@@ -212,3 +232,6 @@ map <leader>tH <Action>(com.mnw.tabmover.actions.MoveTabUpAction)
 map <leader>tL <Action>(com.mnw.tabmover.actions.MoveTabDownAction)
 map <leader>tK <Action>(com.mnw.tabmover.actions.MoveTabToFirstAction)
 map <leader>tJ <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
+
+" Which key
+set which-key

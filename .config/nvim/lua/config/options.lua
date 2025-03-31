@@ -11,12 +11,10 @@ vim.opt.termguicolors = true
 vim.opt.nu = true
 vim.opt.rnu = true
 vim.opt.scrolloff = 5
-
+vim.g.snacks_animate = false
 vim.opt.wrap = false
 
 vim.opt.updatetime = 50
-
-vim.g.snacks_animate = false
 
 --
 -- TAB
@@ -41,3 +39,8 @@ vim.opt.undofile = true
 --
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+--
+-- NO-UNDO
+--
+vim.opt.undofile = false
