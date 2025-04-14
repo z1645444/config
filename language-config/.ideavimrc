@@ -177,11 +177,23 @@ nmap <leader>ghd <Action>(LocalHistory.ShowHistory)
 vmap <leader>ghd <Action>(LocalHistory.ShowSelectionHistory)
 
 " hide menu
-" more separate, HideSideWindows and a non-existent API to hide bottom window
-map <leader>wo <Action>(HideActiveWindow)
+" when support API, be more separated
+" HideSideWindows and a non-existent API to hide bottom window
+map <leader>wo <Action>(HideAllWindows)
 
 " Focus to terminal tool window
 map <C-/> <Action>(ActivateTerminalToolWindow)
+
+" Search
+map <leader>ff <Action>(SearchEverywhere)
+
+" Find
+map <leader>sg <Action>(FindInPath)
+map <leader>sG <Action>(FindInPath)
+map <leader>sb <Action>(Find)
+" not work
+map <leader>sS <Action>(Find)<Action>(ToggleFindInSelection)
+map gr <Action>(FindUsages)
 
 
 "
