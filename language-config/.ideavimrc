@@ -123,7 +123,7 @@ nmap <leader>e <Action>(SelectInProjectView)
 nmap <leader>E <Action>(SelectInProjectView)
 
 " Document / Hover
-nmap K <Action>(QuickJavaDoc)
+nmap K <Action>(ShowHoverInfo)
 
 " Definition
 nmap <leader>gd <Action>(QuickImplementations)
