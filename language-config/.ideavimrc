@@ -136,7 +136,7 @@ map <leader>cR <Action>(RenameFile)
 " ! When supports `&filetype`, set prettier only for [.js, .jsx, .ts, .tsx, .vue] and set embedded formatter for the rest files. Or when autocmd supported.
 "autocmd FileType vue,javascript,typescript,jsx,tsx,json,html,scss,sass,less map <leader>= <Action>(ReformatWithPrettierAction)
 if &ide =~? 'webstorm'
-  nmap <leader>cf <Action>(ReformatWithPrettierAction)
+  nmap <leader>cf <Action>(ReformatWithPrettierAction) \| <Action>(Javascript.Linters.EsLint.Fix)
 else
   nmap <leader>cf <Action>(ReformatCode)
 endif
