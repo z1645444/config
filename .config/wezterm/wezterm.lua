@@ -1,5 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 -- This table will hold the configuration.
 local config = {}
@@ -7,18 +7,24 @@ local config = {}
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
 if wezterm.config_builder then
-    config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
 
 -- color scheme
-config.color_scheme = 'Gruvbox dark, medium (base16)'
+config.color_scheme = "Gruvbox dark, hard (base16)"
 
 -- font
-config.font_size = 14.0
+config.font_size = 20.0
 config.font = wezterm.font_with_fallback({
-    "Fira Code",
-    "Pingfang"
+	-- "Comic Code",
+	"FiraCode Nerd Font",
+	"Fira Code",
+	"Pingfang",
+	"Source Han Sans",
 })
+
+-- disable ligatures
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 -- sweet warning
 config.warn_about_missing_glyphs = false
@@ -31,51 +37,16 @@ config.window_decorations = "RESIZE"
 
 -- key bind
 config.keys = {
-    {
-        key = 'UpArrow',
-        mods = "CMD",
-        action = wezterm.action.ScrollByPage(-0.5)
-    },
-    {
-        key = "DownArrow",
-        mods = "CMD",
-        action = wezterm.action.ScrollByPage(0.5)
-    },
-    {
-        key = '"',
-        mods = 'CTRL|SHIFT|CMD',
-        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
-    },
-    {
-        key = '%',
-        mods = 'CTRL|SHIFT|CMD',
-        action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-    },
-    {
-        key = 'h',
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.ActivatePaneDirection 'Left'
-    },
-    {
-        key = 'j',
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.ActivatePaneDirection 'Down'
-    },
-    {
-        key = 'k',
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.ActivatePaneDirection 'Up'
-    },
-    {
-        key = 'l',
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.ActivatePaneDirection 'Right'
-    },
-    {
-        key = 'z',
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.TogglePaneZoomState
-    },
+	{
+		key = "UpArrow",
+		mods = "SHIFT",
+		action = wezterm.action.ScrollByPage(-0.5),
+	},
+	{
+		key = "DownArrow",
+		mods = "SHIFT",
+		action = wezterm.action.ScrollByPage(0.5),
+	},
 }
 
 -- SSH config

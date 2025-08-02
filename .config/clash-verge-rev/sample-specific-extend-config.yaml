@@ -1,0 +1,35 @@
+prepend-rules:
+  - PROCESS-NAME,rustdesk,DIRECT
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
+  - DOMAIN,anyrouter.top,农夫山泉
+  - RULE-SET,community-direct,DIRECT
+  - RULE-SET,service-direct,DIRECT
+  - RULE-SET,mirror-direct,DIRECT
+  - RULE-SET,transfer-proxy,农夫山泉
+  - RULE-SET,service-proxy,农夫山泉
+  - RULE-SET,mirror-proxy,农夫山泉
+  - RULE-SET,private,DIRECT
+  - RULE-SET,reject,REJECT
+  - RULE-SET,icloud,DIRECT
+  - RULE-SET,apple,DIRECT
+  - RULE-SET,proxy,农夫山泉
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,telegramcidr,农夫山泉
+  - RULE-SET,google,农夫山泉
+  - RULE-SET,applications,DIRECT
+  - RULE-SET,manga,DIRECT
+  - RULE-SET,video,DIRECT
+  - RULE-SET,steam-cn,DIRECT
+  - RULE-SET,steam,DIRECT # YOU KNOW WHEN TO UN-COMMENT THIS
+  # - RULE-SET,steam,农夫山泉
+  # - RULE-SET,spotify,农夫山泉
+  - RULE-SET,cdn,农夫山泉
+  - RULE-SET,applications-proxy,农夫山泉
+  - RULE-SET,applications-reject,REJECT
+  - RULE-SET,adobe,REJECT
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,农夫山泉

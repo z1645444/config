@@ -1,0 +1,13 @@
+[merge]
+	tool = vscode
+	conflictstyle = diff3
+[diff]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[credential]
+	helper = manager
+[core]
+	editor = nvim -u NONE

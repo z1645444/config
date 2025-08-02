@@ -13,13 +13,13 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
         ["<C-j>"] = cmp.mapping(function(fallback) end, { "i", "s" }),
-        ["<Esc>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.close()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
+        -- ["<Esc>"] = cmp.mapping(function(fallback)
+        --   if cmp.visible() then
+        --     cmp.close()
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i", "s" }),
       })
     end,
   },
