@@ -2,9 +2,9 @@
 unmap <Space>
 
 " Copy to system clipboard
-vmap <Space>y "+y
+vmap <Space>Y "+y
 
 " Paste from system clipboard
-vmap <Space>p "+p
-nmap <Space>p "+p
+vmap <Space>P "+p
+nmap <Space>P "+p
 
