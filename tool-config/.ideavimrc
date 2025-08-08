@@ -141,6 +141,9 @@ else
   nmap <leader>cf <Action>(ReformatCode)
 endif
 
+" refactor related
+map <leader>ca <Action>(RefactoringMenu)
+
 " Navigate tabs
 nmap H <Action>(PreviousTab)
 nmap L <Action>(NextTab)
