@@ -191,12 +191,23 @@ map <C-/> <Action>(ActivateTerminalToolWindow)
 map <leader>ff <Action>(SearchEverywhere)
 
 " Find
+map <leader><space> <Action>(FindInPath)
+map <leader>/ <Action>(FindInPath)
 map <leader>sg <Action>(FindInPath)
 map <leader>sG <Action>(FindInPath)
 map <leader>sb <Action>(Find)
 " not work
-map <leader>sS <Action>(Find)<Action>(ToggleFindInSelection)
-map gr <Action>(FindUsages)
+"map <leader>sS <Action>(Find)<Action>(ToggleFindInSelection)
+"map gr <Action>(FindUsages)
+
+" Marks
+map <leader>sm <Action>(ShowBookmarks)
+
+" Focus window
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-j> <C-w>j
+map <C-k> <C-w>K
 
 
 "
@@ -253,16 +264,17 @@ xmap s <Action>(flash.search)
 "xmap , <Action>(flash.repeat_backward)
 
 " Tab Shifter
-map <C-w>H <Action>(TabShiftActions.ShiftLeft)
-map <C-w>L <Action>(TabShiftActions.ShiftRight)
-map <C-w>K <Action>(TabShiftActions.ShiftDown)
-map <C-w>J <Action>(TabShiftActions.ShiftUp)
+map <C-S-h> <Action>(TabShiftActions.ShiftLeft)
+map <C-S-l> <Action>(TabShiftActions.ShiftRight)
+map <C-S-k> <Action>(TabShiftActions.ShiftDown)
+map <C-S-j> <Action>(TabShiftActions.ShiftUp)
 
 " Tab Mover
-map <leader>tH <Action>(com.mnw.tabmover.actions.MoveTabUpAction)
-map <leader>tL <Action>(com.mnw.tabmover.actions.MoveTabDownAction)
-map <leader>tK <Action>(com.mnw.tabmover.actions.MoveTabToFirstAction)
-map <leader>tJ <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
+map [B <Action>(com.mnw.tabmover.actions.MoveTabUpAction)
+map ]B <Action>(com.mnw.tabmover.actions.MoveTabDownAction)
+map [[B <Action>(com.mnw.tabmover.actions.MoveTabToFirstAction)
+map ]]B <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
 
 " Which key
 set which-key
+

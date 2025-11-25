@@ -1,66 +1,137 @@
+tap "atlassian/acli"
 tap "felixkratz/formulae"
 tap "koekeishiya/formulae"
 tap "mrkai77/cask"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
+# Text-based UI library
 brew "ncurses"
+# Library for command-line editing
 brew "readline"
+# Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Apjanke's fork of the classic cowsay project
 brew "cowsay"
+# Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Create thumbnails for your video files
 brew "ffmpegthumbnailer"
+# Fast and simple Node.js version manager
 brew "fnm"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# Improved top (interactive process viewer)
 brew "htop"
+# Configurable static site generator
 brew "hugo"
+# Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Terminal file manager
 brew "lf"
+# Library for database change tracking
 brew "liquibase"
+# Next-gen compiler infrastructure
 brew "llvm"
+# Powerful, lightweight programming language
 brew "lua"
+# Unix documentation system
 brew "man-db"
+# Command-line based markdown presentation tool
 brew "mdp"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Display the PID number for a given process name
 brew "pidof"
+# Package compiler and linker metadata toolkit
 brew "pkgconf"
+# PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Cross-platform library for audio I/O
 brew "portaudio"
+# Python version management
 brew "pyenv"
+# Pyenv plugin to manage virtualenv
 brew "pyenv-virtualenv"
+# Ruby version manager
 brew "rbenv"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Steel Bank Common Lisp system
 brew "sbcl"
+# 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
+# Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Internet file retriever
 brew "wget"
+# Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
+# Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# General-purpose lossless data-compression library
 brew "zlib"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Software to interact with Atlassian Cloud from the terminal
+brew "atlassian/acli/acli"
+# A window border system for macOS
 brew "felixkratz/formulae/borders"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
-cask "battery"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 cask "font-fira-code-nerd-font"
 cask "font-fira-mono-nerd-font"
 cask "font-fira-sans-extra-condensed"
 cask "font-hack-nerd-font"
 cask "font-symbols-only-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
+# Customise mouse behavior
 cask "linearmouse"
+# Replacement for Docker Desktop
 cask "orbstack"
+# Advanced API Debugging Proxy
 cask "reqable"
+# PDF viewer designed for reading research papers and technical books
 cask "sioyek"
+# Rime input method engine
 cask "squirrel-app"
+# System monitor for the menu bar
 cask "stats"
+# Open-source code editor
 cask "visual-studio-code"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
+# Simple menu bar app to download YouTube movies
 cask "youtube-downloader"
+# Mesh VPN client
+cask "zerotier-one"

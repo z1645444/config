@@ -1,0 +1,239 @@
+# ******************************************************************
+# Need: omz, p10k
+# And this command: [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+# ******************************************************************
+
+
+# ***
+# Zsh
+# ***
+
+plugins=(git ssh-agent)
+
+# lead zsh to load custom completions
+FPATH="$HOME/.zsh/completions:$FPATH"
+autoload -Uz compinit && compinit
+
+# p10k custom
+typeset -g POWERLEVEL9K_VI_INSERT_MODE_CURSOR=block
+typeset -g POWERLEVEL9K_VI_COMMAND_MODE_CURSOR=block
+
+
+# *****
+# Proxy
+# *****
+
+# clash verge reg default
+export https_proxy=http://127.0.0.1:7897
+export http_proxy=http://127.0.0.1:7897
+export all_proxy=socks5://127.0.0.1:7897
+export HTTPS_PROXY=$https_proxy
+export HTTP_PROXY=$http_proxy
+export ALL_PROXY=$all_proxy
+
+# unset all
+alias noproxy='unset https_proxy http_proxy all_proxy'
+
+
+# ***
+# Env
+# ***
+
+export EDITOR=nvim
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+
+# *****
+# Alias
+# *****
+
+# sor vim, happy with nvim now :D
+alias vi=nvim
+alias vim=nvim
+
+alias ra=ranger
+
+# normalize git
+alias git='LANG=en_US.UTF-8 git'
+
+# zed editor
+alias zed="open -a /Applications/Zed.app -n"
+
+# alias chrome="open -na Google\ Chrome --args --user-data-dir='$HOME/Library/Application Support/Google/Chrome/user0/' --disable-web-security --disable-site-isolation-trials"
+
+# yazi
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
+
+# **********
+# JavaScript
+# **********
+
+# better yarn, in office :(
+# alias yarn="yarn --network-timeout 9999999"
+
+# npm home
+export NPM_HOME="$HOME/.local/share/fnm/aliases/default/lib/"
+export PATH="$NPM_HOME:$PATH"
+
+# pnpm home
+export PNPM_HOME="$HOME/Library/pnpm/"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+export PATH="$HOME/.pnpm-global/bin:$PATH"
+
+# pnpm completion
+if type compdef &>/dev/null; then
+  _pnpm_completion () {
+    local reply
+    local si=$IFS
+
+    IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" SHELL=zsh pnpm completion-server -- "${words[@]}"))
+    IFS=$si
+
+    if [ "$reply" = "__tabtab_complete_files__" ]; then
+      _files
+    else
+      _describe 'values' reply
+    fi
+  }
+  # When called by the Zsh completion system, this will end with
+  # "loadautofunc" when initially autoloaded and "shfunc" later on, otherwise,
+  # the script was "eval"-ed so use "compdef" to register it with the
+  # completion system
+  if [[ $zsh_eval_context == *func ]]; then
+    _pnpm_completion "$@"
+  else
+    compdef _pnpm_completion pnpm
+  fi
+fi
+
+# fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# bun
+# alias bun='env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY bun'
+
+
+# ******
+# Python
+# ******
+
+# pyenv home
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+# ****
+# Ruby
+# ****
+
+# Added by `rbenv init` on Tue May 20 14:14:32 CST 2025
+eval "$(rbenv init - --no-rehash zsh)"
+
+
+# ********
+# C family
+# ********
+
+# llvm
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+
+# **********
+# Mobile dev
+# **********
+
+# flutter
+export PATH="/Users/z1645444/development/flutter/bin:$PATH"
+
+
+# **********
+# editor/IDE
+# **********
+
+# JetBrains's stuff
+export PATH="/Applications/WebStorm.app/Contents/MacOS:$PATH"
+
+
+# *****
+# macOS
+# *****
+
+# homebrew
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  FPATH=~/.rbenv/completions:"$FPATH"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+alias buu='brew update && brew upgrade'
+
+# export HOMEBREW_NO_INSTALL_FROM_API=1
+
+
+# **************
+# AI tools sutff
+# **************
+
+# claude-code
+export PATH="$HOME/.local/bin/:$PATH"
+[[ -f ~/.claude-keys ]] && source ~/.claude-keys
+
+
+# ******************
+# ? STILL NEED THESE
+# ******************
+
+# ffmpeg convert script
+ffc() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: ffc <format>"
+        return 1
+    fi
+
+    format=$1
+
+    if [ ! -d "converted" ]; then
+        mkdir converted
+    fi
+
+    for file in *.*; do
+        # only files
+        if [ -d "$file" ]; then
+            continue
+        fi
+
+        filename=$(basename "$file")
+        extension="${filename##*.}"
+        name="${filename%.*}"
+
+        output="converted/${name}.${format}"
+
+        ffmpeg -i "$file" "$output"
+    done
+
+    echo "--------------------------------------------------------------"
+    echo "| Conversion completed. All files are saved in 'converted/'. |"
+    echo "--------------------------------------------------------------"
+}
+

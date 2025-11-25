@@ -47,6 +47,21 @@ config.keys = {
 		mods = "SHIFT",
 		action = wezterm.action.ScrollByPage(0.5),
 	},
+	{
+		key = "[",
+		mods = "SUPER|SHIFT|ALT",
+		action = wezterm.action.MoveTabRelative(-1),
+	},
+	{
+		key = "]",
+		mods = "SUPER|SHIFT|ALT",
+		action = wezterm.action.MoveTabRelative(1),
+	},
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = wezterm.action({ SendString = "\x1b\r" }),
+	},
 }
 
 -- SSH config
