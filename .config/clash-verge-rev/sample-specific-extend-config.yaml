@@ -26,6 +26,7 @@ prepend-rules:
   # - RULE-SET,steam,PROXY
   # - RULE-SET,spotify,PROXY
   - RULE-SET,cdn,PROXY
+  - RULE-SET,applications-direct,DIRECT
   - RULE-SET,applications-proxy,PROXY
   - RULE-SET,applications-reject,REJECT
   - RULE-SET,adobe,REJECT
