@@ -204,7 +204,7 @@ rule-providers:
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/z1645444/proxy-rules@clash-rules/applications-direct.yaml"
-    path: ./ruleset/applications-reject.yaml
+    path: ./ruleset/applications-direct.yaml
     interval: 86400
 
   adobe:
