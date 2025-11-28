@@ -62,6 +62,16 @@ config.keys = {
 		mods = "SHIFT",
 		action = wezterm.action({ SendString = "\x1b\r" }),
 	},
+	{
+		key = "H",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.Nop,
+	},
+	{
+		key = "L",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.Nop,
+	},
 }
 
 -- SSH config
