@@ -90,6 +90,8 @@ brew "wget"
 brew "wireguard-tools"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
 # General-purpose lossless data-compression library
 brew "zlib"
 # Shell extension to navigate your filesystem faster
@@ -131,7 +133,5 @@ cask "stats"
 cask "visual-studio-code"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
-# Simple menu bar app to download YouTube movies
-cask "youtube-downloader"
 # Mesh VPN client
 cask "zerotier-one"
