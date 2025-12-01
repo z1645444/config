@@ -32,7 +32,7 @@ export HTTP_PROXY=$http_proxy
 export ALL_PROXY=$all_proxy
 
 # unset all
-alias noproxy='unset https_proxy http_proxy all_proxy'
+alias noproxy='unset https_proxy http_proxy all_proxy HTTPS_PROXY HTTP_PROXY ALL_PROXY'
 
 
 # ***
@@ -159,7 +159,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # **********
 
 # flutter
-export PATH="/Users/z1645444/development/flutter/bin:$PATH"
+export PATH="~/development/flutter/bin:$PATH"
 
 
 # **********
@@ -198,42 +198,86 @@ alias buu='brew update && brew upgrade'
 # claude-code
 export PATH="$HOME/.local/bin/:$PATH"
 [[ -f ~/.claude-keys ]] && source ~/.claude-keys
+[[ -f ~/.gemini-keys ]] && source ~/.gemini-keys
 
 
-# ******************
-# ? STILL NEED THESE
-# ******************
+# ******
+# ffmpeg
+# ******
 
-# ffmpeg convert script
-ffc() {
-    if [ "$#" -ne 1 ]; then
-        echo "Usage: ffc <format>"
-        return 1
-    fi
+# compress
+ffcompress() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: ffcompress <file> [CRF value (default as 23)]"
+    return 1
+  fi
 
-    format=$1
+  local input="$1"
+  local crf="${2:-23}"
 
-    if [ ! -d "converted" ]; then
-        mkdir converted
-    fi
+  if [[ ! -f "$input" ]]; then
+    echo "File not found"
+    return 1
+  fi
 
-    for file in *.*; do
-        # only files
-        if [ -d "$file" ]; then
-            continue
-        fi
+  local filename="${input%.*}"
+  local ext="${input##*.}"
 
-        filename=$(basename "$file")
-        extension="${filename##*.}"
-        name="${filename%.*}"
-
-        output="converted/${name}.${format}"
-
-        ffmpeg -i "$file" "$output"
-    done
-
-    echo "--------------------------------------------------------------"
-    echo "| Conversion completed. All files are saved in 'converted/'. |"
-    echo "--------------------------------------------------------------"
+  echo "Compress params: CRF=${crf}"
+  ffmpeg -i "$input" -vcodec libx264 -crf "$crf" "${filename}_compressed.${ext}"
 }
 
+# convert specific file to specific format
+ffconvert() {
+  if [[ -z "$1" ]] || [[ -z "$2" ]]; then
+    echo "Usage: ffconvert <file> <format>"
+    echo "Example: ffconvert video.mp4 mkv"
+    return 1
+  fi
+
+  local input="$1"
+  local target_ext="$2"
+
+  if [[ ! -f "$input" ]]; then
+    echo "File not found"
+    return 1
+  fi
+
+  local filename="${input%.*}"
+
+  echo "Converting: ${input} → ${filename}.${target_ext}"
+  ffmpeg -i "$input" -c copy "${filename}.${target_ext}"
+}
+
+# convert files in current dir to specific format
+ffcgroup() {
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: ffc <format>"
+    return 1
+  fi
+
+  format=$1
+
+  if [ ! -d "converted" ]; then
+    mkdir converted
+  fi
+
+  for file in *.*; do
+    # only files
+    if [ -d "$file" ]; then
+      continue
+    fi
+
+    filename=$(basename "$file")
+    extension="${filename##*.}"
+    name="${filename%.*}"
+
+    output="converted/${name}.${format}"
+
+    ffmpeg -i "$file" "$output"
+  done
+
+  echo "--------------------------------------------------------------"
+  echo "| Conversion completed. All files are saved in 'converted/'. |"
+  echo "--------------------------------------------------------------"
+}
