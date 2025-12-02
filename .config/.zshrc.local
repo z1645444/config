@@ -65,12 +65,12 @@ alias zed="open -a /Applications/Zed.app -n"
 
 # yazi
 function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        builtin cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 
@@ -108,15 +108,15 @@ if type compdef &>/dev/null; then
       _describe 'values' reply
     fi
   }
-  # When called by the Zsh completion system, this will end with
-  # "loadautofunc" when initially autoloaded and "shfunc" later on, otherwise,
-  # the script was "eval"-ed so use "compdef" to register it with the
-  # completion system
-  if [[ $zsh_eval_context == *func ]]; then
-    _pnpm_completion "$@"
-  else
-    compdef _pnpm_completion pnpm
-  fi
+# When called by the Zsh completion system, this will end with
+# "loadautofunc" when initially autoloaded and "shfunc" later on, otherwise,
+# the script was "eval"-ed so use "compdef" to register it with the
+# completion system
+if [[ $zsh_eval_context == *func ]]; then
+  _pnpm_completion "$@"
+else
+  compdef _pnpm_completion pnpm
+fi
 fi
 
 # fnm
@@ -227,6 +227,37 @@ ffcompress() {
   ffmpeg -i "$input" -vcodec libx264 -crf "$crf" "${filename}_compressed.${ext}"
 }
 
+# compress files in current dir
+ffcompressg() {
+  local crf="${1:-23}"
+
+  echo "Batch compress with CRF=${crf}"
+
+  if [ ! -d "compressed" ]; then
+    mkdir compressed
+  fi
+
+  for file in *.*; do
+    # only files
+    if [ -d "$file" ]; then
+      continue
+    fi
+
+    filename=$(basename "$file")
+    extension="${filename##*.}"
+    name="${filename%.*}"
+
+    output="compressed/${name}_compressed.${extension}"
+
+    echo "Compressing: ${file} → ${output}"
+    ffmpeg -i "$file" -vcodec libx264 -crf "$crf" "$output"
+  done
+
+  echo "-------------------------------------------------------------------"
+  echo "| Compression completed. All files are saved in 'compressed/'.    |"
+  echo "-------------------------------------------------------------------"
+}
+
 # convert specific file to specific format
 ffconvert() {
   if [[ -z "$1" ]] || [[ -z "$2" ]]; then
@@ -250,7 +281,7 @@ ffconvert() {
 }
 
 # convert files in current dir to specific format
-ffcgroup() {
+ffconvertg() {
   if [ "$#" -ne 1 ]; then
     echo "Usage: ffc <format>"
     return 1
