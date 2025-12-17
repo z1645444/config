@@ -23,13 +23,13 @@ typeset -g POWERLEVEL9K_VI_COMMAND_MODE_CURSOR=block
 # Proxy
 # *****
 
-# clash verge reg default
-export https_proxy=http://127.0.0.1:7897
-export http_proxy=http://127.0.0.1:7897
-export all_proxy=socks5://127.0.0.1:7897
-export HTTPS_PROXY=$https_proxy
-export HTTP_PROXY=$http_proxy
-export ALL_PROXY=$all_proxy
+# clash meta proxy -> since disabled system proxy I'll prune them some days :O
+# export https_proxy=http://127.0.0.1:7897
+# export http_proxy=http://127.0.0.1:7897
+# export all_proxy=socks5://127.0.0.1:7897
+# export HTTPS_PROXY=$https_proxy
+# export HTTP_PROXY=$http_proxy
+# export ALL_PROXY=$all_proxy
 
 # unset all
 alias noproxy='unset https_proxy http_proxy all_proxy HTTPS_PROXY HTTP_PROXY ALL_PROXY'
@@ -61,7 +61,7 @@ alias git='LANG=en_US.UTF-8 git'
 # zed editor
 alias zed="open -a /Applications/Zed.app -n"
 
-# alias chrome="open -na Google\ Chrome --args --user-data-dir='$HOME/Library/Application Support/Google/Chrome/user0/' --disable-web-security --disable-site-isolation-trials"
+# alias chrome='open -na Google\ Chrome --args --user-data-dir="'"$HOME"'/Library/Application Support/Google/Chrome/user0/" --disable-web-security --disable-site-isolation-trials'
 
 # yazi
 function y() {
@@ -82,11 +82,11 @@ function y() {
 # alias yarn="yarn --network-timeout 9999999"
 
 # npm home
-export NPM_HOME="$HOME/.local/share/fnm/aliases/default/lib/"
+export NPM_HOME="$HOME/.local/share/fnm/aliases/default/lib"
 export PATH="$NPM_HOME:$PATH"
 
 # pnpm home
-export PNPM_HOME="$HOME/Library/pnpm/"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -123,6 +123,7 @@ fi
 eval "$(fnm env --use-on-cd --shell zsh)"
 
 # bun
+export PATH="$HOME/.bun/bin:$PATH"
 # alias bun='env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY bun'
 
 
@@ -159,7 +160,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # **********
 
 # flutter
-export PATH="~/development/flutter/bin:$PATH"
+export PATH="$HOME/development/flutter/bin:$PATH"
 
 
 # **********
@@ -180,7 +181,7 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  FPATH=~/.rbenv/completions:"$FPATH"
+  FPATH="$HOME/.rbenv/completions:$FPATH"
 
   autoload -Uz compinit
   compinit
@@ -196,9 +197,9 @@ alias buu='brew update && brew upgrade'
 # **************
 
 # claude-code
-export PATH="$HOME/.local/bin/:$PATH"
-[[ -f ~/.claude-keys ]] && source ~/.claude-keys
-[[ -f ~/.gemini-keys ]] && source ~/.gemini-keys
+export PATH="$HOME/.local/bin:$PATH"
+[[ -f "$HOME/.claude-keys" ]] && source "$HOME/.claude-keys"
+[[ -f "$HOME/.gemini-keys" ]] && source "$HOME/.gemini-keys"
 
 
 # ******
@@ -312,3 +313,4 @@ ffconvertg() {
   echo "| Conversion completed. All files are saved in 'converted/'. |"
   echo "--------------------------------------------------------------"
 }
+
