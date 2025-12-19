@@ -44,6 +44,59 @@ export EDITOR=nvim
 # zoxide
 eval "$(zoxide init zsh)"
 
+case "$(uname -s)" in
+  Darwin*)
+    # homebrew
+    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
+    if type brew &>/dev/null
+    then
+      FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+      FPATH="$HOME/.rbenv/completions:$FPATH"
+
+      autoload -Uz compinit
+      compinit
+    fi
+
+    alias buu='brew update && brew upgrade'
+
+    # export HOMEBREW_NO_INSTALL_FROM_API=1
+
+    # macOS compatible pidof completion
+    _pidof() {
+      local curcontext="$curcontext" state line expl ret=1
+      typeset -A opt_args
+
+      local exargs="-h --help -V --version"
+      _arguments -C -s -w \
+        '(- *)'{-h,--help}'[display help information]' \
+        '(- *)'{-V,--version}'[print program version]' \
+        "(-s --single-shot $exargs)"{-s,--single-shot}'[return one PID only]' \
+        "(-c --check-root $exargs)"{-c,--check-root}'[omit processes with different root]' \
+        '-q[quiet mode, only set the exit code]' \
+        '(-w --with-workers)'{-w,--with-workers}'[show kernel workers too]' \
+        "(-x $exargs)"-x'[include shells running named scripts]' \
+        "($exargs)"\*{-o+,--omit-pid=}'[omit processes with PIDs]:pids:_sequence -s , _pids' \
+        '(-S --separator)'{-S+,--separator=}'[specify separator put between PIDs]:separator' \
+        '*:process:->procnames' \
+        && return 0
+
+      case $state in
+        procnames)
+          # macOS compatible: use 'ps ax -o comm=' instead of 'ps -N'
+          local process_names
+          process_names=(${(u)${(f)"$(ps ax -o comm= 2>/dev/null)"}:t})
+          _wanted process-names expl process compadd -a process_names && ret=0
+        ;;
+      esac
+
+      return ret
+    }
+
+    compdef _pidof pidof
+    ;;
+esac
+
 
 # *****
 # Alias
@@ -169,27 +222,6 @@ export PATH="$HOME/development/flutter/bin:$PATH"
 
 # JetBrains's stuff
 export PATH="/Applications/WebStorm.app/Contents/MacOS:$PATH"
-
-
-# *****
-# macOS
-# *****
-
-# homebrew
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  FPATH="$HOME/.rbenv/completions:$FPATH"
-
-  autoload -Uz compinit
-  compinit
-fi
-
-alias buu='brew update && brew upgrade'
-
-# export HOMEBREW_NO_INSTALL_FROM_API=1
 
 
 # **************
