@@ -3,6 +3,76 @@
 # And this command: [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 # ******************************************************************
 
+# ********
+# Function
+# ********
+function load_os_config() {
+  local target_os="$1"
+  local config_handler="$2"
+  local current_os="$(uname -s)"
+
+  if [[ "$current_os" == $target_os* ]]; then
+    if typeset -f "$config_handler" > /dev/null; then
+      "$config_handler"
+    else
+      echo "Error: Configuration handler '$config_handler' not found." >&2
+    fi
+  fi
+}
+
+function _config_darwin_env_prefix() {
+  # macOS compatible pidof completion
+  _pidof() {
+    local curcontext="$curcontext" state line expl ret=1
+    typeset -A opt_args
+
+    local exargs="-h --help -V --version"
+    _arguments -C -s -w \
+      '(- *)'{-h,--help}'[display help information]' \
+      '(- *)'{-V,--version}'[print program version]' \
+      "(-s --single-shot $exargs)"{-s,--single-shot}'[return one PID only]' \
+      "(-c --check-root $exargs)"{-c,--check-root}'[omit processes with different root]' \
+      '-q[quiet mode, only set the exit code]' \
+      '(-w --with-workers)'{-w,--with-workers}'[show kernel workers too]' \
+      "(-x $exargs)"-x'[include shells running named scripts]' \
+      "($exargs)"\*{-o+,--omit-pid=}'[omit processes with PIDs]:pids:_sequence -s , _pids' \
+      '(-S --separator)'{-S+,--separator=}'[specify separator put between PIDs]:separator' \
+      '*:process:->procnames' \
+      && return 0
+
+    case $state in
+      procnames)
+        # macOS compatible: use 'ps ax -o comm=' instead of 'ps -N'
+        local process_names
+        process_names=(${(u)${(f)"$(ps ax -o comm= 2>/dev/null)"}:t})
+        _wanted process-names expl process compadd -a process_names && ret=0
+        ;;
+    esac
+
+    return ret
+  }
+
+compdef _pidof pidof
+}
+
+function _config_darwin_env_suffix() {
+  # To avoid node version conflicts, set fnm env first, then homebrew
+  # homebrew
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
+  if type brew &>/dev/null
+  then
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+    FPATH="$HOME/.rbenv/completions:$FPATH"
+
+    autoload -Uz compinit
+    compinit
+  fi
+
+  alias buu='brew update && brew upgrade'
+
+  # export HOMEBREW_NO_INSTALL_FROM_API=1
+}
 
 # ***
 # Zsh
@@ -17,7 +87,6 @@ autoload -Uz compinit && compinit
 # p10k custom
 typeset -g POWERLEVEL9K_VI_INSERT_MODE_CURSOR=block
 typeset -g POWERLEVEL9K_VI_COMMAND_MODE_CURSOR=block
-
 
 # *****
 # Proxy
@@ -34,7 +103,6 @@ typeset -g POWERLEVEL9K_VI_COMMAND_MODE_CURSOR=block
 # unset all
 alias noproxy='unset https_proxy http_proxy all_proxy HTTPS_PROXY HTTP_PROXY ALL_PROXY'
 
-
 # ***
 # Env
 # ***
@@ -44,59 +112,8 @@ export EDITOR=nvim
 # zoxide
 eval "$(zoxide init zsh)"
 
-case "$(uname -s)" in
-  Darwin*)
-    # homebrew
-    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-
-    if type brew &>/dev/null
-    then
-      FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-      FPATH="$HOME/.rbenv/completions:$FPATH"
-
-      autoload -Uz compinit
-      compinit
-    fi
-
-    alias buu='brew update && brew upgrade'
-
-    # export HOMEBREW_NO_INSTALL_FROM_API=1
-
-    # macOS compatible pidof completion
-    _pidof() {
-      local curcontext="$curcontext" state line expl ret=1
-      typeset -A opt_args
-
-      local exargs="-h --help -V --version"
-      _arguments -C -s -w \
-        '(- *)'{-h,--help}'[display help information]' \
-        '(- *)'{-V,--version}'[print program version]' \
-        "(-s --single-shot $exargs)"{-s,--single-shot}'[return one PID only]' \
-        "(-c --check-root $exargs)"{-c,--check-root}'[omit processes with different root]' \
-        '-q[quiet mode, only set the exit code]' \
-        '(-w --with-workers)'{-w,--with-workers}'[show kernel workers too]' \
-        "(-x $exargs)"-x'[include shells running named scripts]' \
-        "($exargs)"\*{-o+,--omit-pid=}'[omit processes with PIDs]:pids:_sequence -s , _pids' \
-        '(-S --separator)'{-S+,--separator=}'[specify separator put between PIDs]:separator' \
-        '*:process:->procnames' \
-        && return 0
-
-      case $state in
-        procnames)
-          # macOS compatible: use 'ps ax -o comm=' instead of 'ps -N'
-          local process_names
-          process_names=(${(u)${(f)"$(ps ax -o comm= 2>/dev/null)"}:t})
-          _wanted process-names expl process compadd -a process_names && ret=0
-        ;;
-      esac
-
-      return ret
-    }
-
-    compdef _pidof pidof
-    ;;
-esac
-
+# os
+load_os_config "Darwin" _config_darwin_env_prefix
 
 # *****
 # Alias
@@ -125,7 +142,6 @@ function y() {
   fi
   rm -f -- "$tmp"
 }
-
 
 # **********
 # JavaScript
@@ -179,7 +195,6 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 export PATH="$HOME/.bun/bin:$PATH"
 # alias bun='env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY bun'
 
-
 # ******
 # Python
 # ******
@@ -189,14 +204,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-
 # ****
 # Ruby
 # ****
 
 # Added by `rbenv init` on Tue May 20 14:14:32 CST 2025
 eval "$(rbenv init - --no-rehash zsh)"
-
 
 # ********
 # C family
@@ -207,7 +220,6 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-
 # **********
 # Mobile dev
 # **********
@@ -215,14 +227,12 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # flutter
 export PATH="$HOME/development/flutter/bin:$PATH"
 
-
 # **********
 # editor/IDE
 # **********
 
 # JetBrains's stuff
 export PATH="/Applications/WebStorm.app/Contents/MacOS:$PATH"
-
 
 # **************
 # AI tools sutff
@@ -232,7 +242,6 @@ export PATH="/Applications/WebStorm.app/Contents/MacOS:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 [[ -f "$HOME/.claude-keys" ]] && source "$HOME/.claude-keys"
 [[ -f "$HOME/.gemini-keys" ]] && source "$HOME/.gemini-keys"
-
 
 # ******
 # ffmpeg
@@ -345,4 +354,12 @@ ffconvertg() {
   echo "| Conversion completed. All files are saved in 'converted/'. |"
   echo "--------------------------------------------------------------"
 }
+
+# *******
+# Env lag
+# *******
+# For reasons, have to load them last
+
+# os
+load_os_config "Darwin" _config_darwin_env_suffix
 
