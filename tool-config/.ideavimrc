@@ -152,7 +152,7 @@ nmap L <Action>(NextTab)
 nmap <leader>bd <Action>(CloseContent)
 
 " Bind Esc to clear hlsearch
-nmap <silent> <Esc> :nohlsearch<CR>
+"nmap <silent> <Esc> :nohlsearch<CR>
 
 " Collapse to specific level
 nmap <leader>z1 <Action>(CollapseAllRegions) <Action>(ExpandAllToLevel1)
@@ -209,6 +209,8 @@ map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>K
 
+" Show structure
+map <leader>cs <Action>(ActivateStructureToolWindow)
 
 "
 " Plug
@@ -277,4 +279,3 @@ map ]]B <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
 
 " Which key
 set which-key
-
