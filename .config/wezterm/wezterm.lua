@@ -14,7 +14,7 @@ end
 config.color_scheme = "Gruvbox dark, hard (base16)"
 
 -- font
-config.font_size = 20.0
+config.font_size = 18.0
 config.font = wezterm.font_with_fallback({
 	-- "Comic Code",
 	"FiraCode Nerd Font",
