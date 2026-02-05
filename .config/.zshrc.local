@@ -238,10 +238,12 @@ export PATH="/Applications/WebStorm.app/Contents/MacOS:$PATH"
 # AI tools sutff
 # **************
 
-# claude-code
+# keys
 export PATH="$HOME/.local/bin:$PATH"
 [[ -f "$HOME/.claude-keys" ]] && source "$HOME/.claude-keys"
 [[ -f "$HOME/.gemini-keys" ]] && source "$HOME/.gemini-keys"
+
+alias gemini='fnm use default && gemini'
 
 # ******
 # ffmpeg
