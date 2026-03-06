@@ -1,3 +1,4 @@
+tap "charmbracelet/tap"
 tap "felixkratz/formulae"
 tap "koekeishiya/formulae"
 tap "mrkai77/cask"
@@ -19,7 +20,7 @@ brew "fastfetch"
 brew "fd"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
-# Play, record, convert, and stream audio and video
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Create thumbnails for your video files
 brew "ffmpegthumbnailer"
@@ -39,7 +40,7 @@ brew "go"
 brew "graphviz"
 # Configurable static site generator
 brew "hugo"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
@@ -95,14 +96,14 @@ brew "yt-dlp"
 brew "zlib"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# A powerful terminal-based AI assistant for developers, providing intelligent coding assistance directly in your terminal.
+brew "charmbracelet/tap/crush"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "aerospace"
-# GPU-accelerated terminal emulator
-cask "alacritty"
+cask "nikitabobko/tap/aerospace"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # OpenAI's coding agent that runs in your terminal
@@ -135,6 +136,6 @@ cask "tailscale-app"
 # Open-source code editor
 cask "visual-studio-code"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
+cask "wezterm@nightly"
 # Mesh VPN client
 cask "zerotier-one"

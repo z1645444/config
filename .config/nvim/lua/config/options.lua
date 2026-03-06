@@ -45,3 +45,4 @@ vim.opt.incsearch = true
 -- CLIPBOARD
 --
 vim.opt.clipboard = ""
+
