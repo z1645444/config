@@ -106,6 +106,17 @@ set fileformat=unix
 set conceallevel=0
 set concealcursor=n
 
+if !empty($SSH_TTY)
+  function! Osc52Copy(str)
+    let b64 = system('base64 | tr -d "\n"', a:str)
+    let osc52 = "\e]52;c;" . b64 . "\x07"
+    call arcade#send_escape(osc52)
+  endfunction
+
+  vnoremap <leader>y y:call Osc52Copy(@")<CR>
+  nnoremap <leader>y y:call Osc52Copy(@")<CR>
+endif
+
 "
 " Key mapping
 "
@@ -141,45 +152,45 @@ nnoremap <leader>rl :source %<CR>
 " Quickly Run
 map <F5> :call CompileAndRun()<CR>
 if g:os == 'windows'
-    func! CompileAndRun()
-        exec "w"
-        if &filetype == 'c'
-            exec "!gcc % -o %<"
-        elseif &filetype == 'cpp'
-            exec "!g++ % -o %<"
-        elseif &filetype == 'java'
-            exec "!javac %"
-        elseif &filetype == 'python'
-            exec "!python %"
-        elseif &filetype == 'go'
-            exec "!go run %"
-        endif
-    endfunc
+  func! CompileAndRun()
+    exec "w"
+    if &filetype == 'c'
+      exec "!gcc % -o %<"
+    elseif &filetype == 'cpp'
+      exec "!g++ % -o %<"
+    elseif &filetype == 'java'
+      exec "!javac %"
+    elseif &filetype == 'python'
+      exec "!python %"
+    elseif &filetype == 'go'
+      exec "!go run %"
+    endif
+  endfunc
 elseif g:os == 'unix' || g:os == 'mac'
-    func! CompileAndRun()
-        exec "w"
-        if &filetype == 'c'
-            exec "!g++ % -o %<"
-            exec "!time ./%<"
-        elseif &filetype == 'cpp'
-            exec "!g++ % -o %<"
-            exec "!time ./%<"
-        elseif &filetype == 'java'
-            exec "!javac %"
-            exec "!time java %<"
-        elseif &filetype == 'sh'
-            exec ":!time bash %"
-        elseif &filetype == 'python'
-            exec "!time python %"
-        elseif &filetype == 'html'
-            exec "!firefox % &"
-        elseif &filetype == 'go'
-            exec "!time go run %"
-        elseif &filetype == 'mkd'
-            exec "!~/.vim/markdown.pl % > %.html &"
-            exec "!firefox %.html &"
-        endif
-    endfunc
+  func! CompileAndRun()
+    exec "w"
+    if &filetype == 'c'
+      exec "!g++ % -o %<"
+      exec "!time ./%<"
+    elseif &filetype == 'cpp'
+      exec "!g++ % -o %<"
+      exec "!time ./%<"
+    elseif &filetype == 'java'
+      exec "!javac %"
+      exec "!time java %<"
+    elseif &filetype == 'sh'
+      exec ":!time bash %"
+    elseif &filetype == 'python'
+      exec "!time python %"
+    elseif &filetype == 'html'
+      exec "!firefox % &"
+    elseif &filetype == 'go'
+      exec "!time go run %"
+    elseif &filetype == 'mkd'
+      exec "!~/.vim/markdown.pl % > %.html &"
+      exec "!firefox %.html &"
+    endif
+  endfunc
 endif
 
 " Scroll
@@ -190,9 +201,9 @@ vnoremap <leader>k 20k
 
 " Edit vimrc file
 if g:os == 'windows'
-    nnoremap <expr> <leader>rc ':e '.stdpath('config').'\init.vim<CR>'
+  nnoremap <expr> <leader>rc ':e '.stdpath('config').'\init.vim<CR>'
 elseif g:os == 'unix' || g:os == 'mac'
-    nnoremap <expr> <leader>rc ':e '.stdpath('config').'/init.vim<CR>'
+  nnoremap <expr> <leader>rc ':e '.stdpath('config').'/init.vim<CR>'
 endif
 
 " Nerdtree
@@ -281,7 +292,7 @@ inoremap <silent><expr> <c-_> coc#refresh()
 " To make <CR> to confirm selection of selected complete item or notify coc.nvim
 " to format on enter, use:
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -298,11 +309,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
-    if CocAction('hasProvider', 'hover')
-        call CocActionAsync('doHover')
-    else
-        call feedkeys('K', 'in')
-    endif
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -328,24 +339,24 @@ let g:loaded_perl_provider = 0
 
 " coc.nvim plugin list
 let g:coc_global_extensions = [
-            \ 'coc-actions',
-            \ 'coc-calc',
-            \ 'coc-clangd',
-            \ 'coc-css',
-            \ 'coc-explorer',
-            \ 'coc-highlight',
-            \ 'coc-html',
-            \ 'coc-jedi',
-            \ 'coc-json',
-            \ 'coc-pairs',
-            \ 'coc-pyright',
-            \ 'coc-rust-analyzer',
-            \ 'coc-sh',
-            \ 'coc-toml',
-            \ 'coc-tsserver',
-            \ 'coc-vimlsp',
-            \ 'coc-yaml',
-            \ ]
+      \ 'coc-actions',
+      \ 'coc-calc',
+      \ 'coc-clangd',
+      \ 'coc-css',
+      \ 'coc-explorer',
+      \ 'coc-highlight',
+      \ 'coc-html',
+      \ 'coc-jedi',
+      \ 'coc-json',
+      \ 'coc-pairs',
+      \ 'coc-pyright',
+      \ 'coc-rust-analyzer',
+      \ 'coc-sh',
+      \ 'coc-toml',
+      \ 'coc-tsserver',
+      \ 'coc-vimlsp',
+      \ 'coc-yaml',
+      \ ]
 
 " coc-pairs disable for specified filetypes
 autocmd FileType markdown let b:coc_pairs_disabled = ['`']
@@ -368,11 +379,11 @@ nmap <leader>f <Plug>(coc-format-selected)
 " nvim provider
 "
 if g:os == 'windows'
-    let g:python_host_prog = 'C:\Program Files\Python39\python.exe'
-    let g:python3_host_prog = 'C:\Program Files\Python39\python.exe'
+  let g:python_host_prog = 'C:\Program Files\Python39\python.exe'
+  let g:python3_host_prog = 'C:\Program Files\Python39\python.exe'
 elseif g:os == 'unix' || g:os == 'mac'
-    let g:python_host_prog = '~/.pyenv/shims/python'
-    let g:python3_host_prog = '~/.pyenv/shims/python3'
+  let g:python_host_prog = '~/.pyenv/shims/python'
+  let g:python3_host_prog = '~/.pyenv/shims/python3'
 endif
 
 
@@ -385,51 +396,51 @@ let g:codeium_enabled = v:false
 
 " Disable for particular filetypes
 " let g:codeium_filetypes = {
-"         \ "bash": v:false,
-"         \ "javascript": v:false,
-"         \ "typescript": v:false,
-"         \ }
+  "         \ "bash": v:false,
+  "         \ "javascript": v:false,
+  "         \ "typescript": v:false,
+  "         \ }
 
 
-"
-" VimTex
-"
+  "
+  " VimTex
+  "
 
-let g:tex_flavor='latex'
-" let g:tex_conceal='abdmg'
-let maplocalleader = ','
+  let g:tex_flavor='latex'
+  " let g:tex_conceal='abdmg'
+  let maplocalleader = ','
 
-" reader
-if g:os == 'unix'
+  " reader
+  if g:os == 'unix'
     " let g:vimtex_view_method = 'xdg-open'
     " let g:vimtex_view_method = 'zathura'
-elseif g:os == 'windows'
+  elseif g:os == 'windows'
     let g:vimtex_view_general_viewer = 'SumatraPDF'
-endif
+  endif
 
-" compiler
-" let g:vimtex_compiler_method = 'latexmk'
+  " compiler
+  " let g:vimtex_compiler_method = 'latexmk'
 
-" conceallevel
-autocmd BufEnter *.tex set conceallevel=0
-autocmd BufEnter *.tex set concealcursor=n
+  " conceallevel
+  autocmd BufEnter *.tex set conceallevel=0
+  autocmd BufEnter *.tex set concealcursor=n
 
 
-"
-" vim-markdown
-"
+  "
+  " vim-markdown
+  "
 
-" disable standard conceal
-autocmd BufEnter *.md set conceallevel=0
-let g:vim_markdown_conceal=0
-let g:vim_markdown_conceal_code_blocks = 0
-let g:tex_conceal = ""
-let g:vim_markdown_math = 1
+  " disable standard conceal
+  autocmd BufEnter *.md set conceallevel=0
+  let g:vim_markdown_conceal=0
+  let g:vim_markdown_conceal_code_blocks = 0
+  let g:tex_conceal = ""
+  let g:vim_markdown_math = 1
 
-" list indent
-let g:vim_markdown_new_list_item_indent = 2
+  " list indent
+  let g:vim_markdown_new_list_item_indent = 2
 
-" automatically insert bulletpoints
-let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_auto_insert_bullets = 0
+  " automatically insert bulletpoints
+  let g:vim_markdown_new_list_item_indent = 0
+  let g:vim_markdown_auto_insert_bullets = 0
 
