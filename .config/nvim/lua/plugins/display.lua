@@ -20,4 +20,17 @@ return {
       colorscheme = "gruvbox",
     },
   },
+
+  -- stfu pyright
+  {
+    "folke/noice.nvim",
+    opts = {
+      lsp = {
+        progress = {
+          enabled = false,
+        },
+      },
+    },
+  },
 }
+
