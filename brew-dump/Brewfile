@@ -1,141 +1,160 @@
-tap "charmbracelet/tap"
-tap "felixkratz/formulae"
-tap "koekeishiya/formulae"
-tap "mrkai77/cask"
-tap "nikitabobko/tap"
-tap "oven-sh/bun"
+tap 'charmbracelet/tap'
+tap 'farion1231/ccswitch'
+tap 'felixkratz/formulae'
+tap 'koekeishiya/formulae'
+tap 'mrkai77/cask'
+tap 'nikitabobko/tap'
+tap 'oven-sh/bun'
+tap 'sdkman/tap'
 # Text-based UI library
-brew "ncurses"
+brew 'ncurses'
 # Library for command-line editing
-brew "readline"
+brew 'readline'
 # Bourne-Again SHell, a UNIX command interpreter
-brew "bash"
+brew 'bash'
 # Resource monitor. C++ version and continuation of bashtop and bpytop
-brew "btop"
+brew 'btop'
 # Apjanke's fork of the classic cowsay project
-brew "cowsay"
+brew 'cowsay'
 # Like neofetch, but much faster because written mostly in C
-brew "fastfetch"
+brew 'fastfetch'
 # Simple, fast and user-friendly alternative to find
-brew "fd"
+brew 'fd'
 # Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
+brew 'openssl@3'
 # Play, record, convert, and stream select audio and video codecs
-brew "ffmpeg"
+brew 'ffmpeg'
 # Create thumbnails for your video files
-brew "ffmpegthumbnailer"
+brew 'ffmpegthumbnailer'
 # Fast and simple Node.js version manager
-brew "fnm"
+brew 'fnm'
 # Command-line fuzzy finder written in Go
-brew "fzf"
+brew 'fzf'
 # GitHub command-line tool
-brew "gh"
+brew 'gh'
 # Distributed revision control system
-brew "git"
+brew 'git'
 # Quickly rewrite git repository history
-brew "git-filter-repo"
+brew 'git-filter-repo'
 # Open source programming language to build simple/reliable/efficient software
-brew "go"
+brew 'go'
 # Graph visualization software from AT&T and Bell Labs
-brew "graphviz"
+brew 'graphviz'
 # Configurable static site generator
-brew "hugo"
+brew 'hugo'
 # Tools and libraries to manipulate images in select formats
-brew "imagemagick"
+brew 'imagemagick'
 # Lightweight and flexible command-line JSON processor
-brew "jq"
+brew 'jq'
 # Terminal file manager
-brew "lf"
+brew 'lf'
 # Library for database change tracking
-brew "liquibase"
+brew 'liquibase'
 # Next-gen compiler infrastructure
-brew "llvm"
+brew 'llvm'
 # Powerful, lightweight programming language
-brew "lua"
+brew 'lua'
 # Unix documentation system
-brew "man-db"
+brew 'man-db'
+# Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images
+brew 'marp-cli'
 # Command-line based markdown presentation tool
-brew "mdp"
+brew 'mdp'
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+brew 'neovim'
 # Display the PID number for a given process name
-brew "pidof"
+brew 'pidof'
 # Package compiler and linker metadata toolkit
-brew "pkgconf"
+brew 'pkgconf'
 # PDF rendering library (based on the xpdf-3.0 code base)
-brew "poppler"
+brew 'poppler'
 # Cross-platform library for audio I/O
-brew "portaudio"
+brew 'portaudio'
 # Python version management
-brew "pyenv"
+brew 'pyenv'
 # Pyenv plugin to manage virtualenv
-brew "pyenv-virtualenv"
+brew 'pyenv-virtualenv'
 # Ruby version manager
-brew "rbenv"
+brew 'rbenv'
 # Search tool like grep and The Silver Searcher
-brew "ripgrep"
+brew 'ripgrep'
 # Steel Bank Common Lisp system
-brew "sbcl"
+brew 'sbcl'
 # 7-Zip is a file archiver with a high compression ratio
-brew "sevenzip"
+brew 'sevenzip'
 # Terminal multiplexer
-brew "tmux"
+brew 'tmux'
 # Display directories as trees (with optional color/HTML output)
-brew "tree"
+brew 'tree'
 # Extremely fast Python package installer and resolver, written in Rust
-brew "uv"
+brew 'uv'
 # Internet file retriever
-brew "wget"
+brew 'wget'
 # Tools for the WireGuard secure network tunnel
-brew "wireguard-tools"
+brew 'wireguard-tools'
 # Blazing fast terminal file manager written in Rust, based on async I/O
-brew "yazi"
+brew 'yazi'
 # Feature-rich command-line audio/video downloader
-brew "yt-dlp"
+brew 'yt-dlp'
 # General-purpose lossless data-compression library
-brew "zlib"
+brew 'zlib'
 # Shell extension to navigate your filesystem faster
-brew "zoxide"
+brew 'zoxide'
 # A powerful terminal-based AI assistant for developers, providing intelligent coding assistance directly in your terminal.
-brew "charmbracelet/tap/crush"
+brew 'charmbracelet/tap/crush'
 # A window border system for macOS
-brew "felixkratz/formulae/borders"
+brew 'felixkratz/formulae/borders'
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun/bun"
+brew 'oven-sh/bun/bun'
+# SDKMAN! the Software Development Kit Manager
+brew 'sdkman/tap/sdkman-cli'
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
+cask 'nikitabobko/tap/aerospace'
+# Configuration manager for Claude Code, Codex, Gemini CLI, OpenCode and OpenClaw
+cask 'farion1231/ccswitch/cc-switch'
 # Terminal-based AI coding assistant
-cask "claude-code"
+cask 'claude-code'
 # OpenAI's coding agent that runs in your terminal
-cask "codex"
-cask "font-fira-code-nerd-font"
-cask "font-fira-mono-nerd-font"
-cask "font-fira-sans-extra-condensed"
-cask "font-hack-nerd-font"
-cask "font-symbols-only-nerd-font"
+cask 'codex'
+cask 'font-fira-code-nerd-font'
+cask 'font-fira-mono-nerd-font'
+cask 'font-fira-sans-extra-condensed'
+cask 'font-hack-nerd-font'
+cask 'font-symbols-only-nerd-font'
 # Cross-platform Git credential storage for multiple hosting providers
-cask "git-credential-manager"
+cask 'git-credential-manager'
+# Free and open-source media player
+cask 'iina'
+# Open-source screen recorder built with web technology
+cask 'kap'
 # Open-source keystroke visualiser
-cask "keycastr"
+cask 'keycastr'
 # Customise mouse behavior
-cask "linearmouse"
+cask 'linearmouse'
+# Open-source cross-platform alternative to AirDrop
+cask 'localsend'
 # Replacement for Docker Desktop
-cask "orbstack"
+cask 'orbstack'
 # Image viewer
-cask "qview"
+cask 'qview'
 # Advanced API Debugging Proxy
-cask "reqable"
+cask 'reqable'
 # PDF viewer designed for reading research papers and technical books
-cask "sioyek"
+cask 'sioyek'
+# PDF reader and note-taking application
+cask 'skim'
 # Rime input method engine
-cask "squirrel-app"
+cask 'squirrel-app'
 # System monitor for the menu bar
-cask "stats"
+cask 'stats'
 # Mesh VPN based on WireGuard
-cask "tailscale-app"
+cask 'tailscale-app'
+# Customizable email client
+cask 'thunderbird'
 # Open-source code editor
-cask "visual-studio-code"
+cask 'visual-studio-code'
 # GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm@nightly"
+cask 'wezterm@nightly'
 # Mesh VPN client
-cask "zerotier-one"
+cask 'zerotier-one'
+
