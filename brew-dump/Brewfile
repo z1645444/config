@@ -1,4 +1,4 @@
-tap 'charmbracelet/tap'
+tap 'anomalyco/tap'
 tap 'farion1231/ccswitch'
 tap 'felixkratz/formulae'
 tap 'koekeishiya/formulae'
@@ -100,8 +100,8 @@ brew 'yt-dlp'
 brew 'zlib'
 # Shell extension to navigate your filesystem faster
 brew 'zoxide'
-# A powerful terminal-based AI assistant for developers, providing intelligent coding assistance directly in your terminal.
-brew 'charmbracelet/tap/crush'
+# The AI coding agent built for the terminal.
+brew 'anomalyco/tap/opencode'
 # A window border system for macOS
 brew 'felixkratz/formulae/borders'
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
