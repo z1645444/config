@@ -116,6 +116,8 @@ cask 'farion1231/ccswitch/cc-switch'
 cask 'claude-code'
 # OpenAI's coding agent that runs in your terminal
 cask 'codex'
+# Server and cloud storage browser
+cask 'cyberduck'
 cask 'font-fira-code-nerd-font'
 cask 'font-fira-mono-nerd-font'
 cask 'font-fira-sans-extra-condensed'
@@ -133,6 +135,8 @@ cask 'keycastr'
 cask 'linearmouse'
 # Open-source cross-platform alternative to AirDrop
 cask 'localsend'
+# Open-source software for live streaming and screen recording
+cask 'obs'
 # Replacement for Docker Desktop
 cask 'orbstack'
 # Image viewer
