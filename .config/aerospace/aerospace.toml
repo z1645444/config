@@ -25,16 +25,16 @@ default-root-container-orientation = 'auto'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [workspace-to-monitor-force-assignment]
-1 = 'main'
-2 = 'main'
-3 = 'main'
-4 = 'main'
-5 = 'main'
-6 = 'main'
-7 = 'secondary'
-8 = 'secondary'
-9 = 'secondary'
-10 = 'secondary'
+1 = 'secondary'
+2 = 'secondary'
+3 = 'secondary'
+4 = 'secondary'
+5 = 'secondary'
+6 = 'secondary'
+7 = ['main', 'secondary']
+8 = ['main', 'secondary']
+9 = ['main', 'secondary']
+10 = ['main', 'secondary']
 
 # See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
 [exec] # Again, you don't need to copy all config sections to your config.
@@ -75,10 +75,19 @@ run = "move-node-to-workspace 9"
 [[on-window-detected]]
 if.app-id = "notion.id"
 run = "move-node-to-workspace 9"
+[[net.cozic.joplin-desktop]]
+if.app-id = "notion.id"
+run = "move-node-to-workspace 9"
+[[on-window-detected]]
+if.app-id = "com.microsoft.edgemac"
+run = "move-node-to-workspace 10"
 
-# Ignore
+# Leave them floating
 [[on-window-detected]]
 if.app-id = 'com.oray.pgy.visitorent'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.colliderli.iina'
 run = 'layout floating'
 
 ##
@@ -193,3 +202,4 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
