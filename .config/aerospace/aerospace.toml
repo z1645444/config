@@ -75,8 +75,8 @@ run = "move-node-to-workspace 9"
 [[on-window-detected]]
 if.app-id = "notion.id"
 run = "move-node-to-workspace 9"
-[[net.cozic.joplin-desktop]]
-if.app-id = "notion.id"
+[[on-window-detected]]
+if.app-id = "net.cozic.joplin-desktop"
 run = "move-node-to-workspace 9"
 [[on-window-detected]]
 if.app-id = "com.microsoft.edgemac"
