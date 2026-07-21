@@ -267,6 +267,7 @@ export PATH="$HOME/.local/bin:$PATH"
 [[ -f "$HOME/.gemini-keys" ]] && source "$HOME/.gemini-keys"
 
 alias gemini='fnm use default && gemini'
+alias claude-ap='claude --dangerously-skip-permissions'
 
 # ******
 # ffmpeg
