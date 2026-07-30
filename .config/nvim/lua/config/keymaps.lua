@@ -15,3 +15,24 @@ vim.keymap.del("i", "<A-j>")
 vim.keymap.del("i", "<A-k>")
 vim.keymap.del("v", "<A-j>")
 vim.keymap.del("v", "<A-k>")
+
+-- copy filename
+vim.keymap.set("n", "<leader>fyn", function()
+  local filename = vim.fn.expand("%:t")
+  vim.fn.setreg("+", filename)
+  vim.notify("Copied filename: " .. filename)
+end, { desc = "Copy Filename" })
+
+-- copy relative path
+vim.keymap.set("n", "<leader>fyr", function()
+  local path = vim.fn.expand("%")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied relative path: " .. path)
+end, { desc = "Copy Relative Path" })
+
+-- absolute path
+vim.keymap.set("n", "<leader>fya", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied absolute path: " .. path)
+end, { desc = "Copy Absolute Path" })

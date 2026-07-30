@@ -166,9 +166,9 @@ nmap <leader>fp <Action>(ManageRecentProjects)
 nmap <leader>qq <Action>(CloseProject)
 
 " Copy-related
-nmap <leader>ya <Action>(CopyAbsolutePath)
-nmap <leader>yr <Action>(CopyPathFromRepositoryRootProvider)
-nmap <leader>yf <Action>(CopyFileName)
+nmap <leader>fya <Action>(CopyAbsolutePath)
+nmap <leader>fyr <Action>(CopyPathFromRepositoryRootProvider)
+nmap <leader>fyf <Action>(CopyFileName)
 
 " Git related
 " open or copy remote url is not supported yet
@@ -279,3 +279,4 @@ map ]]B <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
 
 " Which key
 set which-key
+
