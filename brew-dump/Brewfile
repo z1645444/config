@@ -1,9 +1,10 @@
 tap 'anomalyco/tap'
+tap 'asmvik/formulae', 'https://github.com/asmvik/homebrew-formulae.git'
 tap 'farion1231/ccswitch'
 tap 'felixkratz/formulae'
-tap 'koekeishiya/formulae'
 tap 'mrkai77/cask'
 tap 'nikitabobko/tap'
+tap 'oomol-lab/tap', trusted: { casks: ['lockime'] }
 tap 'oven-sh/bun'
 tap 'sdkman/tap'
 # Text-based UI library
@@ -38,6 +39,8 @@ brew 'git'
 brew 'git-filter-repo'
 # Open source programming language to build simple/reliable/efficient software
 brew 'go'
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew 'gradle'
 # Graph visualization software from AT&T and Bell Labs
 brew 'graphviz'
 # Configurable static site generator
@@ -62,6 +65,10 @@ brew 'marp-cli'
 brew 'mdp'
 # Ambitious Vim-fork focused on extensibility and agility
 brew 'neovim'
+# Create, run, and share large language models (LLMs)
+brew 'ollama', restart_service: :changed
+# AI agent toolkit
+brew 'pi-coding-agent'
 # Display the PID number for a given process name
 brew 'pidof'
 # Package compiler and linker metadata toolkit
@@ -101,23 +108,17 @@ brew 'zlib'
 # Shell extension to navigate your filesystem faster
 brew 'zoxide'
 # The AI coding agent built for the terminal.
-brew 'anomalyco/tap/opencode'
-# A window border system for macOS
-brew 'felixkratz/formulae/borders'
-# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew 'oven-sh/bun/bun'
-# SDKMAN! the Software Development Kit Manager
-brew 'sdkman/tap/sdkman-cli'
-# AeroSpace is an i3-like tiling window manager for macOS
-cask 'nikitabobko/tap/aerospace'
-# Configuration manager for Claude Code, Codex, Gemini CLI, OpenCode and OpenClaw
-cask 'farion1231/ccswitch/cc-switch'
+brew 'anomalyco/tap/opencode', trusted: true
+cask 'aerospace'
+cask 'cc-switch'
 # Terminal-based AI coding assistant
 cask 'claude-code'
 # OpenAI's coding agent that runs in your terminal
 cask 'codex'
 # Server and cloud storage browser
 cask 'cyberduck'
+# Photography workflow application and raw developer
+cask 'darktable'
 cask 'font-fira-code-nerd-font'
 cask 'font-fira-mono-nerd-font'
 cask 'font-fira-sans-extra-condensed'
@@ -127,6 +128,8 @@ cask 'font-symbols-only-nerd-font'
 cask 'git-credential-manager'
 # Free and open-source media player
 cask 'iina'
+# Note taking and to-do application with synchronisation capabilities
+cask 'joplin'
 # Open-source screen recorder built with web technology
 cask 'kap'
 # Open-source keystroke visualiser
@@ -143,6 +146,8 @@ cask 'orbstack'
 cask 'qview'
 # Advanced API Debugging Proxy
 cask 'reqable'
+# Open source virtual/remote desktop application
+cask 'rustdesk'
 # PDF viewer designed for reading research papers and technical books
 cask 'sioyek'
 # PDF reader and note-taking application
@@ -155,8 +160,6 @@ cask 'stats'
 cask 'tailscale-app'
 # Customizable email client
 cask 'thunderbird'
-# Open-source code editor
-cask 'visual-studio-code'
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask 'wezterm@nightly'
 # Mesh VPN client
