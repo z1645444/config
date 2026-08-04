@@ -18,4 +18,5 @@ alias gba='git branch --all'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gsb='git status --short --branch'
-
+alias grv='git remote'
+alias grv='git remote --verbose'
