@@ -3,10 +3,19 @@
 -- Add any additional keymaps here
 local map = LazyVim.safe_keymap_set
 
+-- system clipboard copy/paste
 map("n", "<leader>Y", '"+y', { noremap = true, silent = true })
 map("v", "<leader>Y", '"+y', { noremap = true, silent = true })
 map("n", "<leader>P", '"+p', { noremap = true, silent = true })
 map("v", "<leader>P", '"+p', { noremap = true, silent = true })
+
+-- move tab to start/end
+map("n", "[[B", function()
+  require("bufferline").move_to(1)
+end, { desc = "Move Buffer to First" })
+map("n", "]]B", function()
+  require("bufferline").move_to(-1)
+end, { desc = "Move Buffer to Last" })
 
 -- disabled move line
 vim.keymap.del("n", "<A-j>")
