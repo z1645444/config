@@ -24,54 +24,22 @@
 "
 " Basic settings
 "
-filetype on
-filetype plugin indent on
-
 set number
 set relativenumber
 set cursorline
 
-syntax enable
-syntax on
-
-" Tab settings
-set expandtab
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
-
 set list
-set listchars=tab:▸\ ,trail:▫
 
 set scrolloff=5
-
-set splitright
-set splitbelow
 
 " Prevent auto line split
 set wrap
 set tw=0
 
-set indentexpr=
-
-" Better backspace
-set backspace=indent,eol,start
-
-set foldmethod=indent
 set foldlevel=99
 
 " Better command line
-set laststatus=2
-set autochdir
 set showcmd
-set formatoptions-=tc
-
-" Show command autocomplete
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
-set wildmenu
-
-" show a navigable menu for tab completion
-set wildmode=longest,list,full
 
 " Searching options
 set hlsearch
@@ -80,18 +48,8 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Color Scheme
-set termguicolors
-let g:gruvbox_italic=0
-set background=dark
-colorscheme gruvbox
-
 " EOL format
 set fileformat=unix
-
-" conceal
-set conceallevel=0
-set concealcursor=n
 
 " more time for myself to fit new plugins
 set timeoutlen=10000
@@ -141,7 +99,7 @@ else
   nmap <leader>cf <Action>(ReformatCode)
 endif
 
-" refactor related
+" Refactor related
 map <leader>ca <Action>(RefactoringMenu)
 
 " Navigate tabs
@@ -178,6 +136,11 @@ nmap <leader>ghb <Action>(Vcs.ShowTabbedFileHistory)
 vmap <leader>ghb <Action>(Vcs.ShowHistoryForBlock)
 nmap <leader>ghd <Action>(LocalHistory.ShowHistory)
 vmap <leader>ghd <Action>(LocalHistory.ShowSelectionHistory)
+nmap <leader>gd <Action>(ActivateCommitToolWindow)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+nmap [h <Action>(VcsShowPrevChangeMarker)
+nmap [H gg<Action>(VcsShowNextChangeMarker)
+nmap ]H G<Action>(VcsShowPrevChangeMarker)
 
 " hide menu
 " when support API, be more separated
@@ -279,4 +242,3 @@ map ]]B <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
 
 " Which key
 set which-key
-
