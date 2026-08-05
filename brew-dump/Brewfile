@@ -115,8 +115,6 @@ cask 'cc-switch'
 cask 'claude-code'
 # OpenAI's coding agent that runs in your terminal
 cask 'codex'
-# Server and cloud storage browser
-cask 'cyberduck'
 # Photography workflow application and raw developer
 cask 'darktable'
 cask 'font-fira-code-nerd-font'
@@ -142,8 +140,6 @@ cask 'localsend'
 cask 'obs'
 # Replacement for Docker Desktop
 cask 'orbstack'
-# Image viewer
-cask 'qview'
 # Advanced API Debugging Proxy
 cask 'reqable'
 # Open source virtual/remote desktop application
@@ -162,6 +158,8 @@ cask 'tailscale-app'
 cask 'thunderbird'
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask 'wezterm@nightly'
+# Photo viewer, image manager, image resiser and more
+cask 'xnviewmp'
 # Mesh VPN client
 cask 'zerotier-one'
 
