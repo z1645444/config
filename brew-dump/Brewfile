@@ -47,6 +47,8 @@ brew 'graphviz'
 brew 'hugo'
 # Tools and libraries to manipulate images in select formats
 brew 'imagemagick'
+# Tool to unpack installers created by Inno Setup
+brew 'innoextract'
 # Lightweight and flexible command-line JSON processor
 brew 'jq'
 # Terminal file manager
@@ -154,6 +156,8 @@ cask 'squirrel-app'
 cask 'stats'
 # Mesh VPN based on WireGuard
 cask 'tailscale-app'
+# Menu bar manager
+cask 'thaw'
 # Customizable email client
 cask 'thunderbird'
 # GPU-accelerated cross-platform terminal emulator and multiplexer
