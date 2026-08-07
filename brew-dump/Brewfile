@@ -4,7 +4,7 @@ tap 'farion1231/ccswitch'
 tap 'felixkratz/formulae'
 tap 'mrkai77/cask'
 tap 'nikitabobko/tap'
-tap 'oomol-lab/tap', trusted: { casks: ['lockime'] }
+tap 'oomol-lab/tap'
 tap 'oven-sh/bun'
 tap 'sdkman/tap'
 # Text-based UI library
@@ -112,6 +112,8 @@ brew 'zoxide'
 # The AI coding agent built for the terminal.
 brew 'anomalyco/tap/opencode', trusted: true
 cask 'aerospace'
+# Application uninstaller
+cask 'appcleaner'
 cask 'cc-switch'
 # Terminal-based AI coding assistant
 cask 'claude-code'
