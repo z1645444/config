@@ -4,7 +4,6 @@ tap 'farion1231/ccswitch'
 tap 'felixkratz/formulae'
 tap 'mrkai77/cask'
 tap 'nikitabobko/tap'
-tap 'oomol-lab/tap'
 tap 'oven-sh/bun'
 tap 'sdkman/tap'
 # Text-based UI library
