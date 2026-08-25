@@ -16,6 +16,8 @@ brew 'bash'
 brew 'btop'
 # Apjanke's fork of the classic cowsay project
 brew 'cowsay'
+# Perl lib for reading and writing EXIF metadata
+brew 'exiftool'
 # Like neofetch, but much faster because written mostly in C
 brew 'fastfetch'
 # Simple, fast and user-friendly alternative to find
