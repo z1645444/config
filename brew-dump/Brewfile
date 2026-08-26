@@ -68,8 +68,6 @@ brew 'marp-cli'
 brew 'mdp'
 # Ambitious Vim-fork focused on extensibility and agility
 brew 'neovim'
-# Create, run, and share large language models (LLMs)
-brew 'ollama', restart_service: :changed
 # AI agent toolkit
 brew 'pi-coding-agent'
 # Display the PID number for a given process name
