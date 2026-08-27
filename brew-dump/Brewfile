@@ -84,6 +84,8 @@ brew 'pyenv'
 brew 'pyenv-virtualenv'
 # Ruby version manager
 brew 'rbenv'
+# SVG rendering tool and library
+brew 'resvg'
 # Search tool like grep and The Silver Searcher
 brew 'ripgrep'
 # Steel Bank Common Lisp system
