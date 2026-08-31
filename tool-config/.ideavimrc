@@ -132,10 +132,10 @@ nmap <leader>fyf <Action>(CopyFileName)
 " open or copy remote url is not supported yet
 map <leader>gb <Action>(ActivateVersionControlToolWindow)
 map <leader>gc <Action>(Vcs.Show.Log)
-nmap <leader>ghb <Action>(Vcs.ShowTabbedFileHistory)
-vmap <leader>ghb <Action>(Vcs.ShowHistoryForBlock)
-nmap <leader>ghd <Action>(LocalHistory.ShowHistory)
-vmap <leader>ghd <Action>(LocalHistory.ShowSelectionHistory)
+nmap <leader>ghd <Action>(Vcs.ShowTabbedFileHistory)
+vmap <leader>ghd <Action>(Vcs.ShowHistoryForBlock)
+nmap <leader>gf <Action>(LocalHistory.ShowHistory)
+vmap <leader>gf <Action>(LocalHistory.ShowSelectionHistory)
 nmap <leader>gd <Action>(ActivateCommitToolWindow)
 nmap ]h <Action>(VcsShowNextChangeMarker)
 nmap [h <Action>(VcsShowPrevChangeMarker)
@@ -242,3 +242,4 @@ map ]]B <Action>(com.mnw.tabmover.actions.MoveTabToLastAction)
 
 " Which key
 set which-key
+
