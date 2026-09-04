@@ -3,7 +3,7 @@ tap 'asmvik/formulae', 'https://github.com/asmvik/homebrew-formulae.git'
 tap 'farion1231/ccswitch'
 tap 'felixkratz/formulae'
 tap 'mrkai77/cask'
-tap 'nikitabobko/tap'
+tap 'nikitabobko/tap', trusted: true
 tap 'oven-sh/bun'
 tap 'sdkman/tap'
 # Text-based UI library
@@ -44,14 +44,22 @@ brew 'go'
 brew 'gradle'
 # Graph visualization software from AT&T and Bell Labs
 brew 'graphviz'
+# Package compiler and linker metadata toolkit
+brew 'pkgconf'
 # Configurable static site generator
 brew 'hugo'
 # Tools and libraries to manipulate images in select formats
 brew 'imagemagick'
 # Tool to unpack installers created by Inno Setup
 brew 'innoextract'
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew 'poppler'
+# Note taking and to-do application with synchronization capabilities
+brew 'joplin-cli'
 # Lightweight and flexible command-line JSON processor
 brew 'jq'
+# AI coding agent for your terminal
+brew 'kimi-code'
 # Terminal file manager
 brew 'lf'
 # Library for database change tracking
@@ -72,10 +80,6 @@ brew 'neovim'
 brew 'pi-coding-agent'
 # Display the PID number for a given process name
 brew 'pidof'
-# Package compiler and linker metadata toolkit
-brew 'pkgconf'
-# PDF rendering library (based on the xpdf-3.0 code base)
-brew 'poppler'
 # Cross-platform library for audio I/O
 brew 'portaudio'
 # Python version management
@@ -112,7 +116,8 @@ brew 'zlib'
 brew 'zoxide'
 # The AI coding agent built for the terminal.
 brew 'anomalyco/tap/opencode', trusted: true
-cask 'aerospace'
+# AeroSpace is an i3-like tiling window manager for macOS
+cask 'nikitabobko/tap/aerospace'
 # Application uninstaller
 cask 'appcleaner'
 cask 'cc-switch'
