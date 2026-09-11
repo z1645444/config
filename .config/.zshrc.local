@@ -75,7 +75,7 @@ function _config_darwin_env_suffix() {
     compinit
   fi
 
-  alias buu='brew update && brew upgrade'
+  alias buu='brew update && brew upgrade --greedy'
 
   # export HOMEBREW_NO_INSTALL_FROM_API=1
 }
