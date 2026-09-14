@@ -75,7 +75,36 @@ function _config_darwin_env_suffix() {
     compinit
   fi
 
-  alias buu='brew update && brew upgrade --greedy'
+  function buu() {
+    brew update &&
+      brew upgrade --greedy
+
+    local TRUSTED_CASKS=(
+      codex
+      claude-code
+      kimi-code
+      opencode
+      pi-coding-agent
+      git-credential-manager
+      wezterm@nightly
+      tailscale-app
+      rustdesk
+      localsend
+      reqable
+    )
+
+    echo
+    echo "==> Removing quarantine from trusted casks"
+
+    for cask in "${TRUSTED_CASKS[@]}"; do
+      local cask_dir="/opt/homebrew/Caskroom/${cask}"
+
+      if [[ -d "$cask_dir" ]]; then
+        xattr -dr com.apple.quarantine "$cask_dir" 2>/dev/null
+        echo "[OK] ${cask}"
+      fi
+    done
+  }
 
   # export HOMEBREW_NO_INSTALL_FROM_API=1
 }
