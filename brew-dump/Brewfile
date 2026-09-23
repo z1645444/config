@@ -148,6 +148,8 @@ cask 'iina'
 cask 'joplin'
 # Open-source screen recorder built with web technology
 cask 'kap'
+# File archiver
+cask 'keka'
 # Open-source keystroke visualiser
 cask 'keycastr'
 # Customise mouse behavior
