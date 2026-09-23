@@ -1,8 +1,5 @@
 tap 'anomalyco/tap'
-tap 'asmvik/formulae', 'https://github.com/asmvik/homebrew-formulae.git'
-tap 'farion1231/ccswitch'
 tap 'felixkratz/formulae'
-tap 'mrkai77/cask'
 tap 'nikitabobko/tap', trusted: true
 tap 'oven-sh/bun'
 tap 'sdkman/tap'
@@ -74,6 +71,8 @@ brew 'man-db'
 brew 'marp-cli'
 # Command-line based markdown presentation tool
 brew 'mdp'
+# Deep clean and optimize your Mac
+brew 'mole'
 # Ambitious Vim-fork focused on extensibility and agility
 brew 'neovim'
 # AI agent toolkit
@@ -123,11 +122,11 @@ brew 'oven-sh/bun/bun', trusted: true
 # SDKMAN! the Software Development Kit Manager
 brew 'sdkman/tap/sdkman-cli', trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
-cask 'nikitabobko/tap/aerospace', trusted: true
+cask 'nikitabobko/tap/aerospace'
 # Application uninstaller
 cask 'appcleaner'
-# Screen capturing and editing tool
-cask 'farion1231/ccswitch/cc-switch', trusted: true
+# Configuration manager for AI coding agents
+cask 'cc-switch'
 # Terminal-based AI coding assistant
 cask 'claude-code'
 # OpenAI's coding agent that runs in your terminal
@@ -141,6 +140,8 @@ cask 'font-hack-nerd-font'
 cask 'font-symbols-only-nerd-font'
 # Cross-platform Git credential storage for multiple hosting providers
 cask 'git-credential-manager'
+# Extensible coding agent for the terminal
+cask 'grok-build'
 # Free and open-source media player
 cask 'iina'
 # Note taking and to-do application with synchronisation capabilities
@@ -155,28 +156,16 @@ cask 'linearmouse'
 cask 'localsend'
 # Open-source software for live streaming and screen recording
 cask 'obs'
-# Client program for the OpenVPN Access Server
-cask 'openvpn-connect'
-# Replacement for Docker Desktop
-cask 'orbstack'
-# Utility to uninstall apps and remove leftover files from old/uninstalled apps
-cask 'pearcleaner'
 # Advanced API Debugging Proxy
 cask 'reqable'
-# Open source virtual/remote desktop application
-cask 'rustdesk'
 # PDF reader and note-taking application
 cask 'skim'
 # Rime input method engine
 cask 'squirrel-app'
 # System monitor for the menu bar
 cask 'stats'
-# Mesh VPN based on WireGuard
-cask 'tailscale-app'
 # Menu bar manager
 cask 'thaw'
-# Unpacks archive files
-cask 'the-unarchiver'
 # Customizable email client
 cask 'thunderbird'
 # GPU-accelerated cross-platform terminal emulator and multiplexer
