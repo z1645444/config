@@ -1,7 +1,5 @@
-tap 'anomalyco/tap'
 tap 'felixkratz/formulae'
 tap 'nikitabobko/tap', trusted: true
-tap 'oven-sh/bun'
 tap 'sdkman/tap'
 # Text-based UI library
 brew 'ncurses'
@@ -11,6 +9,8 @@ brew 'readline'
 brew 'bash'
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew 'btop'
+# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+brew 'bun'
 # Apjanke's fork of the classic cowsay project
 brew 'cowsay'
 # Perl lib for reading and writing EXIF metadata
@@ -19,10 +19,10 @@ brew 'exiftool'
 brew 'fastfetch'
 # Simple, fast and user-friendly alternative to find
 brew 'fd'
-# Cryptography and SSL/TLS Toolkit
-brew 'openssl@3'
 # Play, record, convert, and stream select audio and video codecs
 brew 'ffmpeg'
+# Cryptography and SSL/TLS Toolkit
+brew 'openssl@3'
 # Create thumbnails for your video files
 brew 'ffmpegthumbnailer'
 # Fast and simple Node.js version manager
@@ -75,6 +75,10 @@ brew 'mdp'
 brew 'mole'
 # Ambitious Vim-fork focused on extensibility and agility
 brew 'neovim'
+# Search tool like grep and The Silver Searcher
+brew 'ripgrep'
+# AI coding agent, built for the terminal
+brew 'opencode'
 # AI agent toolkit
 brew 'pi-coding-agent'
 # Display the PID number for a given process name
@@ -89,8 +93,8 @@ brew 'pyenv-virtualenv'
 brew 'rbenv'
 # SVG rendering tool and library
 brew 'resvg'
-# Search tool like grep and The Silver Searcher
-brew 'ripgrep'
+# Rust toolchain installer
+brew 'rustup'
 # Steel Bank Common Lisp system
 brew 'sbcl'
 # 7-Zip is a file archiver with a high compression ratio
@@ -113,16 +117,14 @@ brew 'yt-dlp'
 brew 'zlib'
 # Shell extension to navigate your filesystem faster
 brew 'zoxide'
-# The AI coding agent built for the terminal.
-brew 'anomalyco/tap/opencode', trusted: true
 # A window border system for macOS
 brew 'felixkratz/formulae/borders', trusted: true
-# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew 'oven-sh/bun/bun', trusted: true
 # SDKMAN! the Software Development Kit Manager
 brew 'sdkman/tap/sdkman-cli', trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
 cask 'nikitabobko/tap/aerospace'
+# Android SDK component
+cask 'android-platform-tools'
 # Application uninstaller
 cask 'appcleaner'
 # Configuration manager for AI coding agents
@@ -135,7 +137,6 @@ cask 'codex'
 cask 'darktable'
 cask 'font-fira-code-nerd-font'
 cask 'font-fira-mono-nerd-font'
-cask 'font-fira-sans-extra-condensed'
 cask 'font-hack-nerd-font'
 cask 'font-symbols-only-nerd-font'
 # Cross-platform Git credential storage for multiple hosting providers
