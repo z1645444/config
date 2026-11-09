@@ -141,8 +141,6 @@ cask 'font-hack-nerd-font'
 cask 'font-symbols-only-nerd-font'
 # Cross-platform Git credential storage for multiple hosting providers
 cask 'git-credential-manager'
-# Extensible coding agent for the terminal
-cask 'grok-build'
 # Free and open-source media player
 cask 'iina'
 # Note taking and to-do application with synchronisation capabilities
