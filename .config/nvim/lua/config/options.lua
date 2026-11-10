@@ -46,6 +46,19 @@ vim.opt.incsearch = true
 --
 vim.opt.clipboard = ""
 
+-- Over SSH, route the "+ / "* registers through OSC 52 so yanks/pastes land in
+-- the LOCAL machine's clipboard (where the user sits), not this host's. nvim
+-- >= 0.10 bundles an osc52 provider; the remote terminal emulator decodes the
+-- escape sequence and writes to its own system clipboard. Local-only sessions
+-- (no SSH) keep the built-in provider (pbcopy on macOS). tmux is left alone:
+-- it owns its own clipboard passthrough, and forcing OSC52 there is untested.
+local ssh =
+  vim.env.SSH_CONNECTION ~= nil or vim.env.SSH_TTY ~= nil or vim.env.SSH_CLIENT ~= nil
+local tmux = vim.env.TMUX ~= nil
+if ssh and not tmux then
+  vim.g.clipboard = "osc52"
+end
+
 --
 -- GLOBAL VARIABLES
 --
