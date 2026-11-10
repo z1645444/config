@@ -8,6 +8,9 @@ config-version = 2
 
 start-at-login = true
 
+# Automatically reload the config when this file changes on disk
+auto-reload-config = true
+
 # Workspaces that stay alive even when they are empty and invisible.
 # Since config-version = 2, this is no longer inferred from keyboard bindings,
 # so list them explicitly to keep the previous behaviour.
@@ -71,33 +74,55 @@ outer.left = 8
 
 # Auto move apps directly to the workspace
 [[on-window-detected]]
-if.app-id = "com.tencent.qq"
+if = 'test %{app-bundle-id} ~= com.jetbrains'
+run = "move-node-to-workspace 1"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.microsoft.VSCode'
+run = "move-node-to-workspace 1"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.google.Chrome'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.github.wez.wezterm'
+run = "move-node-to-workspace 6"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = org.filezilla-project.filezilla'
+run = "move-node-to-workspace 6"
+
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.tencent.qq'
 run = "move-node-to-workspace 7"
 [[on-window-detected]]
-if.app-id = "com.tencent.xinWeChat"
+if = 'test %{app-bundle-id} = com.tencent.xinWeChat'
 run = "move-node-to-workspace 7"
+
 [[on-window-detected]]
-if.app-id = "com.tencent.WeWorkMac"
+if = 'test %{app-bundle-id} = md.obsidian'
+run = "move-node-to-workspace 9"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = notion.id'
+run = "move-node-to-workspace 9"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = net.cozic.joplin-desktop'
+run = "move-node-to-workspace 9"
+
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.microsoft.edgemac'
 run = "move-node-to-workspace 10"
 [[on-window-detected]]
-if.app-id = "md.obsidian"
-run = "move-node-to-workspace 9"
+if = 'test %{app-bundle-id} = com.spotify.client'
+run = "move-node-to-workspace 10"
 [[on-window-detected]]
-if.app-id = "notion.id"
-run = "move-node-to-workspace 9"
-[[on-window-detected]]
-if.app-id = "net.cozic.joplin-desktop"
-run = "move-node-to-workspace 9"
-[[on-window-detected]]
-if.app-id = "com.microsoft.edgemac"
+if = 'test %{app-bundle-id} = com.tencent.WeWorkMac'
 run = "move-node-to-workspace 10"
 
 # Leave them floating
 [[on-window-detected]]
-if.app-id = 'com.oray.pgy.visitorent'
+if = 'test %{app-bundle-id} = com.oray.pgy.visitorent'
 run = 'layout floating'
 [[on-window-detected]]
-if.app-id = 'com.colliderli.iina'
+if = 'test %{app-bundle-id} = com.colliderli.iina'
 run = 'layout floating'
 
 ##
