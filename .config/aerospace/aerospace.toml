@@ -82,6 +82,9 @@ run = "move-node-to-workspace 1"
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = com.google.Chrome'
 run = "move-node-to-workspace 1"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.apple.finder'
+run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = com.github.wez.wezterm'
@@ -112,6 +115,15 @@ if = 'test %{app-bundle-id} = com.microsoft.edgemac'
 run = "move-node-to-workspace 10"
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = com.spotify.client'
+run = "move-node-to-workspace 10"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = org.mozilla.thunderbird'
+run = "move-node-to-workspace 10"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.ccswitch.desktop'
+run = "move-node-to-workspace 10"
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = io.github.clash-verge-rev.clash-verge-rev'
 run = "move-node-to-workspace 10"
 [[on-window-detected]]
 if = 'test %{app-bundle-id} = com.tencent.WeWorkMac'
