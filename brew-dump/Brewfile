@@ -1,6 +1,6 @@
-tap 'felixkratz/formulae'
+tap 'felixkratz/formulae', trusted: true
 tap 'nikitabobko/tap', trusted: true
-tap 'sdkman/tap'
+tap 'sdkman/tap', trusted: true
 # Text-based UI library
 brew 'ncurses'
 # Library for command-line editing
@@ -55,8 +55,6 @@ brew 'poppler'
 brew 'joplin-cli'
 # Lightweight and flexible command-line JSON processor
 brew 'jq'
-# AI coding agent for your terminal
-brew 'kimi-code'
 # Terminal file manager
 brew 'lf'
 # Library for database change tracking
@@ -99,8 +97,6 @@ brew 'rustup'
 brew 'sbcl'
 # 7-Zip is a file archiver with a high compression ratio
 brew 'sevenzip'
-# Terminal multiplexer
-brew 'tmux'
 # Display directories as trees (with optional color/HTML output)
 brew 'tree'
 # Extremely fast Python package installer and resolver, written in Rust
