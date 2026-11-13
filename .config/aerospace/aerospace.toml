@@ -80,6 +80,9 @@ run = "move-node-to-workspace 1"
 if = 'test %{app-bundle-id} = com.microsoft.VSCode'
 run = "move-node-to-workspace 1"
 [[on-window-detected]]
+if = 'test %{app-bundle-id} = dev.zed.Zed'
+run = "move-node-to-workspace 1"
+[[on-window-detected]]
 if = 'test %{app-bundle-id} = com.google.Chrome'
 run = "move-node-to-workspace 1"
 [[on-window-detected]]
