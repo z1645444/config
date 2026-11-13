@@ -14,17 +14,9 @@ end
 config.color_scheme = "Gruvbox dark, hard (base16)"
 
 -- font
-config.font_size = 18.0
-config.font = wezterm.font_with_fallback({
-	-- "Comic Code",
-	"FiraCode Nerd Font",
-	"Fira Code",
-	"Pingfang",
-	"Source Han Sans",
-})
-
--- disable ligatures
-config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+config.font_size = 16.0
+config.font = wezterm.font("Maple Mono Normal NF CN")
+config.harfbuzz_features = { "calt=0", "zero" }
 
 -- sweet warning
 config.warn_about_missing_glyphs = false
