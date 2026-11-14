@@ -1,174 +1,181 @@
-tap 'felixkratz/formulae', trusted: true
-tap 'nikitabobko/tap', trusted: true
-tap 'sdkman/tap', trusted: true
+tap "felixkratz/formulae"
+tap "nikitabobko/tap"
+tap "sdkman/tap"
 # Text-based UI library
-brew 'ncurses'
+brew "ncurses"
 # Library for command-line editing
-brew 'readline'
+brew "readline"
 # Bourne-Again SHell, a UNIX command interpreter
-brew 'bash'
+brew "bash"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
-brew 'btop'
+brew "btop"
 # Incredibly fast JavaScript runtime, bundler, test runner, and package manager
-brew 'bun'
+brew "bun"
 # Apjanke's fork of the classic cowsay project
-brew 'cowsay'
+brew "cowsay"
+# Zstandard is a real-time compression algorithm
+brew "zstd"
+# Debian package management system
+brew "dpkg"
 # Perl lib for reading and writing EXIF metadata
-brew 'exiftool'
+brew "exiftool"
 # Like neofetch, but much faster because written mostly in C
-brew 'fastfetch'
+brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
-brew 'fd'
+brew "fd"
 # Play, record, convert, and stream select audio and video codecs
-brew 'ffmpeg'
-# Cryptography and SSL/TLS Toolkit
-brew 'openssl@3'
+brew "ffmpeg"
 # Create thumbnails for your video files
-brew 'ffmpegthumbnailer'
+brew "ffmpegthumbnailer"
 # Fast and simple Node.js version manager
-brew 'fnm'
+brew "fnm"
 # Command-line fuzzy finder written in Go
-brew 'fzf'
+brew "fzf"
 # GitHub command-line tool
-brew 'gh'
+brew "gh"
 # Distributed revision control system
-brew 'git'
+brew "git"
 # Quickly rewrite git repository history
-brew 'git-filter-repo'
+brew "git-filter-repo"
 # Open source programming language to build simple/reliable/efficient software
-brew 'go'
+brew "go"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
-brew 'gradle'
+brew "gradle"
 # Graph visualization software from AT&T and Bell Labs
-brew 'graphviz'
-# Package compiler and linker metadata toolkit
-brew 'pkgconf'
+brew "graphviz"
 # Configurable static site generator
-brew 'hugo'
+brew "hugo"
 # Tools and libraries to manipulate images in select formats
-brew 'imagemagick'
-# Tool to unpack installers created by Inno Setup
-brew 'innoextract'
-# PDF rendering library (based on the xpdf-3.0 code base)
-brew 'poppler'
-# Note taking and to-do application with synchronization capabilities
-brew 'joplin-cli'
+brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
-brew 'jq'
-# Terminal file manager
-brew 'lf'
+brew "jq"
 # Library for database change tracking
-brew 'liquibase'
+brew "liquibase"
 # Next-gen compiler infrastructure
-brew 'llvm'
+brew "llvm"
 # Powerful, lightweight programming language
-brew 'lua'
+brew "lua"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Unix documentation system
-brew 'man-db'
+brew "man-db"
 # Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images
-brew 'marp-cli'
-# Command-line based markdown presentation tool
-brew 'mdp'
+brew "marp-cli"
+# Another rule-based tunnel in Go, formerly known as ClashMeta
+brew "mihomo"
 # Deep clean and optimize your Mac
-brew 'mole'
+brew "mole"
 # Ambitious Vim-fork focused on extensibility and agility
-brew 'neovim'
+brew "neovim"
 # Search tool like grep and The Silver Searcher
-brew 'ripgrep'
+brew "ripgrep"
 # AI coding agent, built for the terminal
-brew 'opencode'
+brew "opencode"
 # AI agent toolkit
-brew 'pi-coding-agent'
+brew "pi-coding-agent"
 # Display the PID number for a given process name
-brew 'pidof'
+brew "pidof"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Cross-platform library for audio I/O
-brew 'portaudio'
+brew "portaudio"
 # Python version management
-brew 'pyenv'
+brew "pyenv"
 # Pyenv plugin to manage virtualenv
-brew 'pyenv-virtualenv'
-# Ruby version manager
-brew 'rbenv'
+brew "pyenv-virtualenv"
 # SVG rendering tool and library
-brew 'resvg'
+brew "resvg"
 # Rust toolchain installer
-brew 'rustup'
+brew "rustup"
 # Steel Bank Common Lisp system
-brew 'sbcl'
+brew "sbcl"
 # 7-Zip is a file archiver with a high compression ratio
-brew 'sevenzip'
+brew "sevenzip"
 # Display directories as trees (with optional color/HTML output)
-brew 'tree'
+brew "tree"
 # Extremely fast Python package installer and resolver, written in Rust
-brew 'uv'
+brew "uv"
 # Internet file retriever
-brew 'wget'
-# Tools for the WireGuard secure network tunnel
-brew 'wireguard-tools'
+brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
-brew 'yazi'
+brew "yazi"
 # Feature-rich command-line audio/video downloader
-brew 'yt-dlp'
+brew "yt-dlp"
 # General-purpose lossless data-compression library
-brew 'zlib'
+brew "zlib"
 # Shell extension to navigate your filesystem faster
-brew 'zoxide'
+brew "zoxide"
 # A window border system for macOS
-brew 'felixkratz/formulae/borders', trusted: true
+brew "felixkratz/formulae/borders", trusted: true
 # SDKMAN! the Software Development Kit Manager
-brew 'sdkman/tap/sdkman-cli', trusted: true
+brew "sdkman/tap/sdkman-cli", trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
-cask 'nikitabobko/tap/aerospace'
+cask "nikitabobko/tap/aerospace", trusted: true
 # Android SDK component
-cask 'android-platform-tools'
+cask "android-platform-tools"
 # Application uninstaller
-cask 'appcleaner'
+cask "appcleaner"
 # Configuration manager for AI coding agents
-cask 'cc-switch'
+cask "cc-switch"
 # Terminal-based AI coding assistant
-cask 'claude-code'
+cask "claude-code"
 # OpenAI's coding agent that runs in your terminal
-cask 'codex'
+cask "codex"
 # Photography workflow application and raw developer
-cask 'darktable'
-cask 'font-fira-code-nerd-font'
-cask 'font-fira-mono-nerd-font'
-cask 'font-hack-nerd-font'
-cask 'font-symbols-only-nerd-font'
+cask "darktable"
+cask "font-hack-nerd-font"
+cask "font-maple-mono"
+cask "font-maple-mono-cn"
+cask "font-maple-mono-nf"
+cask "font-maple-mono-nf-cn"
+cask "font-maple-mono-nl"
+cask "font-maple-mono-nl-cn"
+cask "font-maple-mono-nl-nf"
+cask "font-maple-mono-nl-nf-cn"
+cask "font-maple-mono-normal"
+cask "font-maple-mono-normal-cn"
+cask "font-maple-mono-normal-nf"
+cask "font-maple-mono-normal-nf-cn"
+cask "font-maple-mono-normal-nl"
+cask "font-maple-mono-normal-nl-cn"
+cask "font-maple-mono-normal-nl-nf"
+cask "font-maple-mono-normal-nl-nf-cn"
+cask "font-symbols-only-nerd-font"
 # Cross-platform Git credential storage for multiple hosting providers
-cask 'git-credential-manager'
+cask "git-credential-manager"
 # Free and open-source media player
-cask 'iina'
+cask "iina"
 # Note taking and to-do application with synchronisation capabilities
-cask 'joplin'
+cask "joplin"
 # Open-source screen recorder built with web technology
-cask 'kap'
+cask "kap"
 # File archiver
-cask 'keka'
+cask "keka"
 # Open-source keystroke visualiser
-cask 'keycastr'
+cask "keycastr"
 # Customise mouse behavior
-cask 'linearmouse'
+cask "linearmouse"
 # Open-source cross-platform alternative to AirDrop
-cask 'localsend'
+cask "localsend"
 # Open-source software for live streaming and screen recording
-cask 'obs'
+cask "obs"
 # Advanced API Debugging Proxy
-cask 'reqable'
+cask "reqable"
 # PDF reader and note-taking application
-cask 'skim'
+cask "skim"
 # Rime input method engine
-cask 'squirrel-app'
+cask "squirrel-app"
 # System monitor for the menu bar
-cask 'stats'
+cask "stats"
 # Menu bar manager
-cask 'thaw'
+cask "thaw"
 # Customizable email client
-cask 'thunderbird'
+cask "thunderbird"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
-cask 'wezterm@nightly'
+cask "wezterm@nightly"
 # Photo viewer, image manager, image resiser and more
-cask 'xnviewmp'
+cask "xnviewmp"
 # Mesh VPN client
-cask 'zerotier-one'
-
+cask "zerotier-one"
