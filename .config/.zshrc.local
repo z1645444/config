@@ -85,6 +85,7 @@ function _config_darwin_env_suffix() {
       kimi-code
       opencode
       pi-coding-agent
+      grok-build
       git-credential-manager
       wezterm@nightly
       tailscale-app
@@ -253,8 +254,8 @@ eval "$(pyenv init -)"
 # Ruby
 # ****
 
-# Added by `rbenv init` on Tue May 20 14:14:32 CST 2025
-eval "$(rbenv init - --no-rehash zsh)"
+# run rbenv init`
+# eval "$(rbenv init - --no-rehash zsh)"
 
 # ********
 # C family
@@ -293,10 +294,6 @@ export PATH="/Applications/WebStorm.app/Contents/MacOS:$PATH"
 # keys
 export PATH="$HOME/.local/bin:$PATH"
 [[ -f "$HOME/.claude-keys" ]] && source "$HOME/.claude-keys"
-[[ -f "$HOME/.gemini-keys" ]] && source "$HOME/.gemini-keys"
-
-alias gemini='fnm use default && gemini'
-alias claude-ap='claude --dangerously-skip-permissions'
 
 # ******
 # ffmpeg
