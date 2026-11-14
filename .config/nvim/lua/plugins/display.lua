@@ -32,5 +32,33 @@ return {
       },
     },
   },
+
+  -- notifier: 弹窗移到右下角 + 光标聚焦快捷键
+  {
+    "folke/snacks.nvim",
+    opts = {
+      notifier = { position = "bottom_right" },
+    },
+    keys = {
+      {
+        "<leader>ne",
+        function()
+          local target
+          for _, w in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+            local buf = vim.api.nvim_win_get_buf(w)
+            if vim.bo[buf].filetype == "snacks_notif" then
+              target = w
+            end
+          end
+          if target then
+            vim.api.nvim_set_current_win(target)
+          else
+            Snacks.notifier.show_history()
+          end
+        end,
+        desc = "Focus Notification Popup",
+      },
+    },
+  },
 }
 
