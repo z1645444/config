@@ -21,8 +21,18 @@
 
       // 将当前 Tab 投送到相邻分屏
       "ctrl-w shift-h": ["workspace::MoveItemToPaneInDirection", { "direction": "left" }],
-      "ctrl-w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }],
-    },
+      "ctrl-w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }]
+    }
+  },
+
+  // ====
+  // 全局（非 Vim 作用域）
+  // ====
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-p": "file_finder::Toggle"
+    }
   },
 
   // ====
@@ -87,8 +97,8 @@
       // 系统剪贴板与退出 (不污染 Vim 寄存器)
       "space shift-p": "editor::Paste",
       "space shift-y": ["workspace::SendKeystrokes", "shift-v cmd-c escape"],
-      "space q q": "zed::Quit",
-    },
+      "space q q": "workspace::CloseWindow"
+    }
   },
 
   // ====
@@ -102,8 +112,8 @@
       // 用系统剪贴板内容替换选中区域
       "space shift-p": "editor::Paste",
       "space w o": "workspace::CloseAllDocks",
-      "shift-s": "vim::PushAddSurrounds",
-    },
+      "shift-s": "vim::PushAddSurrounds"
+    }
   },
 
   // ====
@@ -113,13 +123,14 @@
     "context": "VimControl",
     "bindings": {
       "ctrl-a": null,
-      "ctrl-f": null,
-    },
+      "ctrl-f": null
+    }
   },
   {
     "context": "Terminal",
     "bindings": {
-      "shift-enter": ["terminal::SendText", "\u001b\r"],
-    },
-  },
+      "shift-enter": ["terminal::SendText", "\u001b\r"]
+    }
+  }
 ]
+
