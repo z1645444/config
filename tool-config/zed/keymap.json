@@ -26,16 +26,6 @@
   },
 
   // ====
-  // 全局（非 Vim 作用域）
-  // ====
-  {
-    "context": "Workspace",
-    "bindings": {
-      "cmd-p": "file_finder::Toggle"
-    }
-  },
-
-  // ====
   // Normal 模式核心命令层 (<leader> 体系)
   // ====
   {
@@ -117,10 +107,19 @@
   },
 
   // ====
+  // 全局（非 Vim 作用域）
+  // ====
+  {
+    "bindings": {
+      "cmd-p": "file_finder::Toggle"
+    }
+  },
+
+  // ====
   // 按键冲突屏蔽
   // ====
   {
-    "context": "VimControl",
+    "context": "Editor && !VimControl",
     "bindings": {
       "ctrl-a": null,
       "ctrl-f": null
