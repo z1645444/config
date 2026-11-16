@@ -1,0 +1,165 @@
+{
+  // ====
+  // 编辑器核心行为与搜索
+  // ====
+  "default_open_behavior": "new_window",
+  "cli_default_open_behavior": "new_window",
+  "seed_search_query_from_cursor": "never",
+  "base_keymap": "JetBrains",
+  "restore_on_startup": "launchpad",
+  "autosave": "off",
+  "confirm_quit": true,
+  "format_on_save": "on",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "linked_edits": true,
+  "disable_ai": true,
+
+  // ====
+  // 遥测
+  // ====
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+
+  // ====
+  // Vim 模式与剪贴板隔离
+  // ====
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "never",
+  },
+
+  // ====
+  // 字体, 排版与视觉
+  // ====
+  "buffer_font_family": "Maple Mono Normal NF CN",
+  "buffer_font_size": 16,
+  "buffer_font_features": {
+    "calt": false,
+    "zero": true,
+  },
+  "ui_font_size": 16,
+  "icon_theme": "Material Icon Theme",
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark Hard",
+  },
+
+  // ====
+  // 行号, 光标与滚动
+  // ====
+  "relative_line_numbers": "enabled",
+  "gutter": {
+    "line_numbers": true,
+  },
+  "cursor_blink": false,
+  "vertical_scroll_margin": 5,
+  "minimap": {
+    "show": "auto",
+  },
+  "show_whitespaces": "trailing",
+
+  // ====
+  // 缩进与换行
+  // ====
+  "tab_size": 2,
+  "preferred_line_length": 160,
+  "soft_wrap": "bounded",
+
+  // ====
+  // 标签页行为
+  // ====
+  "preview_tabs": {
+    "enabled": false,
+  },
+
+  // ====
+  // 面板停靠布局
+  // ====
+  "project_panel": {
+    "dock": "left",
+    "auto_reveal_entries": true,
+  },
+  "outline_panel": { "dock": "left" },
+  "collaboration_panel": { "dock": "left" },
+  "git_panel": { "dock": "left" },
+  "terminal": {
+    "font_family": "Maple Mono NF CN",
+    "dock": "bottom",
+    "keep_selection_on_copy": true,
+    "default_height": 820,
+    "working_directory": "first_project_directory",
+  },
+
+  // ====
+  // Git
+  // ====
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 1000,
+    },
+  },
+
+  // ====
+  // 内联提示
+  // ====
+  "inlay_hints": {
+    "enabled": true,
+  },
+
+  // ====
+  // 文件类型映射与格式化
+  // ====
+  "file_types": {
+    "HTML": ["jsp", "*.jsp"], // 大写 HTML 才能正确加载解析器
+  },
+  "prettier": {
+    "allowed": true,
+  },
+
+  // ====
+  // 语言特定配置
+  // ====
+  "languages": {
+    // Python: Ruff 毫秒级格式化, 4 空格缩进符合 PEP 8
+    "Python": {
+      "formatter": "language_server",
+      "tab_size": 4,
+    },
+    "HTML": { "formatter": "prettier" },
+    "CSS": { "formatter": "prettier" },
+    "SCSS": { "formatter": "prettier" },
+    "JSON": { "formatter": "prettier" },
+    "JavaScript": {
+      "formatter": "prettier",
+      "code_actions_on_format": { "source.fixAll.eslint": true },
+    },
+    "TypeScript": {
+      "formatter": "prettier",
+      "code_actions_on_format": { "source.fixAll.eslint": true },
+    },
+    "TSX": { "formatter": "prettier" },
+    "Markdown": { "formatter": "prettier" },
+    "Vue": { "formatter": "language_server" },
+    "Go": {
+      "formatter": "language_server",
+      "hard_tabs": true,
+      "tab_size": 4,
+    },
+    "Rust": { "formatter": "language_server" },
+    "TOML": { "formatter": "language_server" },
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy",
+        },
+      },
+    },
+  },
+}

@@ -1,0 +1,119 @@
+[
+  // ============================================================================
+  // 全局导航与标签/分屏操作 (Normal & Visual 均生效)
+  // ============================================================================
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // 顶栏 Tab 切换
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+
+      // 标签页组内移动
+      "[ shift-b": "pane::SwapItemLeft",
+      "] shift-b": "pane::SwapItemRight",
+
+      // 跨分屏穿梭
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+
+      // 将当前 Tab 投送到相邻分屏
+      "ctrl-w shift-h": ["workspace::MoveItemToPaneInDirection", { "direction": "left" }],
+      "ctrl-w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }],
+    },
+  },
+
+  // ============================================================================
+  // Normal 模式核心命令层 (<leader> 体系)
+  // ============================================================================
+  {
+    "context": "VimControl && vim_mode == normal && !menu",
+    "bindings": {
+      // 窗口与布局
+      "space |": "pane::SplitRight",
+      "space -": "pane::SplitDown",
+      "space w m": "workspace::ToggleZoom",
+      "space w d": "pane::CloseAllItems",
+      "space w o": "workspace::CloseAllDocks",
+
+      // 缓冲区
+      "space b d": "pane::CloseActiveItem",
+
+      // 目录树与面板
+      "space e": "project_panel::ToggleFocus",
+      "space shift-e": "project_panel::ToggleFocus",
+
+      // 检索与项目
+      "space f f": "file_finder::Toggle",
+      "space space": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
+      "space /": "pane::DeploySearch",
+      "space s g": "pane::DeploySearch",
+      "ctrl-/": "workspace::ToggleBottomDock",
+
+      // 路径复制
+      "space f y a": "workspace::CopyPath",
+      "space f y r": "workspace::CopyRelativePath",
+
+      // 版本控制与 Hunk 跳转
+      "space g d": "git_panel::ToggleFocus",
+      "space g h d": "editor::ToggleSelectedDiffHunks",
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+
+      // 代码, 重构与文档 (LSP)
+      "space c r": "editor::Rename",
+      "space c f": "editor::Format",
+      "space c a": "editor::ToggleCodeActions",
+      "shift-k": "editor::Hover",
+
+      // 诊断导航
+      "space x x": "diagnostics::Deploy",
+      "space x d": "diagnostics::DeployCurrentFile",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+
+      // 折叠层级 (1-7)
+      "space z 1": ["editor::FoldAtLevel", 1],
+      "space z 2": ["editor::FoldAtLevel", 2],
+      "space z 3": ["editor::FoldAtLevel", 3],
+      "space z 4": ["editor::FoldAtLevel", 4],
+      "space z 5": ["editor::FoldAtLevel", 5],
+      "space z 6": ["editor::FoldAtLevel", 6],
+      "space z 7": ["editor::FoldAtLevel", 7],
+
+      // 系统剪贴板与退出 (不污染 Vim 寄存器)
+      "space shift-p": "editor::Paste",
+      "space shift-y": ["workspace::SendKeystrokes", "shift-v cmd-c escape"],
+      "space q q": "zed::Quit",
+    },
+  },
+
+  // ============================================================================
+  // Visual 模式
+  // ============================================================================
+  {
+    "context": "VimControl && vim_mode == visual && !menu",
+    "bindings": {
+      // 复制到系统剪贴板并取消选区, 不覆盖 Vim 寄存器
+      "space shift-y": ["workspace::SendKeystrokes", "cmd-c escape"],
+      // 用系统剪贴板内容替换选中区域
+      "space shift-p": "editor::Paste",
+      "space w o": "workspace::CloseAllDocks",
+      "shift-s": "vim::PushAddSurrounds",
+    },
+  },
+
+  // ============================================================================
+  // 按键冲突屏蔽
+  // ============================================================================
+  {
+    "context": "VimControl",
+    "bindings": {
+      "ctrl-a": null,
+      "ctrl-f": null,
+    },
+  },
+]
