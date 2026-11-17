@@ -7,9 +7,13 @@
   "seed_search_query_from_cursor": "never",
   "base_keymap": "JetBrains",
   "restore_on_startup": "launchpad",
-  "autosave": "off",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 2000
+    }
+  },
   "confirm_quit": true,
-  "format_on_save": "on",
+  "format_on_save": "off",
   "remove_trailing_whitespace_on_save": true,
   "ensure_final_newline_on_save": true,
   "linked_edits": true,

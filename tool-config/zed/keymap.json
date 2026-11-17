@@ -21,8 +21,8 @@
 
       // 将当前 Tab 投送到相邻分屏
       "ctrl-w shift-h": ["workspace::MoveItemToPaneInDirection", { "direction": "left" }],
-      "ctrl-w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }]
-    }
+      "ctrl-w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }],
+    },
   },
 
   // ====
@@ -87,8 +87,8 @@
       // 系统剪贴板与退出 (不污染 Vim 寄存器)
       "space shift-p": "editor::Paste",
       "space shift-y": ["workspace::SendKeystrokes", "shift-v cmd-c escape"],
-      "space q q": "workspace::CloseWindow"
-    }
+      "space q q": "workspace::CloseWindow",
+    },
   },
 
   // ====
@@ -102,8 +102,22 @@
       // 用系统剪贴板内容替换选中区域
       "space shift-p": "editor::Paste",
       "space w o": "workspace::CloseAllDocks",
-      "shift-s": "vim::PushAddSurrounds"
-    }
+      "shift-s": "vim::PushAddSurrounds",
+    },
+  },
+
+  // ====
+  // 项目面板上下文菜单（右键菜单）
+  // ====
+  {
+    "context": "ProjectPanel && menu",
+    "bindings": {
+      "r": "project_panel::Rename",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "x": "project_panel::Cut",
+      "d": "project_panel::Delete",
+    },
   },
 
   // ====
@@ -111,8 +125,8 @@
   // ====
   {
     "bindings": {
-      "cmd-p": "file_finder::Toggle"
-    }
+      "cmd-p": "file_finder::Toggle",
+    },
   },
 
   // ====
@@ -122,14 +136,13 @@
     "context": "Editor && !VimControl",
     "bindings": {
       "ctrl-a": null,
-      "ctrl-f": null
-    }
+      "ctrl-f": null,
+    },
   },
   {
     "context": "Terminal",
     "bindings": {
-      "shift-enter": ["terminal::SendText", "\u001b\r"]
-    }
-  }
+      "shift-enter": ["terminal::SendText", "\u001b\r"],
+    },
+  },
 ]
-
