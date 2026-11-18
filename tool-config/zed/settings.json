@@ -9,7 +9,7 @@
   "restore_on_startup": "launchpad",
   "autosave": {
     "after_delay": {
-      "milliseconds": 2000
+      "milliseconds": 30000
     }
   },
   "confirm_quit": true,
