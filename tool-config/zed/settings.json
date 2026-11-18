@@ -24,7 +24,7 @@
   // ====
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
 
   // ====
@@ -32,7 +32,7 @@
   // ====
   "vim_mode": true,
   "vim": {
-    "use_system_clipboard": "never",
+    "use_system_clipboard": "never"
   },
 
   // ====
@@ -42,14 +42,14 @@
   "buffer_font_size": 16,
   "buffer_font_features": {
     "calt": false,
-    "zero": true,
+    "zero": true
   },
   "ui_font_size": 16,
   "icon_theme": "Material Icon Theme",
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark Hard",
+    "dark": "Gruvbox Dark Hard"
   },
 
   // ====
@@ -57,12 +57,12 @@
   // ====
   "relative_line_numbers": "enabled",
   "gutter": {
-    "line_numbers": true,
+    "line_numbers": true
   },
   "cursor_blink": false,
   "vertical_scroll_margin": 5,
   "minimap": {
-    "show": "auto",
+    "show": "auto"
   },
   "show_whitespaces": "trailing",
 
@@ -77,7 +77,7 @@
   // 标签页行为
   // ====
   "preview_tabs": {
-    "enabled": false,
+    "enabled": false
   },
 
   // ====
@@ -85,7 +85,7 @@
   // ====
   "project_panel": {
     "dock": "left",
-    "auto_reveal_entries": true,
+    "auto_reveal_entries": true
   },
   "outline_panel": { "dock": "left" },
   "collaboration_panel": { "dock": "left" },
@@ -95,7 +95,7 @@
     "dock": "bottom",
     "keep_selection_on_copy": true,
     "default_height": 820,
-    "working_directory": "first_project_directory",
+    "working_directory": "first_project_directory"
   },
 
   // ====
@@ -104,25 +104,44 @@
   "git": {
     "inline_blame": {
       "enabled": true,
-      "delay_ms": 1000,
-    },
+      "delay_ms": 1000
+    }
   },
 
   // ====
   // 内联提示
   // ====
   "inlay_hints": {
-    "enabled": true,
+    "enabled": true
   },
 
   // ====
   // 文件类型映射与格式化
   // ====
   "file_types": {
-    "HTML": ["jsp", "*.jsp"], // 大写 HTML 才能正确加载解析器
+    "HTML": ["jsp", "*.jsp"] // 大写 HTML 才能正确加载解析器
   },
   "prettier": {
-    "allowed": true,
+    "allowed": true
+  },
+
+  // ====
+  // 插件
+  // ====
+  "auto_install_extensions": {
+    "dart": true,
+    "dockerfile": true,
+    "emmet": true,
+    "env": true,
+    "git-firefly": true,
+    "html": true,
+    "lua": true,
+    "make": true,
+    "material-icon-theme": true,
+    "sql": true,
+    "toml": true,
+    "vue": true,
+    "xml": true
   },
 
   // ====
@@ -132,7 +151,7 @@
     // Python: Ruff 毫秒级格式化, 4 空格缩进符合 PEP 8
     "Python": {
       "formatter": "language_server",
-      "tab_size": 4,
+      "tab_size": 4
     },
     "HTML": { "formatter": "prettier" },
     "CSS": { "formatter": "prettier" },
@@ -140,11 +159,11 @@
     "JSON": { "formatter": "prettier" },
     "JavaScript": {
       "formatter": "prettier",
-      "code_actions_on_format": { "source.fixAll.eslint": true },
+      "code_actions_on_format": { "source.fixAll.eslint": true }
     },
     "TypeScript": {
       "formatter": "prettier",
-      "code_actions_on_format": { "source.fixAll.eslint": true },
+      "code_actions_on_format": { "source.fixAll.eslint": true }
     },
     "TSX": { "formatter": "prettier" },
     "Markdown": { "formatter": "prettier" },
@@ -152,18 +171,19 @@
     "Go": {
       "formatter": "language_server",
       "hard_tabs": true,
-      "tab_size": 4,
+      "tab_size": 4
     },
     "Rust": { "formatter": "language_server" },
-    "TOML": { "formatter": "language_server" },
+    "TOML": { "formatter": "language_server" }
   },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
         "check": {
-          "command": "clippy",
-        },
-      },
-    },
-  },
+          "command": "clippy"
+        }
+      }
+    }
+  }
 }
+
