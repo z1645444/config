@@ -27,6 +27,10 @@ config.hide_tab_bar_if_only_one_tab = true
 -- set window decoration
 config.window_decorations = "RESIZE"
 
+-- Treat Option as Alt so key combos are sent to the terminal instead of composing characters
+config.send_composed_key_when_left_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = false
+
 -- key bind
 config.keys = {
 	{
@@ -38,6 +42,29 @@ config.keys = {
 		key = "DownArrow",
 		mods = "SHIFT",
 		action = wezterm.action.ScrollByPage(0.5),
+	},
+	-- Option + Left/Right: word-wise movement (same as Alt-b / Alt-f)
+	{
+		key = "LeftArrow",
+		mods = "OPT",
+		action = wezterm.action.SendString("\x1bb"),
+	},
+	{
+		key = "RightArrow",
+		mods = "OPT",
+		action = wezterm.action.SendString("\x1bf"),
+	},
+	-- Option + Backspace: delete previous word
+	{
+		key = "Backspace",
+		mods = "OPT",
+		action = wezterm.action.SendString("\x1b\x7f"),
+	},
+	-- Option + Delete: delete next word
+	{
+		key = "Delete",
+		mods = "OPT",
+		action = wezterm.action.SendString("\x1bd"),
 	},
 	{
 		key = "[",
@@ -66,16 +93,5 @@ config.keys = {
 	},
 }
 
--- SSH config
--- config.ssh_domains = {
---     {
---         name = 'localhost',
---         remote_address = '127.0.0.1',
---         username = 'root',
---         -- Specify an alternative read timeout -> MINUTES OR HOURS?
---         timeout = 60,
---     },
--- }
-
--- and finally, return the configuration to wezterm
 return config
+
