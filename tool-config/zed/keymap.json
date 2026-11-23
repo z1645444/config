@@ -121,6 +121,16 @@
   },
 
   // ====
+  // Editor 内手动触发补全
+  // ====
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-i": "editor::ShowCompletions"
+    }
+  },
+
+  // ====
   // 全局（非 Vim 作用域）
   // ====
   {
@@ -136,7 +146,8 @@
     "bindings": {
       "ctrl-a": null,
       "ctrl-f": null,
-      "space f": null
+      "space f": null,
+      "cmd-i": null
     }
   },
   {
