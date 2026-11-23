@@ -141,7 +141,9 @@
     "sql": true,
     "toml": true,
     "vue": true,
-    "xml": true
+    "xml": true,
+    "scss": true,
+    "less": true
   },
 
   // ====
