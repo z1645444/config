@@ -133,10 +133,10 @@
   // 按键冲突屏蔽
   // ====
   {
-    "context": "Editor && !VimControl",
     "bindings": {
       "ctrl-a": null,
-      "ctrl-f": null
+      "ctrl-f": null,
+      "space f": null
     }
   },
   {
@@ -146,3 +146,4 @@
     }
   }
 ]
+
