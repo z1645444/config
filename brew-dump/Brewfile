@@ -49,16 +49,18 @@ brew "hugo"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Library for database change tracking
 brew "liquibase"
 # Next-gen compiler infrastructure
 brew "llvm"
 # Powerful, lightweight programming language
 brew "lua"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Unix documentation system
 brew "man-db"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images
 brew "marp-cli"
 # Another rule-based tunnel in Go, formerly known as ClashMeta
@@ -71,6 +73,8 @@ brew "neovim"
 brew "ripgrep"
 # AI coding agent, built for the terminal
 brew "opencode"
+# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
+brew "openvpn"
 # AI agent toolkit
 brew "pi-coding-agent"
 # Display the PID number for a given process name
@@ -115,6 +119,8 @@ brew "sdkman/tap/sdkman-cli", trusted: true
 cask "nikitabobko/tap/aerospace", trusted: true
 # Android SDK component
 cask "android-platform-tools"
+# Terminal interface for Antigravity agents
+cask "antigravity-cli"
 # Application uninstaller
 cask "appcleaner"
 # Configuration manager for AI coding agents
@@ -125,6 +131,8 @@ cask "claude-code"
 cask "codex"
 # Photography workflow application and raw developer
 cask "darktable"
+cask "font-fira-code-nerd-font"
+cask "font-fira-mono-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-maple-mono"
 cask "font-maple-mono-cn"
@@ -175,7 +183,7 @@ cask "thaw"
 cask "thunderbird"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm@nightly"
-# Photo viewer, image manager, image resiser and more
+# Photo viewer and image manager
 cask "xnviewmp"
 # Mesh VPN client
 cask "zerotier-one"
