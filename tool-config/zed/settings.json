@@ -104,7 +104,8 @@
   "git": {
     "inline_blame": {
       "enabled": true,
-      "delay_ms": 1000
+      "delay_ms": 1000,
+      "location": "status_bar"
     }
   },
 
