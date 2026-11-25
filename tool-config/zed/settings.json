@@ -1,134 +1,140 @@
 {
-  // ====
-  // 编辑器核心行为与搜索
-  // ====
+  // 应用与基础行为
+  "base_keymap": "JetBrains",
   "default_open_behavior": "new_window",
   "cli_default_open_behavior": "new_window",
-  "seed_search_query_from_cursor": "selection",
-  "base_keymap": "JetBrains",
   "restore_on_startup": "empty_tab",
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 30000
-    }
-  },
   "confirm_quit": true,
-  "format_on_save": "off",
-  "remove_trailing_whitespace_on_save": true,
-  "ensure_final_newline_on_save": true,
-  "linked_edits": true,
   "disable_ai": true,
-
-  // ====
-  // 遥测
-  // ====
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
 
-  // ====
-  // Vim 模式与剪贴板隔离
-  // ====
-  "vim_mode": true,
-  "vim": {
-    "use_system_clipboard": "never"
+  // 外观与字体
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark Hard",
   },
-
-  // ====
-  // 字体, 排版与视觉
-  // ====
+  "icon_theme": "Material Icon Theme",
+  "ui_font_size": 16,
   "buffer_font_family": "Maple Mono Normal NF CN",
   "buffer_font_size": 16,
   "buffer_font_features": {
     "calt": false,
-    "zero": true
-  },
-  "ui_font_size": 16,
-  "icon_theme": "Material Icon Theme",
-  "theme": {
-    "mode": "dark",
-    "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark Hard"
+    "zero": true,
   },
 
-  // ====
-  // 行号, 光标与滚动
-  // ====
+  // 编辑器视图与行为
+  "cursor_blink": false,
   "relative_line_numbers": "enabled",
   "gutter": {
-    "line_numbers": true
+    "line_numbers": true,
   },
-  "cursor_blink": false,
   "vertical_scroll_margin": 5,
   "minimap": {
-    "show": "auto"
+    "show": "auto",
   },
   "show_whitespaces": "trailing",
-
-  // ====
-  // 缩进与换行
-  // ====
   "tab_size": 2,
   "preferred_line_length": 160,
   "soft_wrap": "bounded",
-
-  // ====
-  // 标签页行为
-  // ====
   "preview_tabs": {
-    "enabled": false
+    "enabled": false,
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 30000,
+    },
+  },
+  "format_on_save": "off",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "linked_edits": true,
+  "seed_search_query_from_cursor": "selection",
+  "inlay_hints": {
+    "enabled": true,
   },
 
-  // ====
-  // 面板停靠布局
-  // ====
+  // Vim 模式
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "never",
+  },
+  "which_key": {
+    "enabled": true,
+    "delay_ms": 200,
+  },
+
+  // 面板与终端
   "project_panel": {
     "dock": "left",
-    "auto_reveal_entries": true
+    "auto_reveal_entries": true,
   },
   "outline_panel": { "dock": "left" },
-  "collaboration_panel": { "dock": "left" },
   "git_panel": { "dock": "left" },
+  "collaboration_panel": { "dock": "left" },
   "terminal": {
     "font_family": "Maple Mono NF CN",
     "dock": "bottom",
-    "keep_selection_on_copy": true,
     "default_height": 820,
-    "working_directory": "first_project_directory"
+    "working_directory": "first_project_directory",
+    "keep_selection_on_copy": true,
   },
 
-  // ====
   // Git
-  // ====
   "git": {
     "inline_blame": {
       "enabled": true,
       "delay_ms": 1000,
-      "location": "status_bar"
-    }
+      "location": "status_bar",
+    },
   },
 
-  // ====
-  // 内联提示
-  // ====
-  "inlay_hints": {
-    "enabled": true
-  },
-
-  // ====
-  // 文件类型映射与格式化
-  // ====
+  // 语言、格式化与 LSP
   "file_types": {
-    "HTML": ["jsp", "*.jsp"] // 大写 HTML 才能正确加载解析器
+    "HTML": ["jsp", "*.jsp"], // 大写 HTML 才能正确加载解析器
   },
-  "prettier": {
-    "allowed": true
+  "languages": {
+    "CSS": { "formatter": "prettier" },
+    "Go": {
+      "formatter": "language_server",
+      "hard_tabs": true,
+      "tab_size": 4,
+    },
+    "HTML": { "formatter": "prettier" },
+    "JSON": { "formatter": "prettier" },
+    "JavaScript": {
+      "formatter": "prettier",
+      "code_actions_on_format": { "source.fixAll.eslint": true },
+    },
+    "Markdown": { "formatter": "prettier" },
+    "Python": {
+      "formatter": "language_server",
+      "tab_size": 4,
+    },
+    "Rust": { "formatter": "language_server" },
+    "SCSS": { "formatter": "prettier" },
+    "TOML": { "formatter": "language_server" },
+    "TSX": { "formatter": "prettier" },
+    "TypeScript": {
+      "formatter": "prettier",
+      "code_actions_on_format": { "source.fixAll.eslint": true },
+    },
+    "Vue": { "formatter": "language_server" },
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy",
+        },
+      },
+    },
   },
 
-  // ====
-  // 插件
-  // ====
+  // 扩展
   "auto_install_extensions": {
     "dart": true,
     "dockerfile": true,
@@ -136,57 +142,14 @@
     "env": true,
     "git-firefly": true,
     "html": true,
+    "less": true,
     "lua": true,
     "make": true,
     "material-icon-theme": true,
+    "scss": true,
     "sql": true,
     "toml": true,
     "vue": true,
     "xml": true,
-    "scss": true,
-    "less": true
   },
-
-  // ====
-  // 语言特定配置
-  // ====
-  "languages": {
-    // Python: Ruff 毫秒级格式化, 4 空格缩进符合 PEP 8
-    "Python": {
-      "formatter": "language_server",
-      "tab_size": 4
-    },
-    "HTML": { "formatter": "prettier" },
-    "CSS": { "formatter": "prettier" },
-    "SCSS": { "formatter": "prettier" },
-    "JSON": { "formatter": "prettier" },
-    "JavaScript": {
-      "formatter": "prettier",
-      "code_actions_on_format": { "source.fixAll.eslint": true }
-    },
-    "TypeScript": {
-      "formatter": "prettier",
-      "code_actions_on_format": { "source.fixAll.eslint": true }
-    },
-    "TSX": { "formatter": "prettier" },
-    "Markdown": { "formatter": "prettier" },
-    "Vue": { "formatter": "language_server" },
-    "Go": {
-      "formatter": "language_server",
-      "hard_tabs": true,
-      "tab_size": 4
-    },
-    "Rust": { "formatter": "language_server" },
-    "TOML": { "formatter": "language_server" }
-  },
-  "lsp": {
-    "rust-analyzer": {
-      "initialization_options": {
-        "check": {
-          "command": "clippy"
-        }
-      }
-    }
-  }
 }
-

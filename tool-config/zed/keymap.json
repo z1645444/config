@@ -1,81 +1,88 @@
 [
-  // ====
-  // 全局导航与标签/分屏操作 (Normal & Visual 均生效)
-  // ====
+  // 全局与冲突屏蔽
+  {
+    "bindings": {
+      "cmd-p": "file_finder::Toggle",
+      "ctrl-a": null,
+      "ctrl-f": null
+    }
+  },
+
+  // 编辑器通用
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-i": "editor::ShowCompletions"
+    }
+  },
+
+  // Vim 通用导航 (Normal / Visual)
   {
     "context": "VimControl && !menu",
     "bindings": {
-      // 顶栏 Tab 切换
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
-
-      // 标签页组内移动
       "[ shift-b": "pane::SwapItemLeft",
       "] shift-b": "pane::SwapItemRight",
 
-      // 跨分屏穿梭
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-
-      // 将当前 Tab 投送到相邻分屏
       "ctrl-w shift-h": ["workspace::MoveItemToPaneInDirection", { "direction": "left" }],
       "ctrl-w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }]
     }
   },
 
-  // ====
-  // Normal 模式核心命令层 (<leader> 体系)
-  // ====
+  // Vim Normal
   {
     "context": "VimControl && vim_mode == normal && !menu",
     "bindings": {
-      // 窗口与布局
+      // 文件与搜索
+      "space space": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
+      "space f y a": "workspace::CopyPath",
+      "space f y r": "workspace::CopyRelativePath",
+      "space /": "pane::DeploySearch",
+      "space s g": "pane::DeploySearch",
+
+      // 窗口、分屏与面板
       "space |": "pane::SplitRight",
       "space -": "pane::SplitDown",
       "space w m": "workspace::ToggleZoom",
       "space w d": "pane::CloseAllItems",
       "space w o": "workspace::CloseAllDocks",
-
-      // 缓冲区
       "space b d": "pane::CloseActiveItem",
-
-      // 目录树与面板
       "space e": "project_panel::ToggleFocus",
       "space shift-e": "project_panel::ToggleFocus",
-
-      // 检索与项目
-      "space f f": "file_finder::Toggle",
-      "space space": "file_finder::Toggle",
-      "space f p": "projects::OpenRecent",
-      "space /": "pane::DeploySearch",
-      "space s g": "pane::DeploySearch",
       "ctrl-/": "workspace::ToggleBottomDock",
 
-      // 路径复制
-      "space f y a": "workspace::CopyPath",
-      "space f y r": "workspace::CopyRelativePath",
-
-      // 版本控制与 Hunk 跳转
-      "space g d": "git_panel::ToggleFocus",
-      "space g h d": "editor::ToggleSelectedDiffHunks",
-      "] h": "editor::GoToHunk",
-      "[ h": "editor::GoToPreviousHunk",
-
-      // 代码, 重构与文档 (LSP)
-      "space c r": "editor::Rename",
-      "space c f": "editor::Format",
+      // 代码与 LSP
       "space c a": "editor::ToggleCodeActions",
+      "space c f": "editor::Format",
+      "space c r": "editor::Rename",
       "shift-k": "editor::Hover",
 
-      // 诊断导航
+      // 诊断
       "space x x": "diagnostics::Deploy",
       "space x d": "diagnostics::DeployCurrentFile",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPreviousDiagnostic",
 
-      // 折叠层级 (1-7)
+      // Git
+      "space g d": "git_panel::ToggleFocus",
+      "space g shift-d": "git::Diff",
+      "space g h b": "git::Blame",
+      "space g h d": "editor::ToggleSelectedDiffHunks",
+      "space g h p": "editor::ToggleSelectedDiffHunks",
+      "space g h r": "git::Restore",
+      "space g h s": "git::StageAndNext",
+      "space g h u": "git::UnstageAndNext",
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+
+      // 折叠
       "space z 1": ["editor::FoldAtLevel", 1],
       "space z 2": ["editor::FoldAtLevel", 2],
       "space z 3": ["editor::FoldAtLevel", 3],
@@ -84,31 +91,28 @@
       "space z 6": ["editor::FoldAtLevel", 6],
       "space z 7": ["editor::FoldAtLevel", 7],
 
-      // 系统剪贴板与退出 (不污染 Vim 寄存器)
-      "space shift-p": "editor::Paste",
+      // 系统剪贴板 (不覆盖 Vim 寄存器) 与退出
       "space shift-y": ["workspace::SendKeystrokes", "shift-v cmd-c escape"],
+      "space shift-p": "editor::Paste",
       "space q q": "workspace::CloseWindow"
     }
   },
 
-  // ====
-  // Visual 模式
-  // ====
+  // Vim Visual
   {
     "context": "VimControl && vim_mode == visual && !menu",
     "bindings": {
-      // 复制到系统剪贴板并取消选区, 不覆盖 Vim 寄存器
-      "space shift-y": ["workspace::SendKeystrokes", "cmd-c escape"],
-      // 用系统剪贴板内容替换选中区域
-      "space shift-p": "editor::Paste",
+      "shift-s": "vim::PushAddSurrounds",
       "space w o": "workspace::CloseAllDocks",
-      "shift-s": "vim::PushAddSurrounds"
+      "space g h s": "git::StageRange",
+      "space g h r": "git::Restore",
+      // 读写系统剪贴板，不覆盖 Vim 寄存器
+      "space shift-y": ["workspace::SendKeystrokes", "cmd-c escape"],
+      "space shift-p": "editor::Paste"
     }
   },
 
-  // ====
-  // 项目面板上下文菜单（右键菜单）
-  // ====
+  // 项目面板
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
@@ -120,35 +124,7 @@
     }
   },
 
-  // ====
-  // Editor 内手动触发补全
-  // ====
-  {
-    "context": "Editor",
-    "bindings": {
-      "cmd-i": "editor::ShowCompletions"
-    }
-  },
-
-  // ====
-  // 全局（非 Vim 作用域）
-  // ====
-  {
-    "bindings": {
-      "cmd-p": "file_finder::Toggle"
-    }
-  },
-
-  // ====
-  // 按键冲突屏蔽
-  // ====
-  {
-    "bindings": {
-      "ctrl-a": null,
-      "ctrl-f": null,
-      "space f": null
-    }
-  },
+  // 终端 (Shift+Enter 发送换行转义)
   {
     "context": "Terminal",
     "bindings": {
@@ -156,4 +132,3 @@
     }
   }
 ]
-
