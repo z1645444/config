@@ -124,6 +124,15 @@
     }
   },
 
+  // Git 面板跳转原文件
+  {
+    "context": "GitPanel && ChangesList && !GitBranchSelector && !GitRepositorySelector",
+    "bindings": {
+      "cmd-down": "git::ViewFile",
+      "g d": "git::ViewFile"
+    }
+  },
+
   // 终端 (Shift+Enter 发送换行转义)
   {
     "context": "Terminal",
@@ -132,3 +141,4 @@
     }
   }
 ]
+
